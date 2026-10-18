@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Three-Minute Problem</title>
+<meta property="og:title" content="The Three-Minute Problem">
+<meta property="og:description" content="A case for carrying Narcan at Black Rock City and on every dance floor.">
+<meta property="og:url" content="https://kat-titter.github.io/three-minute-problem/">
+<meta property="og:type" content="website">
+<meta name="description" content="A case for carrying Narcan at Black Rock City and on every dance floor: the problem, the biology of opioids and naloxone, the Black Rock City case study, and the plan.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700;800&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: 1280x720 slides scaled to fit and scroll-snapped. Grammar on every slide: section label + tag, one-line headline,
+   one numbered figure, at most one row of chips. Red = opioid / danger / action; pale yellow = the thing to remember. */
+:root{
+  --page:#ebe8e8; --pmute:#5e5759; --plink:#c8102e;
+  --paper:#ffffff; --ink:#1a1517; --body:#3d3739; --mute:#655e60; --rule:#e4dfe0; --well:#f6f3f3;
+  --red:#c8102e; --hi:#fff2a8;
+  --night:#171213; --nink:#fbf8f8; --nbody:#d6cfd0; --nmute:#a8a0a2; --nred:#ff5a6e; --nhi:#fff2a8; --nwell:#241d1e;
+  --display:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;
+  --text:'Public Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'DM Mono',Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#0c0a0a;--pmute:#a8a0a2;--plink:#ff5a6e;color-scheme:dark}}
+:root[data-theme="dark"]{--page:#0c0a0a;--pmute:#a8a0a2;--plink:#ff5a6e;color-scheme:dark}
+html{scroll-snap-type:y mandatory;background:var(--page)}
+html.narrow{scroll-snap-type:y proximity}
+body{margin:0;background:var(--page);font-family:var(--text);color:var(--pmute)}
+section{height:100svh;min-height:calc(720px*var(--s) + 48px);display:flex;align-items:center;justify-content:center;scroll-snap-align:center;position:relative}
+html.narrow section{height:auto;min-height:0;padding-block:8px}
+.box{width:calc(1280px*var(--s));height:calc(720px*var(--s));position:relative;border-radius:calc(14px*var(--s) + 2px);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.08),0 20px 60px rgba(0,0,0,.16)}
+.stage{position:absolute;left:0;top:0;width:1280px;height:720px;transform:scale(var(--s));transform-origin:0 0}
+.num{position:absolute;right:16px;bottom:14px;font:12px var(--mono);letter-spacing:.08em;color:var(--pmute)}
+html.narrow .num{display:none}
+.divider{padding:28px 16px 8px;font:12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--pmute);text-align:center}
+.foot{padding:28px 16px 48px;font-size:13px;color:var(--pmute);text-align:center;line-height:1.7;max-width:920px;margin:0 auto}
+.foot a{color:var(--plink)}
+
+/* ---- slide system ---- */
+.s{position:relative;width:1280px;height:720px;box-sizing:border-box;padding:50px 64px 54px;overflow:hidden;display:flex;flex-direction:column;gap:18px;background:var(--paper);color:var(--body);font-family:var(--text);
+  --hlc:#ffe36e;--hlrc:#c8102e;--hlo:.45;--callout:#c8102e;--calloutmute:#655e60}
+.s.dark{background:var(--night);color:var(--nbody);--hlc:#fff2a8;--hlrc:#ff5a6e;--hlo:.3;--callout:#ff5a6e;--calloutmute:#a8a0a2}
+.top{display:flex;justify-content:space-between;align-items:center;font:500 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.top b{font-weight:500;color:var(--red)}
+.dark .top{color:var(--nmute)} .dark .top b{color:var(--nred)}
+h1,h2{margin:0;font-family:var(--display);color:var(--ink);text-wrap:balance}
+h2{font-size:48px;font-weight:800;letter-spacing:-.034em;line-height:1.04}
+h1 span,h2 span,h2 mark{white-space:nowrap}
+.dark h1,.dark h2{color:var(--nink)}
+.r{color:var(--red)} .dark .r{color:var(--nred)}
+mark{color:inherit;background:linear-gradient(transparent 12%,var(--hi) 12%,var(--hi) 92%,transparent 92%);padding:0 .08em}
+.dark mark{color:var(--night);background:linear-gradient(transparent 12%,var(--nhi) 12%,var(--nhi) 92%,transparent 92%)}
+.lede{margin:0;font-size:20px;line-height:1.42;max-width:900px}
+.fig{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.fig b{font-weight:500;color:var(--ink)}
+.dark .fig{color:var(--nmute)} .dark .fig b{color:var(--nink)}
+.note{margin:0;font-size:15px;line-height:1.45;color:var(--body)}
+.dark .note{color:var(--nbody)}
+.src{position:absolute;right:64px;bottom:20px;font:11.5px var(--mono);color:var(--mute);max-width:880px;text-align:right}
+.dark .src{color:var(--nmute)}
+.dots{position:absolute;left:64px;bottom:25px;display:flex;gap:5px}
+.dots i{display:block;width:8px;height:4px;border-radius:2px;background:#ddd6d7}
+.dots i.on{width:20px;background:var(--red)}
+.dark .dots i{background:rgba(251,248,248,.22)} .dark .dots i.on{background:var(--nred)}
+.panel{background:var(--well);border-radius:14px;min-width:0;box-sizing:border-box}
+.dark .panel{background:var(--nwell)}
+.big{font-family:var(--display);font-weight:800;letter-spacing:-.04em;line-height:.95;color:var(--ink)}
+.dark .big{color:var(--nink)}
+svg text{font-family:var(--mono)}
+svg.mol{display:block;max-width:100%;height:auto;color:var(--ink)}
+.dark svg.mol{color:var(--nink)}
+.molcard{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.nm{font:700 19px var(--display);color:var(--ink);letter-spacing:-.01em}
+.ds{font:12.5px var(--mono);color:var(--mute);text-align:center}
+.dark .nm{color:var(--nink)} .dark .ds{color:var(--nmute)}
+.chips{display:grid;gap:14px}
+.chip{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:var(--well);min-width:0}
+.chip svg{flex-shrink:0}
+.chip b{font:700 17px/1.2 var(--display);color:var(--ink);display:block}
+.chip span{font-size:14px;line-height:1.35;color:var(--body)}
+.chip .n{font:800 28px var(--display);color:var(--red);letter-spacing:-.03em;flex-shrink:0}
+.chip.hi{background:var(--hi)}
+.heat{border-collapse:separate;border-spacing:5px;width:100%;font-variant-numeric:tabular-nums}
+.heat th{font:500 12.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:center;padding:4px 6px;font-weight:500}
+.heat th.row{text-align:left;font:600 17px var(--text);letter-spacing:0;text-transform:none;color:var(--ink);padding-left:0}
+.heat th.nn{font:500 15px var(--mono);color:var(--ink);text-transform:none;letter-spacing:0}
+.heat td{height:64px;border-radius:10px;text-align:center;font:500 19px var(--mono)}
+.heat th.p25{color:var(--ink);background:var(--hi);border-radius:6px}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;position:relative;margin:14px 0 auto}
+.steps::before{content:"";position:absolute;left:40px;right:40px;top:104px;height:3px;background:#e4dfe0;border-radius:2px}
+.pict{display:flex;flex-direction:column;gap:10px;align-items:flex-start;min-width:0;position:relative}
+.pict .when{font:500 13px var(--mono);letter-spacing:.06em;color:var(--mute)}
+.pict .when.hot{color:var(--red)}
+.pict .t{font:700 21px/1.15 var(--display);color:var(--ink)}
+.pict .d{font-size:15.5px;line-height:1.42;color:var(--body)}
+.badge{display:inline-flex;align-items:center;gap:6px;font:500 12.5px var(--mono);padding:4px 9px;border-radius:999px}
+.badge.no{background:#4a1820;color:#ffd2d8}
+.badge.ok{background:#3b3622;color:#fff2a8}
+@media (prefers-reduced-motion:no-preference){.grow{transform-origin:left center;transform-box:fill-box;animation:grow .8s cubic-bezier(.2,.8,.2,1) both}.growy{transform-origin:center bottom;transform-box:fill-box;animation:growy .8s cubic-bezier(.2,.8,.2,1) both}}
+@keyframes grow{from{transform:scaleX(0)}}
+@keyframes growy{from{transform:scaleY(0)}}
+
+.sec{display:inline-flex;align-items:center;gap:9px}
+.si{width:18px;height:18px;flex-shrink:0;overflow:visible}
+.defs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.defs div{background:#fff;border-radius:10px;padding:8px 12px;font-size:13.5px;line-height:1.35;color:var(--body)}
+.defs b{display:flex;align-items:center;gap:7px;margin-bottom:2px;font:700 15px var(--display);color:var(--ink)}
+.defs b svg{flex:none;color:var(--ink)}
+svg.lock{display:block;max-width:100%;height:auto}
+.pockets .molcard{flex:1 1 0;min-width:0}
+.pockets svg.lock{width:100%;max-height:330px}
+.verdict{display:flex;align-items:center;gap:8px;font:700 17px var(--display)}
+.verdict.ok{color:var(--red)} .verdict.no{color:var(--mute)}
+.legend{display:flex;align-items:center;gap:10px;font:600 13px var(--mono);color:var(--red)}
+.legend i{display:block;width:24px;height:6px;border-radius:3px;background:var(--red)}
+.plan{padding:20px 22px;display:flex;flex-direction:column;gap:10px;justify-content:flex-start}
+.plan .big{font-size:56px}
+.plan .cap{font:700 19px/1.22 var(--display);color:var(--ink)}
+.plan .why{font-size:14.5px;line-height:1.4;color:var(--body)}
+.steps{margin:auto 0 !important}
+.livein{margin-top:auto;padding-bottom:4px;font:500 13px var(--mono);color:var(--mute)}
+.livein a{color:var(--red);text-underline-offset:3px}
+/* PDF: Chrome "Save as PDF" or --print-to-pdf gives one slide per page, then the sources */
+@page{size:1280px 720px;margin:0}
+@media print{
+  :root{--s:1 !important}
+  html,body{background:#fff !important}
+  html{scroll-snap-type:none}
+  section{height:720px !important;min-height:0 !important;display:block !important;padding:0 !important;break-after:page}
+  .box{width:1280px !important;height:720px !important;border-radius:0 !important;box-shadow:none !important}
+  .stage{transform:none !important}
+  .divider,.num{display:none !important}
+  .foot{max-width:none;padding:72px 96px;font-size:16px;color:#3d3739;text-align:left}
+  .foot a{color:#c8102e}
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  .grow,.growy{animation:none !important}
+}
+</style>
+
+<!-- shared symbols: the Narcan device (80 x 110), a person lying down, section icons, arrowheads -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="narcan" viewBox="0 0 80 110">
+    <rect x="28" y="3" width="24" height="52" rx="12" fill="#fff" stroke="#1a1517" stroke-width="3"/>
+    <rect x="34.5" y="11" width="5" height="26" rx="2.5" fill="#ffe36e"/>
+    <rect x="3" y="45" width="74" height="17" rx="8.5" fill="#c8102e"/>
+    <rect x="16" y="57" width="48" height="50" rx="18" fill="#c8102e"/>
+    <rect x="24" y="66" width="8" height="27" rx="4" fill="#fff" fill-opacity=".5"/>
+    <circle cx="52" cy="96" r="4" fill="#fff" fill-opacity=".42"/>
+  </symbol>
+  <symbol id="figure" viewBox="0 0 80 30">
+    <circle cx="12" cy="15" r="10" fill="currentColor"/>
+    <rect x="25" y="7" width="53" height="16" rx="8" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 13h5l2.2-6 4 12 3-9 2 3H22" fill="none" stroke="#c8102e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cell" viewBox="0 0 24 24"><rect x="1" y="9" width="22" height="7" rx="2" fill="#e4dfe0"/><rect x="4" y="4.5" width="3.8" height="16" rx="1.9" fill="#c8102e"/><rect x="10.1" y="4.5" width="3.8" height="16" rx="1.9" fill="#b9aeb1"/><rect x="16.2" y="4.5" width="3.8" height="16" rx="1.9" fill="#b9aeb1"/></symbol>
+  <symbol id="i-hex" viewBox="0 0 24 24"><path d="M12 2.5l8.2 4.75v9.5L12 21.5l-8.2-4.75v-9.5z" fill="none" stroke="#c8102e" stroke-width="2.2" stroke-linejoin="round"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="#c8102e" stroke-width="1.8"/></symbol>
+  <symbol id="i-man" viewBox="0 0 24 24"><g fill="none" stroke="#c8102e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.2" r="2.2"/><path d="M12 6.6v8M12 9.2 6 4.4M12 9.2l6-4.8M12 14.6l-4.4 6.2M12 14.6l4.4 6.2M5 22.6h14"/></g></symbol>
+  <marker id="arR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#c8102e"/></marker>
+  <marker id="arK" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1a1517"/></marker>
+  <marker id="arP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#ff5a6e"/></marker>
+</defs></svg>
+
+<main id="deck">
+
+<!-- 01 · title -->
+<section><div class="box"><div class="stage"><div class="s" style="padding:70px 80px 60px;justify-content:space-between">
+  <div class="top"><span style="color:var(--ink)">Black Rock City · festivals · warehouses</span><b>Community harm reduction</b></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:26px;max-width:720px">
+      <h1 style="font-size:88px;font-weight:800;letter-spacing:-.045em;line-height:.94">Breathing stops.<br>You have <span class="r">three minutes.</span></h1>
+      <p class="lede" style="font-size:24px;color:var(--ink)">A case for carrying <mark>Narcan</mark> (naloxone) at Black Rock City and on every dance floor, and how a pocket-sized spray restarts breathing.</p>
+    </div>
+    <svg id="dial" width="340" height="340" viewBox="0 0 340 340" role="img" aria-label="A Narcan nasal spray inside a ten-minute dial; the first three minutes are marked red.">
+      <circle cx="170" cy="170" r="138" fill="none" stroke="#f3eeef" stroke-width="24" data-bg="1"/>
+      <circle cx="170" cy="170" r="138" fill="none" stroke="#c8102e" stroke-width="24" stroke-dasharray="260.1 867.1" transform="rotate(-90 170 170)" data-bg="1"/>
+      <g id="dialticks" data-bg="1"></g>
+      <use href="#narcan" x="126" y="88" width="88" height="121"/>
+      <text x="170" y="251" text-anchor="middle" font-size="36" font-weight="500" fill="#1a1517">3:00</text>
+    </svg>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="display:flex;flex-direction:column;gap:12px"><div style="height:4px;width:96px;border-radius:2px;background:linear-gradient(90deg,var(--red) 0 60%,#ffe36e 60%)"></div><span style="font:14px var(--mono);color:var(--mute)">Kat Titterton · San Francisco · updated Oct 2026</span></div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+      <a href="https://kat-titter.github.io/overdose-watch/" style="font:500 14px var(--mono);color:var(--red);text-underline-offset:3px">Live tracker: kat-titter.github.io/overdose-watch</a>
+    </div>
+  </div>
+</div></div></div></section>
+
+<div class="divider">The problem</div>
+
+<!-- 02 · now -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-pulse"/></svg>The problem · where we are, Oct 2026</span></div>
+  <h2>Deaths are falling. <mark>Still about 190 a day.</mark></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
+      <span class="fig"><b>Fig 1</b> · United States, overdose deaths per year</span>
+      <svg id="usbars" viewBox="0 0 520 280" style="width:100%;height:auto" role="img" aria-label="US overdose deaths per year, CDC provisional counts as of October 2026: 107,966 in 2023, 81,313 in 2024 and 70,735 in 2025."></svg>
+    </div>
+    <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
+      <span class="fig"><b>Fig 2</b> · San Francisco, overdose deaths January to August</span>
+      <svg id="sfbars" viewBox="0 0 520 280" style="width:100%;height:auto" role="img" aria-label="San Francisco overdose deaths January through August: 466 in 2024, 461 in 2025, 351 in 2026."></svg>
+      <div class="livein">Updated weekly: <a href="https://kat-titter.github.io/overdose-watch/">kat-titter.github.io/overdose-watch</a></div>
+    </div>
+  </div>
+  <div class="chips" style="grid-template-columns:1.25fr 1fr 1fr 1fr">
+    <div class="chip hi"><svg aria-hidden="true" width="26" height="36" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg><span><b>Narcan everywhere</b>over the counter since 2023</span></div>
+    <div class="chip"><span><b>More treatment</b>methadone rules eased in 2024</span></div>
+    <div class="chip"><span><b>Settlement money</b>billions into programs</span></div>
+    <div class="chip"><span><b>A changed supply</b>less fentanyl, more adulterants</span></div>
+  </div>
+  <div class="src">CDC NCHS provisional counts as of Oct 2026 (12 months ending December); SF Medical Examiner monthly counts (DataSF). Why: AP and STAT, May 2026 (shares still debated).</div>
+</div></div></div></section>
+
+<!-- 03 · the clock -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-pulse"/></svg>The reversal window</span></div>
+  <h2>Spray by <mark>3:00</mark>, or the brain starts paying.</h2>
+  <div class="panel" style="padding:16px 24px 8px;display:flex;flex-direction:column;gap:4px;flex-grow:1;min-height:0">
+    <span class="fig"><b>Fig 3</b> · Oxygen in the blood after breathing stops (illustrative)</span>
+    <div style="flex-grow:1;display:flex;align-items:center"><svg id="clock" viewBox="0 0 1100 312" style="display:block;width:100%;height:auto" role="img" aria-label="Illustrative blood oxygen after breathing stops. With no help, oxygen falls from about 94 percent to under 50 percent by four minutes, into the brain-injury zone. With Narcan at three minutes, breathing restarts around five and a half minutes and oxygen recovers. With someone breathing for them from the first minute as well, oxygen stays above 80 percent the whole time."></svg></div>
+  </div>
+  <div class="chips" style="grid-template-columns:repeat(3,1fr)">
+    <div class="chip"><span class="n">4–6</span><span><b>minutes</b>until brain injury begins</span></div>
+    <div class="chip"><span class="n">2–3</span><span><b>minutes</b>for Narcan to work</span></div>
+    <div class="chip hi"><span class="n" style="color:var(--ink)">≈ 3</span><span><b>minutes</b>from the last breath to the spray</span></div>
+  </div>
+</div></div></div></section>
+
+<!-- 04 · stakes -->
+<section><div class="box"><div class="stage"><div class="s dark">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-pulse"/></svg>What the clock protects</span></div>
+  <h2>Survival <mark>is not recovery.</mark></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:22px 26px;display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <span class="fig"><b>Fig 4</b> · Of 100 overdose patients with brain injury</span>
+      <div style="display:flex;gap:26px;align-items:flex-start;padding-top:8px">
+        <svg class="waffle" data-n="86" viewBox="0 0 220 220" style="width:300px;height:300px;flex-shrink:0" role="img" aria-label="86 of 100 dots filled."></svg>
+        <div style="display:flex;flex-direction:column;gap:8px"><span class="big" style="font-size:76px;color:var(--nred)">86</span><span style="font:700 20px/1.2 var(--display);color:var(--nink)">classed in hospital as major or extreme loss of function</span><span class="note">47 of 100 go on to skilled nursing.</span></div>
+      </div>
+    </div>
+    <div class="panel" style="padding:22px 26px;display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <span class="fig"><b>Fig 5</b> · Of 100 overdose patients without brain injury</span>
+      <div style="display:flex;gap:26px;align-items:flex-start;padding-top:8px">
+        <svg class="waffle" data-n="34" viewBox="0 0 220 220" style="width:300px;height:300px;flex-shrink:0" role="img" aria-label="34 of 100 dots filled."></svg>
+        <div style="display:flex;flex-direction:column;gap:8px"><span class="big" style="font-size:76px">34</span><span style="font:700 20px/1.2 var(--display);color:var(--nink)">classed in hospital as major or extreme loss of function</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="src">National Inpatient Sample 2016–21, J Gen Intern Med: 86.3% vs 34% major or extreme loss of function (APR-DRG severity); 46.8% discharged to skilled nursing.</div>
+</div></div></div></section>
+
+<div class="divider">The biology</div>
+
+<!-- 05 · the opioid system -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>The biology · the opioid system</span></div>
+  <h2>Your body makes its own opioids. <mark>Drugs flip the same switch.</mark></h2>
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:22px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:16px 22px 12px;display:flex;flex-direction:column;gap:8px">
+      <span class="fig"><b>Fig 6</b> · Keys and locks: your opioid peptides and their receptors</span>
+      <div class="defs">
+        <div><b><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M11.5 12H21.5M17.5 12v3.5M20.5 12v3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Peptide, the <mark>key</mark></b>a short chain of amino acids your body releases as a signal</div>
+        <div><b><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 10.5V8a4.5 4.5 0 0 1 9 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/></svg>Receptor, the <mark>lock</mark></b>a protein on a nerve cell; the right key flips its switch</div>
+      </div>
+      <svg id="peptides" viewBox="0 0 600 276" style="width:100%;height:auto" role="img" aria-label="Three peptide families and their receptors. Beta-endorphin and enkephalins act on mu, which relieves pain, rewards and slows breathing; opioid drugs such as fentanyl, heroin and oxycodone hit mu too. Enkephalins act on delta for pain gating and mood. Dynorphins act on kappa for stress and dysphoria."></svg>
+      <div class="legend"><i></i>red = mu, the switch opioid drugs flip</div>
+    </div>
+    <div class="panel" style="padding:16px 22px 12px;display:flex;flex-direction:column;gap:6px">
+      <span class="fig"><b>Fig 7</b> · Breathing, measured at the nose (schematic)</span>
+      <svg id="breath" viewBox="0 0 520 330" style="width:100%;height:auto" role="img" aria-label="Schematic airflow traces over 60 seconds, with the opioid dose rising from top to bottom: normal, about 14 breaths a minute; with an opioid on mu, about 6 shallow breaths; in overdose, one breath and then none."></svg>
+      <p class="note">The brainstem cells that set this rhythm are <b class="r">covered in mu receptors.</b></p>
+    </div>
+  </div>
+</div></div></div></section>
+
+<!-- 06 · the key -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-hex"/></svg>The chemistry · the key</span></div>
+  <h2>Two contacts. <mark>Every opioid makes the first.</mark></h2>
+  <div class="panel" style="padding:18px 24px 16px;display:flex;flex-direction:column;gap:6px;flex-grow:1;min-height:0">
+    <span class="fig"><b>Fig 8</b> · Drawn to the same scale · yellow = the two contacts</span>
+    <div style="flex-grow:1;display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
+      <div class="molcard">{{mol:leuenk}}<span class="nm">Leu-enkephalin</span><span class="ds">made by your body · Tyr-Gly-Gly-Phe-Leu</span></div>
+      <div class="molcard">{{mol:morphine}}<span class="nm">Morphine</span><span class="ds">poppy · a rigid copy of the tyrosine end</span></div>
+      <div class="molcard">{{mol:fentanyl}}<span class="nm">Fentanyl</span><span class="ds">synthetic · ~50–100× morphine</span></div>
+    </div>
+  </div>
+  <div class="chips" style="grid-template-columns:1fr 1fr">
+    <div class="chip"><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#ffe36e" fill-opacity=".55"/><text x="22" y="27" font-size="14" text-anchor="middle" fill="#1a1517" font-weight="500">N⁺</text></svg><span><b>Charged nitrogen → Asp147</b>a plus-to-minus grip (salt bridge) on helix 3. Every opioid makes it.</span></div>
+    <div class="chip"><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#ffe36e" fill-opacity=".55"/><text x="22" y="27" font-size="14" text-anchor="middle" fill="#1a1517" font-weight="500">OH</text></svg><span><b>Phenol → His297</b>a water-bridged H-bond to helix 6. Fentanyl skips it and still fits.</span></div>
+  </div>
+</div></div></div></section>
+
+<!-- 07 · the lock -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>The lock</span></div>
+  <h2>The key fits a pocket <mark>inside seven helices.</mark></h2>
+  <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:22px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:14px 20px 8px;display:flex;flex-direction:column;gap:4px">
+      <span class="fig"><b>Fig 9</b> · The mu receptor from above, with morphine in its pocket</span>
+      <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;min-height:0">{{mol:lock_mu_big}}</div>
+    </div>
+    <div class="chips" style="align-content:center">
+      <div class="chip"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#ffe36e" fill-opacity=".55"/><text x="20" y="25" font-size="13" text-anchor="middle" fill="#1a1517" font-weight="500">N⁺</text></svg><span><b>The key</b>N⁺ to Asp147 on helix 3, OH to His297 on helix 6: the two contacts from Fig 8.</span></div>
+      <div class="chip"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 40 40"><path d="M8 32 C14 16 24 12 32 10" stroke="#c8102e" stroke-width="3" fill="none" marker-end="url(#arR)"/></svg><span><b>The turn</b>the fit lets helix 6 swing outward. That flips the switch inside the cell.</span></div>
+      <div class="chip" style="gap:18px"><svg aria-hidden="true" width="40" height="20" viewBox="0 0 40 20"><path d="M2 6 H38" stroke="#c8102e" stroke-width="2.4" stroke-dasharray="5 4"/><path d="M2 15 H38" stroke="#9a7b00" stroke-width="2.2" stroke-dasharray="2 4" stroke-linecap="round"/></svg><span><b style="color:var(--red)">salt bridge</b>plus to minus charge <b style="color:#7a6200;margin-top:4px">hydrogen bond</b>shared hydrogen</span></div>
+    </div>
+  </div>
+  <div class="src">Receptor structures: Manglik et al. 2012 (inactive) and Huang et al. 2015 (active), Nature. Helix positions schematic.</div>
+</div></div></div></section>
+
+<!-- 08 · turning the key -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>Turning the key</span><b>The mu receptor, side view</b></div>
+  <h2>Turn the key, and <span class="r">the neuron goes quiet.</span></h2>
+  <div class="panel" style="padding:18px 24px 12px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:6px">
+    <span class="fig"><b>Fig 10</b> · The mu receptor in the membrane, two states</span>
+    <div style="flex-grow:1;display:flex;align-items:center"><svg id="lock" viewBox="0 0 1150 452" style="width:100%;height:auto" role="img" aria-label="Two mu-opioid receptors in a cell membrane. Left, at rest: the pocket is empty, helix 6 stays put, no Gi docks, the GIRK potassium gate stays shut and the neuron keeps firing. Right, fentanyl bound: helix 6 swings about 10 angstroms outward, Gi docks, its beta-gamma arm opens GIRK, potassium leaves and the neuron goes quiet."></svg></div>
+  </div>
+  <div class="src">Manglik et al. 2012 (inactive) and Huang et al. 2015 (active), Nature: helix 6 moves ~10 Å. Schematic.</div>
+</div></div></div></section>
+
+<!-- 09 · how Narcan works -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-hex"/></svg>How Narcan works</span></div>
+  <h2>Narcan fits the lock <span class="r">but won't turn it.</span></h2>
+  <div style="display:grid;grid-template-columns:1.18fr 1fr;gap:22px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:14px 18px 8px;display:flex;flex-direction:column;gap:4px">
+      <span class="fig"><b>Fig 11</b> · The pocket from the side · red = the one group that differs</span>
+      <div class="pockets" style="flex-grow:1;display:flex;justify-content:space-around;align-items:center;gap:8px;min-height:0">
+        <div class="molcard">{{mol:pocket_oxymorphone}}<span class="nm">Oxymorphone</span><span class="ds">Narcan's parent opioid: turns the switch</span></div>
+        <div class="molcard">{{mol:pocket_naloxone}}<span class="nm" style="color:var(--red)">Naloxone (Narcan)</span><span class="ds">same grip, no turn</span></div>
+      </div>
+    </div>
+    <div class="panel" style="padding:14px 20px 8px;display:flex;flex-direction:column;gap:4px">
+      <span class="fig"><b>Fig 12</b> · Why strong opioids need more doses</span>
+      <svg id="comp" viewBox="0 0 520 330" style="width:100%;height:auto" role="img" aria-label="Illustrative competitive-binding model: share of mu receptors held by the opioid against number of Narcan doses. A heroin-level load falls into the breathing zone after one dose; a fentanyl or nitazene-level load needs two."></svg>
+    </div>
+  </div>
+  <div class="chips" style="grid-template-columns:repeat(3,1fr)">
+    <div class="chip"><svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="#c8102e" stroke-width="3"/><path d="M18 9 L18 18 L25 22" stroke="#1a1517" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg><span><b>Works in 2–3 min</b>no change? dose again</span></div>
+    <div class="chip"><svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36"><path d="M4 8 C10 8 12 30 32 30" stroke="#c8102e" stroke-width="3" fill="none"/><path d="M4 32 L32 32" stroke="#1a1517" stroke-width="2"/></svg><span><b>Fades in 30–90 min</b>many opioids outlast it</span></div>
+    <div class="chip hi"><svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="#fff"/><path d="M11 18 L16 23 L26 12" stroke="#1a1517" stroke-width="3" fill="none" stroke-linecap="round"/></svg><span><b>Harmless without opioids</b>not sure? give it</span></div>
+  </div>
+</div></div></div></section>
+
+<div class="divider">The new supply</div>
+
+<!-- 10 · the pill -->
+<section><div class="box"><div class="stage"><div class="s dark">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-hex"/></svg>The new supply · San Francisco, April 2026</span></div>
+  <h2>Fake pills. <span class="r">Three drugs.</span> A 16-year-old.</h2>
+  <div style="display:grid;grid-template-columns:280px 1fr 1fr 1fr;gap:16px;flex-grow:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:18px;justify-content:center;padding-right:8px">
+      <svg id="pill" viewBox="0 0 280 150" style="width:100%;height:auto" role="img" aria-label="A counterfeit capsule split into three parts: two opioids and one benzodiazepine, the three drugs found together in his toxicology."></svg>
+      <div style="display:flex;gap:14px;align-items:center"><svg aria-hidden="true" width="44" height="61" viewBox="0 0 80 110" style="flex-shrink:0"><use href="#narcan" width="80" height="110"/></svg><span class="note">He likely took counterfeit pills. His mother found him and gave Narcan <b style="color:var(--nink)">twice.</b> He died. Narcan reverses the opioids, not the benzo, and only in time.</span></div>
+    </div>
+    <div class="panel molcard" style="padding:16px 14px;justify-content:space-between;border-top:4px solid #ff5a6e">
+      <span class="fig" style="color:var(--nred)">opioid · orphine</span>
+      <span class="nm">Cychlorphine</span>
+      <div style="flex-grow:1;display:flex;align-items:center">{{mol:pill_cychlorphine}}</div>
+      <span class="ds">new · about 10× fentanyl</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center"><span class="badge no">test strip ✕ misses</span><span class="badge ok">Narcan ✓</span></div>
+    </div>
+    <div class="panel molcard" style="padding:16px 14px;justify-content:space-between;border-top:4px solid #c8102e">
+      <span class="fig" style="color:var(--nred)">opioid · nitazene</span>
+      <span class="nm">N-desethyl isotonitazene</span>
+      <div style="flex-grow:1;display:flex;align-items:center">{{mol:pill_nitazene}}</div>
+      <span class="ds">not a fentanyl analog</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center"><span class="badge no">test strip ✕ misses</span><span class="badge ok">Narcan ✓</span></div>
+    </div>
+    <div class="panel molcard" style="padding:16px 14px;justify-content:space-between;border-top:4px solid #fff2a8">
+      <span class="fig" style="color:var(--nhi)">benzodiazepine</span>
+      <span class="nm">Ethylbromazolam</span>
+      <div style="flex-grow:1;display:flex;align-items:center">{{mol:pill_ethylbromazolam}}</div>
+      <span class="ds">designer sedative, unapproved</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center"><span class="badge no">test strip ✕ misses</span><span class="badge no">Narcan ✕</span></div>
+    </div>
+  </div>
+  <div class="src">SF DPH health alert, Apr 23 2026; SFPD, Sep 14 2026; ABC7, Sep 2026 (Narcan). Structures: PubChem.</div>
+</div></div></div></section>
+
+<!-- 11 · three locks -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>Why benzos and tranq change the plan</span></div>
+  <h2>Narcan fits <span class="r">one lock.</span> The supply hits three.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:inset 0 0 0 2px var(--red)">
+      <span class="fig" style="color:var(--red)">mu-opioid receptor · 7 helices</span>
+      <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;min-height:0">{{mol:lock_mu}}</div>
+      <span style="font:700 17px var(--display);color:var(--ink)">Fentanyl, nitazenes, cychlorphine</span>
+      <span class="note" style="font-size:14px">Stops the breathing rhythm.</span>
+      <span class="verdict ok"><svg aria-hidden="true" width="18" height="25" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>right lock: Narcan reverses</span>
+    </div>
+    <div class="panel" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+      <span class="fig">GABA-A receptor · 5 subunits, a Cl⁻ pore</span>
+      <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;min-height:0">{{mol:lock_gaba}}</div>
+      <span style="font:700 17px var(--display);color:var(--ink)">Xanax, bromazolam, ethylbromazolam</span>
+      <span class="note" style="font-size:14px">A second brake: opens the chloride pore more often.</span>
+      <span class="verdict no"><svg aria-hidden="true" width="18" height="25" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>wrong lock: Narcan does nothing</span>
+    </div>
+    <div class="panel" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+      <span class="fig">α2-adrenergic receptor · 7 helices</span>
+      <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;min-height:0">{{mol:lock_a2}}</div>
+      <span style="font:700 17px var(--display);color:var(--ink)">Medetomidine, xylazine (tranq)</span>
+      <span class="note" style="font-size:14px">A smaller pocket; same brake inside the cell as mu.</span>
+      <span class="verdict no"><svg aria-hidden="true" width="18" height="25" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>wrong lock: Narcan does nothing</span>
+    </div>
+  </div>
+  <div class="src">Top-down views, schematic. Contacts: mu Asp147; GABA-A α1 His101; α2A Asp113.</div>
+</div></div></div></section>
+
+<!-- 12 · one neuron, three brakes -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>Where the three meet</span></div>
+  <h2>After Narcan, <mark>the benzo brake remains.</mark></h2>
+  <div class="panel" style="padding:18px 24px 12px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:6px">
+    <span class="fig"><b>Fig 13</b> · A breathing neuron's membrane, and its voltage (schematic)</span>
+    <div style="flex-grow:1;display:flex;align-items:center"><svg id="neuron" viewBox="0 0 1150 440" style="width:100%;height:auto" role="img" aria-label="A neuron membrane. Mu and alpha-2 receptors both signal through Gi to open a GIRK potassium channel; a GABA-A receptor boosted by a benzo lets chloride in. Both make the inside more negative. Below, schematic voltage traces: normal bursting; silent with an opioid plus a benzo; after Narcan, slower weaker bursts because the benzo brake remains."></svg></div>
+  </div>
+</div></div></div></section>
+
+<!-- 13 · test strips -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-hex"/></svg>Upstream of the window</span><b>Test, then carry anyway</b></div>
+  <h2>Test strips shrink the risk. <span class="r">Never to zero.</span></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:20px 24px;display:flex;flex-direction:column;gap:10px">
+      <span class="fig"><b>Fig 14</b> · Fentanyl found in powders, 2021–23 (wide ranges)</span>
+      <svg id="powders" viewBox="0 0 520 262" style="width:100%;height:auto" role="img" aria-label="Share of samples containing fentanyl. Powder cocaine: under 4 percent in police seizures, 14.8 percent in community drug checking. Powder meth: about 1 percent in seizures, 12.5 percent in community checking."></svg>
+      <p class="note">Seizures sample bulk before it's cut. Drug checking samples what people actually hold.</p>
+    </div>
+    <div class="panel" style="padding:20px 24px;display:flex;flex-direction:column;gap:10px">
+      <span class="fig"><b>Fig 15</b> · What a fentanyl strip can see</span>
+      <svg id="strips" viewBox="0 0 520 262" style="width:100%;height:auto" role="img" aria-label="A fentanyl test strip detects fentanyl and its close analogs. It misses cychlorphine, nitazenes, benzodiazepines, medetomidine and xylazine."></svg>
+      <p class="note">Counterfeit pills carry the highest risk.</p>
+    </div>
+  </div>
+  <div class="chips" style="grid-template-columns:repeat(4,1fr)">
+    <div class="chip"><span class="n">1</span><span><b>Crush and mix it all</b>clumps like chips in a cookie</span></div>
+    <div class="chip"><span class="n">2</span><span><b>Test 50 mg or more</b>the largest portion you can spare</span></div>
+    <div class="chip"><span class="n">3</span><span><b>Dilute in a teaspoon</b>of water, about 10 mg per mL; too strong or too weak both mislead</span></div>
+    <div class="chip"><span class="n">4</span><span><b>Read at 5 min</b>one line positive, two negative</span></div>
+  </div>
+  <div class="src">NFLIS 11.9M seized samples; Drug Alcohol Depend 2023 GC-MS study; SF DPH, Apr 2026; WHPM strip specs.</div>
+</div></div></div></section>
+
+<div class="divider">Case study · Black Rock City</div>
+
+<!-- 14 · BRC -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>Case study · Burning Man</span></div>
+  <h2>A city of 71,500 people, <mark>three stations.</mark></h2>
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:24px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
+      <span class="fig"><b>Fig 16</b> · Black Rock City, schematic (not to scale)</span>
+      <div style="flex-grow:1;display:flex;align-items:center"><svg id="brc" viewBox="0 0 640 420" style="width:100%;height:auto" role="img" aria-label="Schematic of Black Rock City's arc of streets from 2:00 to 10:00 around the Man, with emergency services stations at 3:00, 9:00 and Center Camp, and Rampart, the field hospital, near Center Camp. Deep playa lies beyond the Man, far from any station."></svg></div>
+    </div>
+    <div class="chips" style="align-content:center">
+      <div class="chip"><span class="n" style="min-width:104px">3</span><span>medical stations (ESD at 3:00, 9:00 and Center Camp), plus Rampart, the field hospital, and roving QRVs</span></div>
+      <div class="chip"><span class="n" style="min-width:104px">0</span><span>stations on deep playa, where small groups wander at night</span></div>
+    </div>
+  </div>
+  <div class="src">Population: Black Rock City Census 2025. Station locations from the Sept 2026 field note.</div>
+</div></div></div></section>
+
+<!-- 15 · reach -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>Time is distance</span><b>Who can reach them</b></div>
+  <h2>The three-minute bubble is <mark>tiny.</mark></h2>
+  <div class="panel" style="padding:18px 24px 10px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:6px">
+    <span class="fig"><b>Fig 17</b> · Drawn to scale · radius = minutes until Narcan is in their nose</span>
+    <div style="flex-grow:1;display:flex;align-items:center"><svg id="reach" viewBox="0 0 1150 420" style="width:100%;height:auto" role="img" aria-label="A person down at the centre. Rings drawn to scale, radius equals minutes until Narcan arrives. The yellow three-minute bubble holds only a friend beside them and a kit in the same camp. ESD or a QRV by radio arrives in 5 to 10 minutes and Rampart transport takes 10 to 20 or more, far outside the bubble. On a long ride a strong opioid can outlast the first dose, so bring a second kit."></svg></div>
+  </div>
+</div></div></div></section>
+
+<!-- 16 · the math -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>The coverage model</span><b>How many pockets</b></div>
+  <h2>If <mark>one in four</mark> carry, every crowd is covered.</h2>
+  <div style="display:grid;grid-template-columns:380px 1fr;gap:24px;flex-grow:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="panel" style="padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+        <div style="font:500 32px var(--mono);color:var(--ink)">P = 1 − (1 − <span class="r">p</span>)<sup style="font-size:19px">N</sup></div>
+        <div class="note" style="display:grid;grid-template-columns:auto 1fr;gap:4px 12px">
+          <b class="r">p</b><span>share of people carrying</span>
+          <b>N</b><span>people within a 60-second shout</span>
+          <b>P</b><span>chance a kit is in the group</span>
+        </div>
+      </div>
+      <div class="panel" style="padding:16px 22px;display:flex;flex-direction:column;gap:10px;flex-grow:1">
+        <span class="fig"><b>Fig 18</b> · 16 people, one in four carrying</span>
+        <svg id="crowd16" viewBox="0 0 336 226" style="width:100%;height:auto" role="img" aria-label="Sixteen people, four of them carrying Narcan."></svg>
+        <p class="note">At 71,500 Burners, one in four is <b class="r">17,900 pockets</b>.</p>
+      </div>
+    </div>
+    <div class="panel" style="padding:18px 22px 8px;display:flex;flex-direction:column;gap:6px">
+      <span class="fig"><b>Fig 19</b> · Share who must carry for 99% coverage</span>
+      <svg id="curve" viewBox="0 0 700 420" style="display:block;width:100%;height:auto" role="img" aria-label="Carriage rate needed for 99 percent coverage, against group size on a log scale from 1 to 100. It falls from 90 percent at 2 people to 37 percent at 10 and 4.5 percent at 100. A dashed line at 25 percent crosses the curve at 16 people."></svg>
+    </div>
+  </div>
+</div></div></div></section>
+
+<!-- 17 · heat map -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>The same math, scene by scene</span><b>Where the gaps are</b></div>
+  <h2>The danger is <mark>small groups, late at night.</mark></h2>
+  <div style="display:grid;grid-template-columns:1fr 240px;gap:28px;flex-grow:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <span class="fig"><b>Fig 20</b> · Chance nobody nearby has Narcan, <span style="text-transform:none;letter-spacing:0">(1 − p)<sup>N</sup></span></span>
+      <table class="heat" id="heat" aria-label="Chance that nobody nearby carries Narcan, by Black Rock City scene and share of people carrying."></table>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <div style="height:16px;border-radius:8px;background:linear-gradient(90deg,#fff,#f6c6cd,#e4697b,#c8102e);box-shadow:inset 0 0 0 1px #e4dfe0"></div>
+      <div style="display:flex;justify-content:space-between;font:12px var(--mono);color:var(--mute)"><span>0%</span><span>50%</span><span>100%</span></div>
+      <p class="note">Red: <b class="r">someone waits.</b></p>
+      <p class="note">Alone: 100%. Nobody can spray themselves.</p>
+    </div>
+  </div>
+</div></div></div></section>
+
+<div class="divider">The solution</div>
+
+<!-- 18 · spot it -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>The solution · spot an overdose</span><b>Learn it sober</b></div>
+  <h2>Won't wake. <mark>Barely breathing.</mark> Act.</h2>
+  <div class="panel" style="padding:16px 24px 8px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:4px">
+    <span class="fig"><b>Fig 21</b> · The four signs of an opioid overdose</span>
+    <div style="flex-grow:1;display:flex;align-items:center"><svg id="spot" viewBox="0 0 1150 396" style="width:100%;height:auto" role="img" aria-label="The four signs of an opioid overdose, healthy versus overdose: sitting up versus lying unresponsive; normal versus pinpoint pupils; pink versus blue-gray lips; regular breaths versus one shallow breath then none."></svg></div>
+  </div>
+  <div class="chip hi"><svg aria-hidden="true" width="26" height="36" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg><span style="color:var(--ink);font-size:16px"><b style="display:inline">Not sure? Give it.</b> Narcan is harmless without opioids, and benzos can look the same.</span></div>
+</div></div></div></section>
+
+<!-- 19 · use it -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>Use Narcan</span><b>One kit, one dose</b></div>
+  <h2>Narcan in <mark>three moves.</mark></h2>
+  <div class="panel" style="padding:16px 24px 8px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:4px">
+    <span class="fig"><b>Fig 22</b> · Using the nasal spray</span>
+    <div style="flex-grow:1;display:flex;align-items:center"><svg id="use" viewBox="0 0 1150 312" style="width:100%;height:auto" role="img" aria-label="Three steps: hold the device with a thumb on the plunger and two fingers on the nozzle; with the person on their back and head tilted back, put the nozzle in one nostril until your fingers touch the nose; press the plunger firmly for one full dose."></svg></div>
+  </div>
+</div></div></div></section>
+
+<!-- 20 · the sequence -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>The whole sequence</span><b>Minute by minute</b></div>
+  <h2>Shout. Breathe for them. <mark>Spray.</mark></h2>
+  <div class="steps">
+    <div class="pict"><span class="when">1 · 0:00</span><svg class="ico" data-i="shout" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Shout, rub the breastbone</span></div>
+    <div class="pict"><span class="when">2 · 0:30</span><svg class="ico" data-i="call" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Call 911 or radio Rampart</span></div>
+    <div class="pict"><span class="when">3 · one every 5 s</span><svg class="ico" data-i="breathe" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Breathe for them</span></div>
+    <div class="pict"><span class="when hot">4 · by 3:00</span><svg class="ico" data-i="spray" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">One spray, one nostril</span></div>
+    <div class="pict"><span class="when">5 · at 5–6 min</span><svg class="ico" data-i="timer" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">No change? Second kit, other nostril</span></div>
+    <div class="pict"><span class="when">6 · until help</span><svg class="ico" data-i="recover" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Recovery position. Stay.</span></div>
+  </div>
+  <div class="chip"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><path d="M17 3 L30 8 V17 C30 25 24 30 17 32 C10 30 4 25 4 17 V8 Z" fill="#c8102e"/><path d="M11 17 L15 21 L23 12" stroke="#fff" stroke-width="3" fill="none"/></svg><span>Good Samaritan laws in California (AB 472) and Nevada (SB 459) protect people who call for help with an overdose.</span></div>
+</div></div></div></section>
+
+<!-- 21 · the plan -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>The plan for Black Rock City</span></div>
+  <h2>Two kits per camp. One in four pockets. <span class="r">Say it.</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex-grow:1;min-height:0">
+    <div class="panel plan">
+      <svg id="ask-venue" viewBox="0 0 300 150" style="width:100%;height:auto" role="img" aria-label="A camp with two Narcan kits and one sober carrier."></svg>
+      <span class="big">2 + 1</span>
+      <span class="cap">two kits and a sober carrier on shift, per camp, stage and art car</span>
+      <span class="why">Two, because a kit can fail and strong opioids can need a second dose.</span>
+    </div>
+    <div class="panel plan" style="box-shadow:inset 0 0 0 3px var(--red)">
+      <svg id="crowd100" viewBox="0 0 300 150" style="width:100%;height:auto" role="img" aria-label="A crowd of 100 people; 25 are red, carrying Narcan."></svg>
+      <span class="big r">17,900</span>
+      <span class="cap">pockets carrying Narcan after dark: one in four Burners</span>
+      <span class="why">Covers every group of 16 or more, 99% of the time.</span>
+    </div>
+    <div class="panel plan">
+      <svg id="ask-bag" viewBox="0 0 300 150" style="width:100%;height:auto" role="img" aria-label="A backpack with a red patch."></svg>
+      <span class="big">Say it</span>
+      <span class="cap">a red patch on your bag; leaving camp at night, know who carries</span>
+      <span class="why">A kit nobody knows about doesn't count.</span>
+    </div>
+  </div>
+</div></div></div></section>
+
+<!-- 22 · cost -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>What it costs</span><b>20,000 twin packs · about $240,000</b></div>
+  <h2>About <mark>$3.40 a Burner</mark> covers Black Rock City.</h2>
+  <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:22px;flex-grow:1;min-height:0">
+    <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
+      <span class="fig"><b>Fig 23</b> · Cost of 20,000 twin packs (40,000 kits), by source</span>
+      <svg id="cost" viewBox="0 0 640 352" style="width:100%;height:auto;margin:auto 0" role="img" aria-label="Cost of 20,000 twin packs by source: free through state programs, $480,000 through CalRx at $24, $720,000 for RiVive at $36, $820,000 at Narcan's public-interest price of $41, and $900,000 at Narcan's list price. The recommended mix, half free and half CalRx, costs $240,000, about $3.40 per Burner."></svg>
+    </div>
+    <div class="chips" style="align-content:center">
+      <div class="chip"><span class="n" style="min-width:92px">$0</span><span><b>Free supply</b>California's Naloxone Distribution Project; Nevada's state program</span></div>
+      <div class="chip"><span class="n" style="min-width:92px">★</span><span><b>Festival partner</b>This Must Be The Place, free Narcan at festivals</span></div>
+      <div class="chip"><span class="n" style="min-width:92px">$24</span><span><b>Low-cost supply</b>CalRx; Remedy Alliance for harm-reduction programs</span></div>
+      <div class="chip"><span class="n" style="min-width:92px">$57.9M</span><span><b>Grants</b>Fund for a Resilient Nevada, from opioid settlements</span></div>
+      <div class="chip"><span class="n" style="min-width:92px">$3–7</span><span><b>Camps</b>a Narcan line in dues, per Burner</span></div>
+    </div>
+  </div>
+  <div class="src">Prices: CalRx Apr 2025; RiVive launch price; Narcan public-interest 2023 and list price. Nevada AG, May 2026. Confirm before ordering.</div>
+</div></div></div></section>
+
+</main>
+<div class="foot">
+  <div>Kat Titterton · San Francisco · from the field note <em>The Three-Minute Problem</em> (Sept 2026), updated Oct 17, 2026</div>
+  <div>Live tracker of overdose deaths and new drugs in the Bay Area, California and Nevada, updated weekly: <a href="https://kat-titter.github.io/overdose-watch/">kat-titter.github.io/overdose-watch</a></div>
+  <div>Sources: <a href="https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm">CDC NCHS overdose data</a>; <a href="https://www.statnews.com/2026/05/13/us-overdose-deaths-2025-fell-again/">STAT, May 2026</a>; <a href="https://www.brookings.edu/articles/exploring-the-sources-of-the-decline-in-us-drug-overdoses/">Brookings on the decline</a>; <a href="https://data.sf.gov/d/jxrr-bmra">SF Medical Examiner monthly counts (DataSF)</a>; <a href="https://www.sf.gov/health-alert-fatal-overdose-involving-novel-synthetic-opioids">SF DPH health alert, Apr 2026</a>; <a href="https://www.sanfranciscopolice.org/news/sfpd-arrests-4-dealers-seizes-over-20000-counterfeit-pills">SFPD, Sep 2026</a>; AP, May 2026; <a href="https://www.sfexaminer.com/news/public-health/new-synthetic-opioid-linked-to-first-overdose-death-in-sf/article_f66c5296-0e28-4cc0-aa35-b9210126f2ed.html">SF Examiner, Apr 2026</a>; <a href="https://abc7news.com/post/cychlorphine-new-opioid-stronger-fentanyl-linked-san-francisco-teens-overdose-death-mayor-daniel-lurie-says-4-arrested/19832337/">ABC7, Sep 2026</a>; <a href="https://www.dea.gov/press-releases/2026/03/18/dea-emergency-schedules-bromazolam">DEA, Mar 2026</a>; <a href="https://www.cdph.ca.gov/Programs/CCDPHP/sapb/CDPH%20Document%20Library/CDPHEmergingIssueBrief_Medetomidine.pdf">CDPH medetomidine brief</a>; <a href="https://volunteers.census.burningman.org/reports/2025/intro.html">Black Rock City Census 2025</a>; <a href="https://www.dhcs.ca.gov/individuals/Pages/Naloxone_Distribution_Project.aspx">California Naloxone Distribution Project</a>; <a href="https://www.npr.org/sections/health-shots/2022/08/03/1114925272/music-festival-overdoses">NPR on festival naloxone, 2022</a>; <a href="https://betheplace.org/">This Must Be The Place</a>; <a href="https://remedyallianceftp.org/">Remedy Alliance</a>; <a href="https://ag.nv.gov/News/PR/2026/Purdue/Sackler_$7_4_Billion_Opioid_Settlement_Goes_into_Effect/">Nevada Attorney General, May 2026</a>; CalRx naloxone price (Apr 2025); RiVive launch price; Emergent public-interest price (2023); WHPM fentanyl test strip specification; NFLIS; Drug Alcohol Depend 2023 (Wagner et al.); National Inpatient Sample (J Gen Intern Med 2025). Structures: PubChem 2D coordinates. Receptors: Manglik et al. 2012 and Huang et al. 2015 (mu-opioid, Nature); GABA-A α1 His101; α2A-adrenergic Asp113. Figs 3 and 12 are illustrative models, not patient data.</div>
+  <div>This is harm-reduction education, not medical advice. If someone is unresponsive, call 911.</div>
+</div>
+
+<script>
+(function(){
+  const secs=[...document.querySelectorAll('#deck section')];
+  function fit(){const w=innerWidth,h=innerHeight,narrow=w/h<1.1;
+    document.documentElement.classList.toggle('narrow',narrow);
+    const s=narrow?(w-32)/1280:Math.min((w-48)/1280,(h-48)/720);
+    document.documentElement.style.setProperty('--s',Math.max(.1,s));}
+  fit();addEventListener('resize',fit);
+  secs.forEach((sec,i)=>{
+    sec.id='s'+(i+1);
+    const n=document.createElement('div');n.className='num';n.textContent=String(i+1).padStart(2,'0')+' / '+secs.length;sec.appendChild(n);
+    const s=sec.querySelector('.s');if(i===0)return;
+    const d=document.createElement('div');d.className='dots';
+    for(let k=0;k<secs.length;k++){const e=document.createElement('i');if(k===i)e.className='on';d.appendChild(e);}
+    s.appendChild(d);
+  });
+  // deep links: #s5 opens slide 5, and the hash follows the slide in view
+  const goHash=()=>{const d=location.hash.match(/^#s(\d+)$/);if(d&&secs[+d[1]-1])secs[+d[1]-1].scrollIntoView({block:'center'});};
+  requestAnimationFrame(goHash);addEventListener('hashchange',goHash);
+  if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting&&location.hash!=='#'+en.target.id)history.replaceState(null,'','#'+en.target.id);});},{threshold:.6});secs.forEach(sec=>io.observe(sec));}
+  addEventListener('keydown',e=>{
+    if(e.metaKey||e.ctrlKey||e.altKey)return;   // leave browser shortcuts alone
+    const k=e.key,mid=innerHeight/2;let cur=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<=mid)cur=i;});
+    let next;
+    if(k==='Home')next=0;else if(k==='End')next=secs.length-1;
+    else if(['ArrowDown','ArrowRight','PageDown'].includes(k)||(k===' '&&!e.shiftKey))next=cur+1;
+    else if(['ArrowUp','ArrowLeft','PageUp'].includes(k)||(k===' '&&e.shiftKey))next=cur-1;
+    else return;
+    e.preventDefault();secs[Math.max(0,Math.min(secs.length-1,next))].scrollIntoView({behavior:'smooth',block:'center'});
+  });
+
+  // ---------- drawing helpers ----------
+  const NS='http://www.w3.org/2000/svg';
+  const $=id=>document.getElementById(id);
+  const E=(p,t,a,txt)=>{const e=document.createElementNS(NS,t);for(const k in a)if(a[k]!==undefined)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;p.appendChild(e);return e;};
+  const C={ink:'#1a1517',body:'#3d3739',mute:'#655e60',rule:'#e4dfe0',well:'#f6f3f3',red:'#c8102e',pink:'#f3b4bd',yel:'#ffe36e',pale:'#fff2a8',gray:'#d9d1d3',gray2:'#b9aeb1',
+           nink:'#fbf8f8',nbody:'#d6cfd0',nmute:'#a8a0a2',nred:'#ff5a6e',nwell:'#241d1e',nmem:'#3a3032',nhel:'#5b4e51',skin:'#efe5e2',lips:'#8b98ad'};
+  const T=(p,x,y,s,a={})=>E(p,'text',Object.assign({x,y,'font-size':13,fill:C.mute},a),s);
+  const BG=(p,t,a)=>E(p,t,Object.assign({'data-bg':1},a));
+  const narcan=(p,x,y,w)=>E(p,'use',{href:'#narcan',x,y,width:w,height:w*110/80});
+  const arrow=(p,d,col,w=2.5)=>E(p,'path',{d,fill:'none',stroke:col,'stroke-width':w,'marker-end':col===C.red?'url(#arR)':col===C.nred?'url(#arP)':'url(#arK)'});
+  const smooth=pts=>{let d=`M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;for(let i=0;i<pts.length-1;i++){const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      d+=` C${(p1[0]+(p2[0]-p0[0])/6).toFixed(1)} ${(p1[1]+(p2[1]-p0[1])/6).toFixed(1)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(1)} ${(p2[1]-(p3[1]-p1[1])/6).toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;}return d;};
+  function membrane(p,x,y,w,h,dark){
+    BG(p,'rect',{x,y,width:w,height:h,fill:dark?C.nmem:'#efe9ea'});
+    const n=Math.floor((w-8)/11)+1,x0=x+(w-(n-1)*11)/2;   // lipid heads centred along the bilayer, none past its ends
+    for(let k=0;k<n;k++){const i=x0+k*11;BG(p,'circle',{cx:i,cy:y,r:3.8,fill:dark?C.nhel:C.gray});BG(p,'circle',{cx:i,cy:y+h,r:3.8,fill:dark?C.nhel:C.gray});}
+  }
+  function bars(id,data,max,ticks,fmt,B){
+    const g=$(id),L=56,R=510,Tp=22,X=i=>L+20+i*((R-L-20)/data.length),bw=(R-L-20)/data.length-24,Y=v=>B-(B-Tp)*v/max;
+    ticks.forEach(t=>{BG(g,'path',{d:`M${L} ${Y(t)} L${R} ${Y(t)}`,stroke:C.rule,'stroke-width':1.5});T(g,L-10,Y(t)+4,fmt(t),{'text-anchor':'end','font-size':12});});
+    E(g,'path',{d:`M${L} ${B} L${R} ${B}`,stroke:C.ink,'stroke-width':2});
+    data.forEach(([lab,v,txt,hot],i)=>{const x=X(i);
+      E(g,'rect',{class:'growy',x,y:Y(v),width:bw,height:B-Y(v),fill:hot?C.red:C.gray,'data-bg':1});
+      T(g,x+bw/2,Y(v)+24,txt,{'text-anchor':'middle','font-size':17,'font-weight':500,fill:hot?'#fff':C.ink});
+      T(g,x+bw/2,B+24,lab,{'text-anchor':'middle','font-size':14,fill:hot?C.ink:C.mute,'font-weight':hot?500:400});});
+  }
+
+  // ---------- 01 · dial ticks, one per minute ----------
+  (function(){const g=$('dialticks');for(let m=0;m<10;m++){const a=m/10*2*Math.PI;const s=Math.sin(a),c=-Math.cos(a);
+    E(g,'path',{d:`M${170+s*156} ${170+c*156} L${170+s*(m%5===0||m===3?168:164)} ${170+c*(m%5===0||m===3?168:164)}`,stroke:m===3?C.red:C.ink,'stroke-width':m===3?3:2,'stroke-linecap':'round'});}})();
+
+  // ---------- 02 · data ----------
+  bars('usbars',[['2023',107966,'107,966'],['2024',81313,'81,313'],['2025',70735,'70,735',1]],120000,[0,50000,100000],t=>t?t/1000+'k':'0',244);
+  bars('sfbars',[['2024',466,'466'],['2025',461,'461'],['2026',351,'351',1]],520,[0,200,400],t=>String(t),244);
+
+  // ---------- 03 · oxygen after breathing stops (illustrative) ----------
+  (function(){const g=$('clock');const X=m=>132+92.8*m,Y=v=>42+(100-v)*3.2,B=Y(36);
+    const defs=E(g,'defs',{});const lg=E(defs,'linearGradient',{id:'inj',x1:0,x2:1});E(lg,'stop',{offset:0,'stop-color':C.red,'stop-opacity':.03});E(lg,'stop',{offset:1,'stop-color':C.red,'stop-opacity':.14});
+    BG(g,'rect',{x:X(0),y:Y(100),width:X(3)-X(0),height:B-Y(100),fill:C.pale});
+    BG(g,'rect',{x:X(4),y:Y(100),width:X(6)-X(4),height:B-Y(100),fill:'url(#inj)'});
+    BG(g,'rect',{x:X(6),y:Y(100),width:X(10)-X(6),height:B-Y(100),fill:C.red,'fill-opacity':.1});
+    T(g,(X(0)+X(3))/2,28,'your window to spray',{'text-anchor':'middle','font-size':13,fill:C.ink,'font-weight':600});
+    T(g,X(5),28,'brain injury begins',{'text-anchor':'middle','font-size':13,fill:C.red,'font-weight':600});
+    T(g,X(8),28,'death without help',{'text-anchor':'middle','font-size':13,fill:C.red,'font-weight':600});
+    [100,90,80,70,60,50,40].forEach(v=>{BG(g,'path',{d:`M${X(0)} ${Y(v)} L${X(10)} ${Y(v)}`,stroke:'#fff','stroke-width':1.4});T(g,X(0)-10,Y(v)+4,v+'%',{'text-anchor':'end','font-size':12.5});});
+    T(g,24,(Y(100)+B)/2,'oxygen saturation, SpO₂',{'text-anchor':'middle','font-size':12.5,fill:C.body,transform:`rotate(-90 24 ${(Y(100)+B)/2})`});
+    E(g,'path',{d:`M${X(0)} ${B} L${X(10)} ${B}`,stroke:C.ink,'stroke-width':2});
+    for(let m=0;m<=10;m++){E(g,'path',{d:`M${X(m)} ${B} L${X(m)} ${B+6}`,stroke:C.ink,'stroke-width':1.5});T(g,X(m),B+23,m,{'text-anchor':'middle','font-size':14,fill:m===3?C.red:C.mute,'font-weight':m===3?600:400});}
+    T(g,(X(0)+X(10))/2,B+50,'time: minutes after breathing stops',{'text-anchor':'middle','font-size':13,fill:C.body});
+    const none=[[0,94],[.5,91],[1,86],[1.5,79],[2,71],[2.5,64],[3,58],[3.5,53],[4,49],[5,44],[6,41],[7,39.5],[8,38.5],[10,37.5]];
+    const nar=[[0,94],[.5,91],[1,86],[1.5,79],[2,71],[2.5,64],[3,58],[3.5,53],[4,49],[4.5,46.5],[5,46],[5.5,54],[6,68],[6.5,81],[7,89],[7.5,93],[8,95],[10,96]];
+    const brt=[[0,94],[.5,91],[1,86],[1.5,84],[2,83],[3,82],[4,82],[5,83.5],[5.5,87],[6,91],[6.5,94],[7,95.5],[10,97]];
+    const P=a=>a.map(([m,v])=>[X(m),Y(v)]);
+    BG(g,'path',{d:`M${X(3)} ${Y(100)+34} L${X(3)} ${B}`,stroke:C.red,'stroke-width':1.5,'stroke-dasharray':'3 4'});
+    narcan(g,X(3)-10,Y(100)+4,20);
+    E(g,'path',{d:smooth(P(none)),fill:'none',stroke:C.red,'stroke-width':3});
+    E(g,'path',{d:smooth(P(nar)),fill:'none',stroke:C.ink,'stroke-width':3});
+    E(g,'path',{d:smooth(P(brt)),fill:'none',stroke:C.ink,'stroke-width':3,'stroke-dasharray':'7 6'});
+    const lx=X(6.55),ly=Y(70);   // the legend's longest label must end inside the 1100-wide viewBox
+    [[C.ink,0,'Narcan at 3:00 + breathing for them'],[C.ink,1,'Narcan at 3:00'],[C.red,1,'no help']].forEach(([col,solid,lab],i)=>{const y=ly+i*24;
+      E(g,'path',{d:`M${lx} ${y} L${lx+34} ${y}`,stroke:col,'stroke-width':3,'stroke-dasharray':solid?'0':'7 6'});T(g,lx+42,y+4.5,lab,{'font-size':13,fill:col===C.red?C.red:C.ink,'font-weight':500});});
+  })();
+
+  // ---------- 04 · waffles ----------
+  document.querySelectorAll('svg.waffle').forEach(g=>{const n=+g.dataset.n;
+    for(let i=0;i<100;i++){const x=11+(i%10)*22,y=11+Math.floor(i/10)*22;E(g,'circle',{cx:x,cy:y,r:8,fill:i<n?C.nred:'#3a3133'});}});
+
+  // ---------- 05 · keys and locks: peptides and receptors ----------
+  (function(){const g=$('peptides');
+    // opioid drugs come in from above, onto mu
+    T(g,296,16,'opioid drugs: fentanyl, heroin, oxycodone',{'text-anchor':'middle','font-size':12.5,fill:C.red,'font-weight':600});
+    arrow(g,'M297 22 L297 42',C.red,2.5);
+    const rows=[[74,'β-endorphin','μ  mu',1,['pain relief, reward','slows breathing']],[158,'Enkephalins','δ  delta',0,['pain gating, mood']],[242,'Dynorphins','κ  kappa',0,['stress, dysphoria']]];
+    rows.forEach(([y,pep,rec,hot,tune])=>{
+      T(g,0,y+6,pep,{fill:C.ink,'font-size':17,style:'font-family:var(--text)','font-weight':600});
+      E(g,'path',{d:`M122 ${y} L226 ${y}`,stroke:hot?C.red:C.ink,'stroke-width':hot?3:2});
+      BG(g,'rect',{x:232,y:y-22,width:130,height:44,rx:22,fill:hot?C.red:'#fff',stroke:hot?'none':C.ink,'stroke-width':2});
+      T(g,297,y+7,rec,{'text-anchor':'middle','font-size':18,fill:hot?'#fff':C.ink,'font-weight':500});
+      tune.forEach((t,j)=>T(g,410,y-4+j*24,t,{'font-size':15,fill:(hot&&j===1)?C.red:C.body,'font-weight':(hot&&j===1)?700:400,style:'font-family:var(--text)'}));
+    });
+    E(g,'path',{d:'M122 154 C176 154 182 82 226 82',stroke:C.red,'stroke-width':2,fill:'none','stroke-dasharray':'5 5'});
+    E(g,'path',{d:'M124 175 h16',stroke:C.red,'stroke-width':2,'stroke-dasharray':'4 4'});T(g,146,179,'also fits mu',{'font-size':11.5,fill:C.red});
+  })();
+
+  // ---------- 05 · breathing, with axes ----------
+  (function(){const g=$('breath');const X0=66,X=t=>X0+t*7.3,W=60;
+    // dose wedge: each row down has more opioid on mu
+    const lg=E(E(g,'defs',{}),'linearGradient',{id:'dose',x1:0,y1:0,x2:0,y2:1});
+    E(lg,'stop',{offset:0,'stop-color':'#f3c6cd'});E(lg,'stop',{offset:1,'stop-color':C.red});
+    E(g,'path',{d:'M13 34 L24 256 L2 256 Z',fill:'url(#dose)'});
+    T(g,0,24,'low dose',{'font-size':11,fill:C.body});
+    T(g,0,276,'high dose',{'font-size':11,fill:C.red,'font-weight':500});
+    const rows=[['normal','~14 breaths / min',14,1,C.ink],['opioid on mu','~6 breaths / min, shallow',6,.55,C.red],['overdose','1 breath, then none',1.2,.3,C.red]];
+    rows.forEach(([lab,sub,rate,amp,col],r)=>{
+      const y0=82+r*84;let d='';
+      for(let x=0;x<=W*7.3;x+=2){const t=x/7.3;const per=60/rate;const ph=(t%per)/per;let v=0;
+        if(r<2||t<per)v=Math.exp(-Math.pow((ph-.3)/.12,2));if(r===2&&t>30)v=0;
+        d+=(x?'L':'M')+(X0+x).toFixed(1)+' '+(y0-v*38*amp).toFixed(1);}
+      E(g,'path',{d:`M${X0} ${y0} L${X(60)} ${y0}`,stroke:C.rule,'stroke-width':1.5});
+      E(g,'path',{d,fill:'none',stroke:col,'stroke-width':2.5,'stroke-linejoin':'round'});
+      T(g,X0+12,y0-48,lab.toUpperCase(),{'font-size':11.5,fill:r?C.red:C.body,'letter-spacing':1.2,'font-weight':500});
+      T(g,X(60),y0-48,sub,{'text-anchor':'end','font-size':12,fill:C.body});
+    });
+    const B=270;
+    E(g,'path',{d:`M${X0} ${B} L${X(60)} ${B}`,stroke:C.ink,'stroke-width':2});
+    E(g,'path',{d:`M${X0} 28 L${X0} ${B}`,stroke:C.ink,'stroke-width':2});
+    for(let t=0;t<=60;t+=10){E(g,'path',{d:`M${X(t)} ${B} L${X(t)} ${B+6}`,stroke:C.ink,'stroke-width':1.5});T(g,X(t),B+22,t,{'text-anchor':'middle','font-size':12.5});}
+    T(g,(X0+X(60))/2,B+46,'time (seconds)',{'text-anchor':'middle','font-size':12.5,fill:C.body});
+    T(g,46,(28+B)/2,'airflow in, relative',{'text-anchor':'middle','font-size':12.5,fill:C.body,transform:`rotate(-90 46 ${(28+B)/2})`});
+  })();
+
+  // ---------- 07 · inside the lock ----------
+  (function(){const g=$('lock');
+    E(g,'path',{d:'M575 0 L575 452',stroke:C.rule,'stroke-width':2});
+    [[0,false],[590,true]].forEach(([ox,on])=>{
+      const p=E(g,'g',{transform:`translate(${ox},0)`});
+      T(p,0,20,on?'FENTANYL BOUND · ON':'AT REST · OFF',{'font-size':13,fill:on?C.red:C.ink,'letter-spacing':1.4,'font-weight':500});
+      T(p,0,40,on?'helix 6 swings out; Gi docks':'empty pocket; helix 6 stays put',{'font-size':13,fill:C.body});
+      T(p,0,138,'OUTSIDE',{'font-size':11,'letter-spacing':1.4});T(p,0,284,'INSIDE',{'font-size':11,'letter-spacing':1.4});
+      membrane(p,70,150,490,100);
+      // helices: positions 0..6 carry TM1..5, TM7, TM6 (TM6 at the right so it can swing out)
+      const xs=[0,1,2,3,4,5,6].map(i=>96+i*28),names=['1','2','3','4','5','7','6'];
+      xs.forEach((x,i)=>{
+        const tm6=i===6,tm3=i===2;
+        const fill=tm6?(on?C.red:'#9a8f92'):(tm3?C.gray2:C.gray);
+        if(tm6&&on)BG(p,'rect',{x,y:132,width:22,height:136,rx:11,fill,transform:`rotate(-20 ${x+11} 136)`});   // one helix, swung out from its outer end
+        else BG(p,'rect',{x,y:132,width:22,height:136,rx:11,fill});
+        if(tm3||tm6)T(p,x+11+(tm6&&on?44:0),300,names[i],{'text-anchor':'middle','font-size':11.5,fill:tm6?(on?C.red:C.ink):C.mute,'font-weight':500});
+      });
+      // ligand in the pocket between TM3 and TM6
+      if(on){BG(p,'rect',{x:158,y:154,width:80,height:24,rx:12,fill:C.red});T(p,198,171,'fentanyl',{'text-anchor':'middle','font-size':12.5,fill:'#fff','font-weight':500});}
+      // GIRK channel
+      const gx=420;
+      if(on){BG(p,'rect',{x:gx,y:136,width:20,height:128,rx:9,fill:C.body});BG(p,'rect',{x:gx+40,y:136,width:20,height:128,rx:9,fill:C.body});}
+      else{BG(p,'rect',{x:gx+6,y:136,width:24,height:128,rx:10,fill:C.body});BG(p,'rect',{x:gx+30,y:136,width:24,height:128,rx:10,fill:C.body});}
+      T(p,gx+70,204,'GIRK',{'font-size':12.5,fill:C.ink,'font-weight':500});T(p,gx+70,222,'K⁺ gate',{'font-size':11.5,fill:C.mute});
+      if(on){
+        // G protein docked under the open bundle
+        BG(p,'ellipse',{cx:258,cy:318,rx:56,ry:28,fill:C.red});T(p,258,323,'Gi',{'text-anchor':'middle',fill:'#fff','font-size':14,'font-weight':500});
+        BG(p,'ellipse',{cx:348,cy:344,rx:34,ry:21,fill:C.pink});T(p,348,349,'βγ',{'text-anchor':'middle',fill:C.ink,'font-size':14,'font-weight':500});
+        arrow(p,'M382 346 C412 346 432 320 445 274',C.red);
+        arrow(p,'M450 292 L450 96',C.red,3);
+        T(p,462,104,'K⁺ out',{fill:C.red,'font-size':13,'font-weight':500});
+        T(p,96,412,'Gi docks; its βγ arm opens GIRK and K⁺ leaves',{'font-size':13,fill:C.body});
+        T(p,96,436,'→ the inside goes negative; the neuron stops firing',{'font-size':13,fill:C.red,'font-weight':500});
+      }else{
+        BG(p,'ellipse',{cx:232,cy:352,rx:56,ry:28,fill:'none',stroke:C.mute,'stroke-width':2,'stroke-dasharray':'5 4'});
+        T(p,232,357,'Gi',{'text-anchor':'middle',fill:C.mute,'font-size':14});
+        T(p,96,412,'no Gi docks; GIRK stays shut',{'font-size':13,fill:C.body});
+        T(p,96,436,'→ the neuron keeps firing; breathing continues',{'font-size':13,fill:C.ink,'font-weight':500});
+      }
+    });
+  })();
+  // ---------- 08 · competitive binding (illustrative): opioid occupancy = a/(1+a+i), i = 20 per dose ----------
+  (function(){const g=$('comp');const L=58,R=500,Tp=28,B=262;
+    const X=d=>L+(R-L)*d/4,Y=v=>B-(B-Tp)*v;
+    BG(g,'rect',{x:L,y:Y(.5),width:R-L,height:B-Y(.5),fill:C.pale});
+    T(g,R-8,B-10,'breathing returns (illustrative)',{'text-anchor':'end','font-size':12,fill:C.ink});
+    [0,.25,.5,.75,1].forEach(v=>{if(v)E(g,'path',{d:`M${L} ${Y(v)} L${R} ${Y(v)}`,stroke:C.rule});T(g,L-8,Y(v)+4,Math.round(v*100)+'%',{'text-anchor':'end','font-size':12});});
+    E(g,'path',{d:`M${L} ${B} L${R} ${B}`,stroke:C.ink,'stroke-width':2});
+    [0,1,2,3,4].forEach(d=>T(g,X(d),B+20,d,{'text-anchor':'middle'}));
+    T(g,(L+R)/2,B+44,'Narcan doses, 4 mg each',{'text-anchor':'middle','font-size':12});
+    T(g,L,14,'mu receptors held by the opioid',{'font-size':12,fill:C.body});
+    [[38,'fentanyl / nitazene load',C.red,-14,12,'start'],[10,'heroin load',C.mute,11,-14,'end']].forEach(([a,lab,col,dy,dx,an])=>{
+      const pts=[0,1,2,3,4].map(d=>[X(d),Y(a/(1+a+20*d))]);
+      E(g,'path',{d:'M'+pts.map(p=>p.join(' ')).join(' L'),fill:'none',stroke:col,'stroke-width':3});
+      pts.forEach(p=>E(g,'circle',{cx:p[0],cy:p[1],r:5,fill:col}));
+      T(g,pts[1][0]+dx,pts[1][1]+dy,lab,{fill:col,'font-weight':500,'font-size':13,'text-anchor':an});
+    });
+  })();
+  // ---------- 10 · pill ----------
+  (function(){const g=$('pill');
+    const defs=E(g,'defs',{});const cp=E(defs,'clipPath',{id:'pillclip'});E(cp,'rect',{x:10,y:24,width:260,height:92,rx:46});
+    const gg=E(g,'g',{'clip-path':'url(#pillclip)'});
+    BG(gg,'rect',{x:10,y:24,width:87,height:92,fill:C.nred});BG(gg,'rect',{x:97,y:24,width:87,height:92,fill:C.red});BG(gg,'rect',{x:184,y:24,width:86,height:92,fill:C.pale});
+    BG(g,'rect',{x:10,y:24,width:260,height:92,rx:46,fill:'none',stroke:C.nink,'stroke-width':2.5});
+    BG(g,'rect',{x:40,y:36,width:64,height:9,rx:4.5,fill:'#fff','fill-opacity':.35});
+    T(g,58,76,'opioid',{'text-anchor':'middle',fill:C.ink,'font-size':13,'font-weight':500});
+    T(g,141,76,'opioid',{'text-anchor':'middle',fill:'#fff','font-size':13,'font-weight':500});
+    T(g,227,76,'benzo',{'text-anchor':'middle',fill:C.ink,'font-size':13,'font-weight':500});
+    T(g,140,143,'found together in his toxicology',{'text-anchor':'middle',fill:C.nmute,'font-size':12});
+  })();
+
+  // ---------- 10 · one neuron, three brakes ----------
+  (function(){const g=$('neuron');
+    T(g,0,96,'OUTSIDE',{'font-size':11,'letter-spacing':1.4});T(g,0,206,'INSIDE',{'font-size':11,'letter-spacing':1.4});
+    membrane(g,80,110,1070,60);
+    // mu
+    for(let i=0;i<7;i++)BG(g,'rect',{x:130+i*20,y:100,width:16,height:80,rx:8,fill:C.red});
+    BG(g,'rect',{x:126,y:52,width:80,height:24,rx:12,fill:C.red});T(g,166,69,'fentanyl',{'text-anchor':'middle',fill:'#fff','font-size':12.5,'font-weight':500});
+    BG(g,'rect',{x:214,y:52,width:84,height:24,rx:12,fill:'#fff',stroke:C.red,'stroke-width':2});T(g,256,69,'Narcan',{'text-anchor':'middle',fill:C.red,'font-size':12.5,'font-weight':600});
+    T(g,212,30,'Narcan competes here',{'text-anchor':'middle',fill:C.red,'font-size':13,'font-weight':600});
+    T(g,128,202,'mu-opioid',{'font-size':12.5,fill:C.ink,'font-weight':500});
+    // alpha2
+    for(let i=0;i<7;i++)BG(g,'rect',{x:350+i*20,y:100,width:16,height:80,rx:8,fill:'#9a8f92'});
+    BG(g,'rect',{x:364,y:52,width:112,height:24,rx:12,fill:C.body});T(g,420,69,'medetomidine',{'text-anchor':'middle',fill:'#fff','font-size':12.5,'font-weight':500});
+    T(g,432,202,'α2-adrenergic',{'font-size':12.5,fill:C.ink,'font-weight':500});
+    // Gi
+    BG(g,'ellipse',{cx:310,cy:262,rx:44,ry:20,fill:C.red});T(g,310,267,'Gi',{'text-anchor':'middle',fill:'#fff','font-size':14,'font-weight':500});
+    arrow(g,'M200 184 C210 230 240 252 262 258',C.ink,2);arrow(g,'M420 184 C410 230 380 252 358 258',C.ink,2);
+    // GIRK
+    BG(g,'rect',{x:600,y:100,width:20,height:80,rx:9,fill:C.body});BG(g,'rect',{x:640,y:100,width:20,height:80,rx:9,fill:C.body});
+    T(g,630,234,'GIRK',{'text-anchor':'middle','font-size':12.5,fill:C.ink,'font-weight':500});
+    arrow(g,'M354 268 C470 290 590 260 624 192',C.red);
+    arrow(g,'M630 200 L630 34',C.red,3);T(g,642,40,'K⁺ out',{fill:C.red,'font-size':13,'font-weight':500});
+    // GABA-A
+    [800,836,872].forEach(x=>BG(g,'rect',{x,y:100,width:28,height:80,rx:12,fill:'#e6cf5a'}));
+    BG(g,'rect',{x:906,y:52,width:64,height:24,rx:12,fill:'#e6cf5a'});T(g,938,69,'benzo',{'text-anchor':'middle',fill:C.ink,'font-size':12.5,'font-weight':500});
+    arrow(g,'M832 34 L832 200',C.ink,3);T(g,820,40,'Cl⁻ in',{'text-anchor':'end',fill:C.ink,'font-size':13,'font-weight':500});
+    T(g,866,234,'GABA-A',{'text-anchor':'middle','font-size':12.5,fill:C.ink,'font-weight':500});
+    // outcome
+    T(g,990,214,'K⁺ out, Cl⁻ in:',{'font-size':13,fill:C.body});T(g,990,234,'the inside goes',{'font-size':13,fill:C.body});T(g,990,254,'more negative',{'font-size':13,fill:C.red,'font-weight':600});
+    // voltage traces
+    const rows=[['normal rhythm','',1,0,C.ink],['opioid + benzo','silent',0,12,C.red],['after Narcan','benzo brake remains',.5,5,C.ink]];
+    rows.forEach(([lab,sub,amp,drop,col],r)=>{
+      const x0=200,w=940,y0=320+r*46,per=r===2?235:160;let d='';
+      for(let x=0;x<=w;x+=2){const ph=(x%per)/per;let v=0;if(amp>0&&ph<.24){const env=Math.sin(ph/.24*Math.PI);v=env*(0.55+0.45*Math.abs(Math.sin(x*0.9)))*amp;}
+        d+=(x?'L':'M')+(x0+x)+' '+(y0+drop-v*30).toFixed(1);}
+      E(g,'path',{d:`M${x0} ${y0} L${x0+w} ${y0}`,stroke:C.rule,'stroke-width':1,'stroke-dasharray':'3 4'});
+      E(g,'path',{d,fill:'none',stroke:col,'stroke-width':2});
+      T(g,0,y0+2,lab,{fill:col===C.red?C.red:C.ink,'font-size':13,'font-weight':500});
+      if(sub)T(g,0,y0+21,sub,{fill:C.mute,'font-size':11.5});
+    });
+  })();
+  // ---------- 04 · powders + strip ----------
+  (function(){const g=$('powders');const L=110,X=p=>L+p*24;
+    [[0,'Cocaine',4,'<4%',14.8,'14.8%'],[1,'Meth',1,'~1%',12.5,'12.5%']].forEach(([i,n,a,at,b,bt])=>{const y=26+i*92;
+      T(g,0,y+30,n,{fill:C.ink,'font-size':16,style:'font-family:var(--text)','font-weight':600});
+      E(g,'rect',{class:'grow',x:L,y,width:X(a)-L,height:24,rx:3,fill:C.gray,'data-bg':1});T(g,X(a)+8,y+17,at,{fill:C.body});
+      E(g,'rect',{class:'grow',x:L,y:y+30,width:X(b)-L,height:24,rx:3,fill:C.red,'data-bg':1});T(g,X(b)+8,y+47,bt,{fill:C.red,'font-weight':500});});
+    E(g,'path',{d:`M${L} 204 L${X(16)} 204`,stroke:C.ink,'stroke-width':2});
+    [0,5,10,15].forEach(p=>T(g,X(p),222,p?p+'%':'0',{'text-anchor':'middle','font-size':12}));
+    BG(g,'rect',{x:L,y:236,width:14,height:10,fill:C.gray});T(g,L+20,246,'police seizures',{'font-size':12,fill:C.body});
+    BG(g,'rect',{x:L+170,y:236,width:14,height:10,fill:C.red});T(g,L+190,246,'community drug checking',{'font-size':12,fill:C.body});
+  })();
+  (function(){const g=$('strips');
+    BG(g,'rect',{x:4,y:14,width:84,height:224,rx:10,fill:'#fff',stroke:C.ink,'stroke-width':2});
+    BG(g,'rect',{x:4,y:14,width:84,height:48,rx:10,fill:C.ink});BG(g,'rect',{x:4,y:44,width:84,height:18,fill:C.ink});
+    T(g,46,44,'FTS',{'text-anchor':'middle',fill:'#fff','font-size':14,'font-weight':500});
+    BG(g,'rect',{x:16,y:112,width:60,height:6,fill:C.red});BG(g,'rect',{x:16,y:162,width:60,height:6,fill:'none',stroke:C.gray2,'stroke-dasharray':'3 3'});
+    T(g,46,214,'one line:',{'text-anchor':'middle','font-size':10.5,fill:C.red,'font-weight':500});T(g,46,228,'fentanyl',{'text-anchor':'middle','font-size':10.5,fill:C.red,'font-weight':500});
+    T(g,46,138,'C',{'text-anchor':'middle','font-size':12});T(g,46,188,'T',{'text-anchor':'middle','font-size':12});
+    [['fentanyl + close analogs',1],['cychlorphine (orphine)',0],['nitazenes',0],['benzos: bromazolam, Xanax',0],['medetomidine, xylazine',0]].forEach(([n,ok],i)=>{const y=40+i*44;
+      E(g,'circle',{cx:134,cy:y,r:14,fill:ok?C.pale:C.red});T(g,134,y+5,ok?'✓':'✕',{'text-anchor':'middle',fill:ok?C.ink:'#fff','font-size':15,'font-weight':500});
+      T(g,160,y+5,n,{fill:C.ink,'font-size':14.5});T(g,516,y+5,ok?'detects':'misses',{'text-anchor':'end',fill:ok?C.mute:C.red,'font-size':13,'font-weight':500});});
+  })();
+  // ---------- A1 · BRC ----------
+  (function(){const g=$('brc');const cx=320,cy=196;
+    const pol=(hr,r)=>{const a=hr/12*2*Math.PI;return [cx+Math.sin(a)*r,cy-Math.cos(a)*r];};
+    for(let r=120;r<=200;r+=16){const [x1,y1]=pol(2,r),[x2,y2]=pol(10,r);BG(g,'path',{d:`M${x1.toFixed(1)} ${y1.toFixed(1)} A${r} ${r} 0 1 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`,fill:'none',stroke:r===120?C.gray2:C.gray,'stroke-width':r===120?4:2});}
+    [2,3,4,5,6,7,8,9,10].forEach(h=>{const [x1,y1]=pol(h,120),[x2,y2]=pol(h,200);BG(g,'path',{d:`M${x1} ${y1} L${x2} ${y2}`,stroke:C.gray,'stroke-width':2});});
+    E(g,'circle',{cx,cy,r:7,fill:C.ink});T(g,cx+12,cy+5,'the Man',{'font-size':12,fill:C.ink});
+    [[3,'ESD 3:00',22,-8,'start',160],[9,'ESD 9:00',-22,-8,'end',160],[6,'Center Camp',0,-26,'middle',132],[5.1,'Rampart',22,4,'start',150]].forEach(([h,n,dx,dy,an,r])=>{const [x,y]=pol(h,r);
+      BG(g,'circle',{cx:x,cy:y,r:16,fill:C.pale});BG(g,'rect',{x:x-8,y:y-8,width:16,height:16,rx:3,fill:C.red});BG(g,'path',{d:`M${x} ${y-5} V${y+5} M${x-5} ${y} H${x+5}`,stroke:'#fff','stroke-width':2.4});
+      T(g,x+dx,y+dy+(an==='middle'?0:4),n,{'text-anchor':an,'font-size':12.5,fill:C.ink,'font-weight':500});});
+    const [dx,dy]=pol(0,140);E(g,'use',{href:'#figure',x:dx-18,y:dy-6,width:36,height:13.5,style:'color:#c8102e'});
+    T(g,dx,dy-18,'deep playa: no station nearby',{'text-anchor':'middle','font-size':12.5,fill:C.red,'font-weight':500});
+    T(g,pol(2,214)[0]+4,pol(2,214)[1],'2:00',{'font-size':11.5});T(g,pol(10,214)[0]-4,pol(10,214)[1],'10:00',{'font-size':11.5,'text-anchor':'end'});
+  })();
+  // ---------- 15 · reach: radius = minutes until Narcan arrives (to scale) ----------
+  (function(){const g=$('reach');const cx=520,cy=380,k=17;
+    const arc=(r,fill,stroke)=>BG(g,'path',{d:`M${cx-r} ${cy} A${r} ${r} 0 0 1 ${cx+r} ${cy} Z`,fill,stroke:stroke||'none','stroke-width':1.5});
+    arc(20*k,'#ece4e5');arc(10*k,'#e2d8da');arc(5*k,'#f6f3f3');arc(3*k,C.pale,'#e6cf5a');
+    T(g,cx,cy-15*k+5,'Rampart transport · 10–20+ min',{'text-anchor':'middle','font-size':14,fill:C.ink,'font-weight':500});
+    T(g,cx,cy-7.5*k+5,'ESD or QRV by radio · 5–10 min',{'text-anchor':'middle','font-size':14,fill:C.ink,'font-weight':500});
+    E(g,'path',{d:`M${cx-20*k-8} ${cy} L${cx+20*k+8} ${cy}`,stroke:C.ink,'stroke-width':2});
+    [5,10,15,20].forEach(m=>{E(g,'path',{d:`M${cx+m*k} ${cy} L${cx+m*k} ${cy+7}`,stroke:C.ink,'stroke-width':1.5});T(g,cx+m*k,cy+24,m,{'text-anchor':'middle','font-size':12});});T(g,cx+20*k+30,cy+24,'minutes',{'font-size':12});
+    E(g,'path',{d:`M${cx+3*k} ${cy} L${cx+3*k} ${cy+7}`,stroke:C.red,'stroke-width':2});T(g,cx+3*k,cy+24,'3',{'text-anchor':'middle','font-size':12,fill:C.red,'font-weight':600});
+    E(g,'use',{href:'#figure',x:cx-26,y:cy-16,width:44,height:16.5,style:'color:#c8102e'});
+    narcan(g,cx+22,cy-34,16);
+    narcan(g,cx-6,cy-54,14);
+    E(g,'path',{d:`M${cx+40} ${cy-24} L${cx+20*k+20} ${cy-30}`,stroke:'#b9aeb1','stroke-width':1});
+    E(g,'path',{d:`M${cx+9} ${cy-50} L${cx+20*k+20} ${cy-68}`,stroke:'#b9aeb1','stroke-width':1});
+    const lx=cx+20*k+28;
+    T(g,lx,cy-72,'kit in the same camp',{fill:C.ink,'font-size':14,'font-weight':500});T(g,lx,cy-51,'~2 min, run there and back',{fill:C.red,'font-size':12.5});
+    T(g,lx,cy-26,'friend with Narcan',{fill:C.ink,'font-size':14,'font-weight':500});T(g,lx,cy-5,'0–1 min',{fill:C.red,'font-size':12.5});
+    narcan(g,lx,46,22);narcan(g,lx+26,46,22);
+    T(g,lx+60,60,'Long ride to Rampart?',{fill:C.red,'font-size':14,'font-weight':600});
+    T(g,lx+60,81,'A strong opioid can',{fill:C.body,'font-size':13});T(g,lx+60,101,'outlast the first dose.',{fill:C.body,'font-size':13});T(g,lx+60,121,'Bring a second kit.',{fill:C.ink,'font-size':13,'font-weight':600});
+  })();
+
+  // ---------- 14 · crowd + curve ----------
+  function person(g,x,y,col){E(g,'circle',{cx:x,cy:y,r:7.5,fill:col});E(g,'rect',{x:x-10,y:y+11,width:20,height:24,rx:10,fill:col});}
+  (function(){const g=$('crowd16');const red=new Set([2,7,9,12]);
+    for(let i=0;i<16;i++){const x=42+(i%4)*84,y=14+Math.floor(i/4)*56;
+      person(g,x,y,red.has(i)?C.red:C.gray);if(red.has(i))narcan(g,x+9,y+14,13);}
+  })();
+  (function(){const g=$('curve');const L=86,R=680,Tp=24,B=350,X=N=>L+(R-L)*Math.log10(N)/2,Y=p=>B-(B-Tp)*p;
+    const pts=[];for(let i=0;i<=200;i++){const N=Math.pow(10,2*i/200);pts.push([X(N),Y(1-Math.pow(.01,1/N))]);}
+    const line='M'+pts.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L');
+    BG(g,'path',{d:line+` L${R} ${B} L${L} ${B} Z`,fill:C.red,'fill-opacity':'.08'});
+    [0,.25,.5,.75,1].forEach(p=>{if(p)E(g,'path',{d:`M${L} ${Y(p)} L${R} ${Y(p)}`,stroke:C.rule,'stroke-width':1.5});T(g,L-10,Y(p)+5,Math.round(p*100)+'%',{'text-anchor':'end'});});
+    E(g,'path',{d:`M${L} ${B} L${R} ${B}`,stroke:C.ink,'stroke-width':2});
+    [1,2,5,10,20,50,100].forEach(N=>T(g,X(N),B+24,N,{'text-anchor':'middle'}));
+    T(g,(L+R)/2,B+50,'N: people within shouting distance (log scale)',{'text-anchor':'middle'});
+    T(g,24,(Tp+B)/2,'p: share who carry',{'text-anchor':'middle',fill:C.body,transform:`rotate(-90 24 ${(Tp+B)/2})`});
+    E(g,'path',{d:`M${L} ${Y(.25)} L${R} ${Y(.25)}`,stroke:'#e0bf2e','stroke-width':3,'stroke-dasharray':'8 6'});
+    T(g,R,Y(.25)-12,'p = 25%, one in four',{'text-anchor':'end',fill:C.ink,'font-weight':500});
+    E(g,'path',{d:line,fill:'none',stroke:C.ink,'stroke-width':3});
+    [[2,'2 → 90%',12,-10,'start'],[10,'10 → 37%',12,-10,'start'],[100,'100 → 4.5%',-6,-30,'end']].forEach(([N,t,dx,dy,an])=>{const p=1-Math.pow(.01,1/N);E(g,'circle',{cx:X(N),cy:Y(p),r:4.5,fill:C.ink});T(g,X(N)+dx,Y(p)+dy,t,{fill:C.ink,'text-anchor':an});});
+    E(g,'circle',{cx:X(16),cy:Y(.25),r:9,fill:C.red});
+    T(g,X(16)-16,Y(.25)+30,'N = 16',{fill:C.red,'text-anchor':'end','font-weight':600});
+    T(g,R-8,Tp+44,'above the curve: covered',{'text-anchor':'end',fill:C.body});
+    T(g,L+14,B-14,'below: someone waits',{fill:C.red,'font-weight':500});
+  })();
+  // ---------- 17 · heat map, Black Rock City scenes ----------
+  (function(){
+    const t=$('heat');const ps=[.05,.10,.25,.50];
+    const rows=[['Sound camp, warehouse or Esplanade crowd',100],['Dome, bar or art car',20],['Camp, evening',10],['Small hours, small camp',5],['Two friends, deep playa',2],['Alone in a tent or car',1]];
+    const L=c=>{const f=x=>{x/=255;return x<=.03928?x/12.92:Math.pow((x+.055)/1.055,2.4)};return .2126*f(c[0])+.7152*f(c[1])+.0722*f(c[2]);};
+    const mixc=v=>{const a=[255,255,255],b=[200,16,46];let t2=Math.pow(v,.8);let c=a.map((x,i)=>Math.round(x+(b[i]-x)*t2));while(L(c)>.17&&L(c)<.22&&t2<1){t2=Math.min(1,t2+.02);c=a.map((x,i)=>Math.round(x+(b[i]-x)*t2));}return c;};
+    let h='<thead><tr><th scope="col"></th><th scope="col">N</th>'+ps.map(p=>`<th scope="col" class="${p===.25?'p25':''}">${p*100}% carry</th>`).join('')+'</tr></thead><tbody>';
+    rows.forEach(([n,N])=>{h+=`<tr><th scope="row" class="row">${n}</th><th class="nn">${N===100?'100+':N}</th>`;
+      ps.forEach(p=>{const v=N===1?1:Math.pow(1-p,N);const s=v<.001?'<0.1%':v<.01?(v*100).toFixed(1)+'%':Math.round(v*100)+'%';
+        const c=mixc(v);h+=`<td style="background:rgb(${c.join(',')});color:${L(c)<.19?'#fff':'#1a1517'};box-shadow:inset 0 0 0 1px #ece5e6">${s}</td>`;});h+='</tr>';});
+    t.innerHTML=h+'</tbody>';
+  })();
+
+  // ---------- 18 · spot an overdose: healthy vs overdose, sign by sign ----------
+  (function(){const g=$('spot');const cH=600,cO=880,ys=[82,174,266,358];
+    T(g,cH,26,'HEALTHY',{'text-anchor':'middle','font-size':13,fill:C.body,'letter-spacing':1.6,'font-weight':500});
+    T(g,cO,26,'OVERDOSE',{'text-anchor':'middle','font-size':13,fill:C.red,'letter-spacing':1.6,'font-weight':600});
+    [128,220,312].forEach(y=>BG(g,'path',{d:`M0 ${y} L1150 ${y}`,stroke:C.rule,'stroke-width':1.5}));
+    const row=(y,t,s)=>{T(g,0,y-4,t,{'font-size':20,fill:C.ink,'font-weight':700,style:'font-family:var(--display)'});T(g,0,y+22,s,{'font-size':14.5,fill:C.body,style:'font-family:var(--text)'});};
+    // 1 · wakes up?
+    row(ys[0],'Won\u2019t wake up','shout their name, rub the breastbone hard');
+    BG(g,'circle',{cx:cH,cy:ys[0]-22,r:12,fill:C.body});BG(g,'rect',{x:cH-16,y:ys[0]-6,width:32,height:38,rx:15,fill:C.body});
+    E(g,'use',{href:'#figure',x:cO-50,y:ys[0]-4,width:100,height:37.5,style:'color:#c8102e'});
+    // 2 · pupils
+    row(ys[1],'Pinpoint pupils','still tiny in dim light');
+    [[cH,7.5],[cO,2.6]].forEach(([x,r])=>{const y=ys[1];BG(g,'path',{d:`M${x-40} ${y} Q${x} ${y-30} ${x+40} ${y} Q${x} ${y+30} ${x-40} ${y} Z`,fill:'#fff',stroke:C.body,'stroke-width':2});
+      BG(g,'circle',{cx:x,cy:y,r:14,fill:'#9a8f92'});BG(g,'circle',{cx:x,cy:y,r,fill:C.ink});});
+    // 3 · lips
+    row(ys[2],'Blue or gray lips','and fingertips; on darker skin, check the gums');
+    [[cH,'#e58f9b','#b8606c'],[cO,'#8796ab','#55637a']].forEach(([x,f,d])=>{const y=ys[2];
+      BG(g,'path',{d:`M${x-44} ${y} C${x-30} ${y-19} ${x-12} ${y-19} ${x} ${y-8} C${x+12} ${y-19} ${x+30} ${y-19} ${x+44} ${y} C${x+28} ${y+21} ${x-28} ${y+21} ${x-44} ${y} Z`,fill:f});
+      BG(g,'path',{d:`M${x-40} ${y} Q${x} ${y+6} ${x+40} ${y}`,stroke:d,'stroke-width':2.2,fill:'none'});});
+    // 4 · breathing
+    row(ys[3],'Barely breathing','under 8 breaths a minute; gurgling or snoring');
+    const trace=(x0,y,n,amp,col,stop)=>{let d='';for(let x=0;x<=170;x+=2){const ph=(x%(170/n))/(170/n);let v=Math.exp(-Math.pow((ph-.35)/.13,2));if(stop&&x>170/n)v=0;d+=(x?'L':'M')+(x0+x)+' '+(y+14-v*amp).toFixed(1);}
+      BG(g,'path',{d:`M${x0} ${y+14} L${x0+170} ${y+14}`,stroke:C.rule,'stroke-width':1.5});E(g,'path',{d,fill:'none',stroke:col,'stroke-width':2.8,'stroke-linejoin':'round'});};
+    trace(cH-85,ys[3],4,30,C.body,false);trace(cO-85,ys[3],4,12,C.red,true);
+  })();
+
+  // ---------- 19 · use Narcan in three moves ----------
+  (function(){const g=$('use');
+    const finger=(x,y,rx,ry)=>BG(g,'ellipse',{cx:x,cy:y,rx,ry,fill:'#ead8cc',stroke:'#c9b3a6','stroke-width':1.5});
+    const step=(x,n,t,a,b)=>{BG(g,'circle',{cx:x+14,cy:248,r:14,fill:C.red});T(g,x+14,253,n,{'text-anchor':'middle',fill:'#fff','font-size':14,'font-weight':600});
+      T(g,x+38,253,t,{'font-size':19,fill:C.ink,'font-weight':700,style:'font-family:var(--display)'});T(g,x+38,279,a,{'font-size':14,fill:C.body,style:'font-family:var(--text)'});T(g,x+38,301,b,{'font-size':14,fill:C.body,style:'font-family:var(--text)'});};
+    // 1 · hold it
+    narcan(g,128,24,104);finger(150,80,17,9);finger(210,80,17,9);finger(180,176,24,12);
+    step(20,'1','Hold it','thumb on the plunger,','two fingers on the nozzle');
+    // 2 · into the nose: side profile, head tilted back, device under the nose
+    const ox=410;
+    const hg=E(g,'g',{transform:`translate(${ox+64} 6) scale(.9) rotate(-22 120 120)`});
+    BG(hg,'path',{d:'M60 222 C30 182 20 112 50 62 C70 27 120 12 155 32 C175 44 182 64 180 82 L186 94 C192 106 200 116 204 126 C206 132 200 136 192 136 C194 142 196 148 194 152 C198 156 196 162 190 164 C194 174 190 188 176 192 C160 196 140 192 130 198 L132 222 Z',fill:C.skin});
+    BG(hg,'path',{d:'M150 70 q9 -5 18 0',stroke:C.body,'stroke-width':2.5,fill:'none','stroke-linecap':'round'});
+    (function(){const w=60,s=w/80;E(hg,'use',{href:'#narcan',width:w,height:w*110/80,transform:`translate(193 131) rotate(-20) translate(${-40*s} ${-3*s})`});})();
+    BG(g,'path',{d:`M${ox+40} 200 q-16 -40 8 -78`,stroke:C.red,'stroke-width':2.5,fill:'none','marker-end':'url(#arR)'});
+    step(ox,'2','Into the nose','head back, nozzle in one nostril','until your fingers touch the nose');
+    // 3 · press
+    const px=780;
+    narcan(g,px+120,30,104);finger(px+142,86,17,9);finger(px+202,86,17,9);finger(px+172,182,24,12);
+    arrow(g,`M${px+172} 226 L${px+172} 200`,C.red,3.5);
+    BG(g,'path',{d:`M${px+164} 26 L${px+150} 10 M${px+172} 24 L${px+172} 4 M${px+180} 26 L${px+194} 10`,stroke:C.red,'stroke-width':2.5,'stroke-linecap':'round'});
+    step(px,'3','Press firmly','one push, one full dose','');
+  })();
+
+  // ---------- 16 · pictograms (120 x 120) ----------
+  const ico={
+    shout:g=>{BG(g,'circle',{cx:60,cy:60,r:58,fill:C.well});BG(g,'path',{d:'M28 36 H92 a8 8 0 0 1 8 8 V72 a8 8 0 0 1 -8 8 H56 L40 96 V80 H28 a8 8 0 0 1 -8 -8 V44 a8 8 0 0 1 8 -8 Z',fill:C.red});BG(g,'path',{d:'M60 46 V64',stroke:'#fff','stroke-width':7,'stroke-linecap':'round'});BG(g,'circle',{cx:60,cy:73,r:4.5,fill:'#fff'});},
+    call:g=>{BG(g,'circle',{cx:60,cy:60,r:58,fill:C.well});BG(g,'rect',{x:38,y:20,width:40,height:78,rx:10,fill:C.ink});BG(g,'rect',{x:44,y:30,width:28,height:48,rx:4,fill:'#fff'});T(g,58,59,'911',{'text-anchor':'middle',fill:C.red,'font-size':13,'font-weight':600});BG(g,'path',{d:'M86 38 q10 12 0 24 M94 30 q18 20 0 40',stroke:C.red,'stroke-width':4,fill:'none','stroke-linecap':'round'});},
+    spray:g=>{BG(g,'circle',{cx:60,cy:60,r:58,fill:C.pale});narcan(g,32,16,56);},
+    breathe:g=>{BG(g,'circle',{cx:60,cy:60,r:58,fill:C.well});BG(g,'path',{d:'M57 22 V52 M63 22 V52',stroke:C.ink,'stroke-width':4,'stroke-linecap':'round'});BG(g,'path',{d:'M55 46 C36 38 20 58 26 86 C29 98 47 98 53 88 Z',fill:C.red});BG(g,'path',{d:'M65 46 C84 38 100 58 94 86 C91 98 73 98 67 88 Z',fill:C.red});},
+    timer:g=>{BG(g,'circle',{cx:60,cy:60,r:58,fill:C.well});BG(g,'circle',{cx:60,cy:66,r:34,fill:'#fff',stroke:C.ink,'stroke-width':4});BG(g,'path',{d:'M60 66 L60 32 A34 34 0 0 1 92.3 55.5 Z',fill:C.red});BG(g,'rect',{x:52,y:18,width:16,height:8,rx:3,fill:C.ink});BG(g,'path',{d:'M60 66 L60 46',stroke:C.ink,'stroke-width':3,'stroke-linecap':'round'});},
+    recover:g=>{BG(g,'circle',{cx:60,cy:60,r:58,fill:C.well});BG(g,'path',{d:'M12 88 H108',stroke:C.ink,'stroke-width':3,'stroke-linecap':'round'});
+      BG(g,'circle',{cx:26,cy:72,r:10,fill:C.red});                                                         // head, on the ground
+      BG(g,'rect',{x:38,y:66,width:44,height:17,rx:8.5,fill:C.red});                                         // torso on its side
+      BG(g,'path',{d:'M46 68 L40 54 L30 60',stroke:C.red,'stroke-width':7,fill:'none','stroke-linecap':'round','stroke-linejoin':'round'}); // top arm, hand under cheek
+      BG(g,'path',{d:'M80 72 L96 58 L104 74',stroke:C.red,'stroke-width':9,fill:'none','stroke-linecap':'round','stroke-linejoin':'round'}); // top knee bent forward
+      BG(g,'path',{d:'M80 80 L108 82',stroke:'#e4697b','stroke-width':8,fill:'none','stroke-linecap':'round'});                     // lower leg straight
+    }
+  };
+  document.querySelectorAll('svg.ico').forEach(g=>ico[g.dataset.i](g));
+  // ---------- 21 · plan figures ----------
+  (function(){const g=$('ask-venue');
+    BG(g,'path',{d:'M34 144 V58 L140 14 L246 58 V144 Z',fill:'#fff',stroke:C.ink,'stroke-width':3,'stroke-linejoin':'round'});
+    narcan(g,62,68,46);narcan(g,120,68,46);
+    BG(g,'circle',{cx:206,cy:78,r:13,fill:C.ink});BG(g,'rect',{x:188,y:96,width:36,height:44,rx:17,fill:C.ink});
+    BG(g,'rect',{x:182,y:106,width:48,height:12,rx:6,fill:C.pale});
+  })();
+  (function(){const g=$('crowd100');
+    let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+    const idx=[...Array(100).keys()].sort(()=>rnd()-.5),red=new Set(idx.slice(0,25));
+    for(let i=0;i<100;i++){const x=14+(i%20)*14.6,y=18+Math.floor(i/20)*28;
+      E(g,'circle',{cx:x,cy:y,r:5.6,fill:red.has(i)?C.red:C.gray,'data-bg':1});}
+  })();
+  (function(){const g=$('ask-bag');
+    BG(g,'path',{d:'M126 30 C126 10 174 10 174 30',fill:'none',stroke:C.ink,'stroke-width':7,'stroke-linecap':'round'});
+    BG(g,'rect',{x:96,y:26,width:108,height:118,rx:28,fill:C.ink});
+    BG(g,'rect',{x:111,y:92,width:78,height:42,rx:13,fill:'#3d3739'});
+    BG(g,'rect',{x:126,y:42,width:48,height:36,rx:9,fill:C.red});
+    BG(g,'path',{d:'M150 50 V70 M140 60 H160',stroke:'#fff','stroke-width':5,'stroke-linecap':'round'});
+    narcan(g,212,70,34);
+  })();
+
+  // ---------- 22 · cost by source ----------
+  (function(){const g=$('cost');const L=232,W=330,X=v=>L+v/900000*W;
+    const rows=[['State programs (CA, NV)',0,'free'],['CalRx generic · $24',480000,'$480k'],['RiVive · $36',720000,'$720k'],['Narcan public-interest · $41',820000,'$820k'],['Narcan list price · $45',899800,'$900k']];
+    rows.forEach(([lab,v,txt],i)=>{const y=24+i*46;
+      T(g,L-12,y+17,lab,{'text-anchor':'end','font-size':13.5,fill:C.ink,style:'font-family:var(--text)','font-weight':600});
+      if(v){E(g,'rect',{class:'grow',x:L,y,width:X(v)-L,height:26,rx:4,fill:i===1?C.red:C.gray,'data-bg':1});T(g,X(v)+8,y+18,txt,{'font-size':13.5,fill:i===1?C.red:C.body,'font-weight':500});}
+      else{E(g,'circle',{cx:L+8,cy:y+13,r:7,fill:C.ink});T(g,L+22,y+18,txt,{'font-size':13.5,fill:C.ink,'font-weight':600});}
+    });
+    BG(g,'path',{d:`M0 262 L640 262`,stroke:C.rule,'stroke-width':1.5,'stroke-dasharray':'4 4'});
+    T(g,L-12,297,'Recommended mix',{'text-anchor':'end','font-size':13.5,fill:C.ink,style:'font-family:var(--text)','font-weight':700});
+    E(g,'rect',{class:'grow',x:L,y:280,width:X(240000)-L,height:28,rx:4,fill:C.red,'data-bg':1});
+    T(g,X(240000)+8,299,'$240k',{'font-size':15,fill:C.red,'font-weight':600});
+    T(g,L,336,'10,000 free + 10,000 CalRx: about $3.40 per Burner',{'font-size':13,fill:C.body});
+  })();
+
+  // local render mode: ?solo=5 shows only slide 5 (used to screenshot slides); never present on the published page
+  const solo=new URLSearchParams(location.search).get('solo');
+  if(solo){document.querySelectorAll('.divider,.foot').forEach(e=>e.remove());secs.forEach((s,i)=>{if(i!==+solo-1)s.remove();});document.documentElement.style.scrollSnapType='none';}
+})();
+</script>
+</html>

@@ -1,0 +1,6 @@
+# the PDF is published as a release asset, not committed
+*.pdf
+tracker.html
+.old_deck_check.html
+__pycache__/
+.DS_Store
