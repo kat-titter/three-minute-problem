@@ -74,18 +74,33 @@ def _contact(p, q, kind, gap=None):
     return f'<path d="M{sx:.1f} {sy:.1f}L{q[0]:.1f} {q[1]:.1f}" stroke="{col}" stroke-width="{w}" stroke-dasharray="{dash}" stroke-linecap="round" fill="none"/>'
 
 
+def _end(q, kind, r=4.5, room=99):
+    """where a contact meets the receptor: a salt bridge ends on the residue's minus charge, an H-bond on a dot.
+    room: px between the drug's atom and q; a tight pocket (under 40 px) keeps the small dot so the minus never covers the atom."""
+    if kind == "salt" and room < 40:
+        return f'<circle cx="{q[0]:.1f}" cy="{q[1]:.1f}" r="{r}" fill="{RED}"/>'
+    if kind == "salt":
+        return (f'<circle cx="{q[0]:.1f}" cy="{q[1]:.1f}" r="8" fill="{RED}"/>'
+                f'<path d="M{q[0] - 4:.1f} {q[1]:.1f}H{q[0] + 4:.1f}" stroke="#fff" stroke-width="2" stroke-linecap="round"/>')
+    return f'<circle cx="{q[0]:.1f}" cy="{q[1]:.1f}" r="{r}" fill="{YELD}"/>'
+
+
 def gpcr_lock(name, bond, anchor_n, w=360, h=300, pocket_r=72, rh=19, tint=HELIX, hot=HELIX_D,
-              contacts=(), o_atom=None, hl=(), hl_rings=(), label="", extra=(), cx=None, cy=None, num_size=12.5, lab_size=12.5):
+              contacts=(), o_atom=None, hl=(), hl_rings=(), label="", extra=(), cx=None, cy=None, num_size=12.5, lab_size=12.5,
+              plus=()):
     """Top-down seven-helix ring with the molecule in the pocket.
 
     anchor_n: atom pointed at helix 3. o_atom: atom pointed at helix 6 (optional).
-    contacts: (atom, helix 1..7, residue, kind) drawn as dashed lines to that helix.
+    contacts: (atom, helix 1..7, residue, kind) drawn as dashed lines to that helix; a salt bridge ends on a minus.
     extra: (helix, residue) lining residues, printed quietly beside their helix.
+    plus: atoms drawn charged (N⁺H, the amine as it is at body pH).
     """
     goals = [(anchor_n, 0.0, 1.0)]
     if o_atom is not None:
         goals.append((o_atom, math.radians(-150), 0.8))
     m = orient(name, bond, goals)
+    for a in plus:
+        m.atoms[a]["chg"] = 1
     d = draw(m, bond, hl_atoms=hl, hl_rings=hl_rings)
     cx = w / 2 if cx is None else cx
     cy = h / 2 + 4 if cy is None else cy
@@ -110,8 +125,8 @@ def gpcr_lock(name, bond, anchor_n, w=360, h=300, pocket_r=72, rh=19, tint=HELIX
     for atom, hx, res, kind in contacts:
         a = ang[hx]
         q = (cx + (R - rh) * math.cos(a), cy + (R - rh) * math.sin(a))
-        out.append(_contact(P[atom], q, kind))
-        out.append(f'<circle cx="{q[0]:.1f}" cy="{q[1]:.1f}" r="4" fill="{RED if kind == "salt" else YELD}"/>')
+        out.append(_contact(P[atom], q, kind, gap=21 if atom in plus else None))
+        out.append(_end(q, kind, room=math.dist(P[atom], q)))
         lines.setdefault(hx, []).append((res, RED if kind == "salt" else YELT, 600))
     for hx, res in extra:
         lines.setdefault(hx, []).append((res, MUTE, 400))
@@ -173,8 +188,10 @@ def gaba_lock(name, bond, br_atom, w=360, h=300, label=""):
 
 
 def side_pocket(name, bond, n_atom, o_atom, sub_tip, blocked, h=290, label="", red_atoms=()):
-    """Side view of the mu pocket: helix 6 wall (left, His297), helix 3 wall (right, Asp147), floor Trp293 (the toggle)."""
+    """Side view of the mu pocket: helix 6 wall (left, His297), helix 3 wall (right, Asp147), floor Trp293 (the toggle).
+    The nitrogen is drawn charged (N⁺H), as it is at body pH."""
     m = orient(name, bond, [(n_atom, 0.0, 1.0), (o_atom, math.radians(-150), 0.7), (sub_tip, math.radians(70), 0.9)])
+    m.atoms[n_atom]["chg"] = 1
     d = draw(m, bond, hl_atoms=[n_atom, o_atom], red_atoms=red_atoms)
     x0, y0, W, H = d["box"]
     margin, wall, gap = 64, 24, 22
@@ -195,10 +212,10 @@ def side_pocket(name, bond, n_atom, o_atom, sub_tip, blocked, h=290, label="", r
     out.append(mol_svg)
     qn = (right, P[n_atom][1])
     qo = (left, P[o_atom][1])
-    out.append(_contact(P[n_atom], qn, "salt"))
-    out.append(f'<circle cx="{qn[0]:.1f}" cy="{qn[1]:.1f}" r="4.5" fill="{RED}"/>')
+    out.append(_contact(P[n_atom], qn, "salt", gap=21))
+    out.append(_end(qn, "salt"))
     out.append(_contact(P[o_atom], qo, "hbond"))
-    out.append(f'<circle cx="{qo[0]:.1f}" cy="{qo[1]:.1f}" r="4.5" fill="{YELD}"/>')
+    out.append(_end(qo, "hbond"))
     out.append(_txt(right + wall + 6, qn[1] + 4, "Asp147", 12, RED, 600, "start"))
     out.append(_txt(left - wall - 6, qo[1] + 4, "His297", 12, YELT, 600, "end"))
     if blocked:

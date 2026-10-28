@@ -52,7 +52,7 @@ mark{color:inherit;background:linear-gradient(transparent 12%,var(--hi) 12%,var(
 .dark mark{color:var(--night);background:linear-gradient(transparent 12%,var(--nhi) 12%,var(--nhi) 92%,transparent 92%)}
 .lede{margin:0;font-size:20px;line-height:1.42;max-width:900px}
 .fig{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.fig b{font-weight:500;color:var(--ink)}
+.fig b{font-weight:500;color:var(--ink);margin-right:1.2em}
 .dark .fig{color:var(--nmute)} .dark .fig b{color:var(--nink)}
 .note{margin:0;font-size:15px;line-height:1.45;color:var(--body)}
 .dark .note{color:var(--nbody)}
@@ -80,6 +80,7 @@ svg.mol{display:block;max-width:100%;height:auto;color:var(--ink)}
 .chip span{font-size:14px;line-height:1.35;color:var(--body)}
 .chip .n{font:800 28px var(--display);color:var(--red);letter-spacing:-.03em;flex-shrink:0}
 .chip.hi{background:var(--hi)}
+.chip sup{font-size:.68em;line-height:0;vertical-align:.5em}
 .heat{border-collapse:separate;border-spacing:5px;width:100%;font-variant-numeric:tabular-nums}
 .heat th{font:500 12.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:center;padding:4px 6px;font-weight:500}
 .heat th.row{text-align:left;font:600 17px var(--text);letter-spacing:0;text-transform:none;color:var(--ink);padding-left:0}
@@ -91,6 +92,7 @@ svg.mol{display:block;max-width:100%;height:auto;color:var(--ink)}
 .pict{display:flex;flex-direction:column;gap:10px;align-items:flex-start;min-width:0;position:relative}
 .pict .when{font:500 13px var(--mono);letter-spacing:.06em;color:var(--mute)}
 .pict .when.hot{color:var(--red)}
+.pict .when b{font-weight:700;color:var(--ink);margin-right:.9em} .pict .when.hot b{color:var(--red)}
 .pict .t{font:700 21px/1.15 var(--display);color:var(--ink)}
 .pict .d{font-size:15.5px;line-height:1.42;color:var(--body)}
 .badge{display:inline-flex;align-items:center;gap:6px;font:500 12.5px var(--mono);padding:4px 9px;border-radius:999px}
@@ -112,6 +114,7 @@ svg.lock{display:block;max-width:100%;height:auto}
 .verdict{display:flex;align-items:center;gap:8px;font:700 17px var(--display)}
 .verdict.ok{color:var(--red)} .verdict.no{color:var(--mute)}
 .legend{display:flex;align-items:center;gap:10px;font:600 13px var(--mono);color:var(--red)}
+.mkey{display:flex;flex-wrap:wrap;gap:6px 22px;font:500 13px var(--mono);color:var(--body)} .mkey span{display:inline-flex;align-items:center;gap:8px}
 .legend i{display:block;width:24px;height:6px;border-radius:3px;background:var(--red)}
 .plan{padding:20px 22px;display:flex;flex-direction:column;gap:10px;justify-content:flex-start}
 .plan .big{font-size:56px}
@@ -164,7 +167,7 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <!-- 01 · title -->
 <section><div class="box"><div class="stage"><div class="s" style="padding:70px 80px 60px;justify-content:space-between">
-  <div class="top"><span style="color:var(--ink)">Black Rock City · festivals · warehouses</span><b>Community harm reduction</b></div>
+  <div class="top"><span style="color:var(--ink)">Black Rock City, festivals, warehouses</span><b>Community harm reduction</b></div>
   <div style="display:flex;align-items:center;justify-content:space-between;gap:40px">
     <div style="display:flex;flex-direction:column;gap:26px;max-width:720px">
       <h1 style="font-size:88px;font-weight:800;letter-spacing:-.045em;line-height:.94">Breathing stops.<br>You have <span class="r">three minutes.</span></h1>
@@ -179,7 +182,7 @@ svg.lock{display:block;max-width:100%;height:auto}
     </svg>
   </div>
   <div style="display:flex;justify-content:space-between;align-items:flex-end">
-    <div style="display:flex;flex-direction:column;gap:12px"><div style="height:4px;width:96px;border-radius:2px;background:linear-gradient(90deg,var(--red) 0 60%,#ffe36e 60%)"></div><span style="font:14px var(--mono);color:var(--mute)">Kat Titterton · San Francisco · updated Oct 2026</span></div>
+    <div style="display:flex;flex-direction:column;gap:12px"><div style="height:4px;width:96px;border-radius:2px;background:linear-gradient(90deg,var(--red) 0 60%,#ffe36e 60%)"></div><span style="font:14px var(--mono);color:var(--mute)">Kat Titterton, San Francisco, updated Oct 2026</span></div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
       <a href="https://kat-titter.github.io/overdose-watch/" style="font:500 14px var(--mono);color:var(--red);text-underline-offset:3px">Live tracker: kat-titter.github.io/overdose-watch</a>
     </div>
@@ -190,15 +193,15 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <!-- 02 · now -->
 <section><div class="box"><div class="stage"><div class="s">
-  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-pulse"/></svg>The problem · where we are, Oct 2026</span></div>
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-pulse"/></svg>Where we are, Oct 2026</span></div>
   <h2>Deaths are falling. <mark>Still about 190 a day.</mark></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
-      <span class="fig"><b>Fig 1</b> · United States, overdose deaths per year</span>
+      <span class="fig"><b>Fig 1</b>United States, overdose deaths per year</span>
       <svg id="usbars" viewBox="0 0 520 280" style="width:100%;height:auto" role="img" aria-label="US overdose deaths per year, CDC provisional counts as of October 2026: 107,966 in 2023, 81,313 in 2024 and 70,735 in 2025."></svg>
     </div>
     <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
-      <span class="fig"><b>Fig 2</b> · San Francisco, overdose deaths January to August</span>
+      <span class="fig"><b>Fig 2</b>San Francisco, overdose deaths January to August</span>
       <svg id="sfbars" viewBox="0 0 520 280" style="width:100%;height:auto" role="img" aria-label="San Francisco overdose deaths January through August: 466 in 2024, 461 in 2025, 351 in 2026."></svg>
       <div class="livein">Updated weekly: <a href="https://kat-titter.github.io/overdose-watch/">kat-titter.github.io/overdose-watch</a></div>
     </div>
@@ -217,7 +220,7 @@ svg.lock{display:block;max-width:100%;height:auto}
   <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-pulse"/></svg>The reversal window</span></div>
   <h2>Spray by <mark>3:00</mark>, or the brain starts paying.</h2>
   <div class="panel" style="padding:16px 24px 8px;display:flex;flex-direction:column;gap:4px;flex-grow:1;min-height:0">
-    <span class="fig"><b>Fig 3</b> · Oxygen in the blood after breathing stops (illustrative)</span>
+    <span class="fig"><b>Fig 3</b>Oxygen in the blood after breathing stops (illustrative)</span>
     <div style="flex-grow:1;display:flex;align-items:center"><svg id="clock" viewBox="0 0 1100 312" style="display:block;width:100%;height:auto" role="img" aria-label="Illustrative blood oxygen after breathing stops. With no help, oxygen falls from about 94 percent to under 50 percent by four minutes, into the brain-injury zone. With Narcan at three minutes, breathing restarts around five and a half minutes and oxygen recovers. With someone breathing for them from the first minute as well, oxygen stays above 80 percent the whole time."></svg></div>
   </div>
   <div class="chips" style="grid-template-columns:repeat(3,1fr)">
@@ -233,14 +236,14 @@ svg.lock{display:block;max-width:100%;height:auto}
   <h2>Survival <mark>is not recovery.</mark></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:22px 26px;display:flex;flex-direction:column;gap:14px;justify-content:center">
-      <span class="fig"><b>Fig 4</b> · Of 100 overdose patients with brain injury</span>
+      <span class="fig"><b>Fig 4</b>Of 100 overdose patients with brain injury</span>
       <div style="display:flex;gap:26px;align-items:flex-start;padding-top:8px">
         <svg class="waffle" data-n="86" viewBox="0 0 220 220" style="width:300px;height:300px;flex-shrink:0" role="img" aria-label="86 of 100 dots filled."></svg>
         <div style="display:flex;flex-direction:column;gap:8px"><span class="big" style="font-size:76px;color:var(--nred)">86</span><span style="font:700 20px/1.2 var(--display);color:var(--nink)">classed in hospital as major or extreme loss of function</span><span class="note">47 of 100 go on to skilled nursing.</span></div>
       </div>
     </div>
     <div class="panel" style="padding:22px 26px;display:flex;flex-direction:column;gap:14px;justify-content:center">
-      <span class="fig"><b>Fig 5</b> · Of 100 overdose patients without brain injury</span>
+      <span class="fig"><b>Fig 5</b>Of 100 overdose patients without brain injury</span>
       <div style="display:flex;gap:26px;align-items:flex-start;padding-top:8px">
         <svg class="waffle" data-n="34" viewBox="0 0 220 220" style="width:300px;height:300px;flex-shrink:0" role="img" aria-label="34 of 100 dots filled."></svg>
         <div style="display:flex;flex-direction:column;gap:8px"><span class="big" style="font-size:76px">34</span><span style="font:700 20px/1.2 var(--display);color:var(--nink)">classed in hospital as major or extreme loss of function</span></div>
@@ -254,11 +257,11 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <!-- 05 · the opioid system -->
 <section><div class="box"><div class="stage"><div class="s">
-  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>The biology · the opioid system</span></div>
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>The opioid system</span></div>
   <h2>Your body makes its own opioids. <mark>Drugs flip the same switch.</mark></h2>
   <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:22px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:16px 22px 12px;display:flex;flex-direction:column;gap:8px">
-      <span class="fig"><b>Fig 6</b> · Keys and locks: your opioid peptides and their receptors</span>
+      <span class="fig"><b>Fig 6</b>Keys and locks: your opioid peptides and their receptors</span>
       <div class="defs">
         <div><b><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M11.5 12H21.5M17.5 12v3.5M20.5 12v3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Peptide, the <mark>key</mark></b>a short chain of amino acids your body releases as a signal</div>
         <div><b><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 10.5V8a4.5 4.5 0 0 1 9 0v2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/></svg>Receptor, the <mark>lock</mark></b>a protein on a nerve cell; the right key flips its switch</div>
@@ -267,47 +270,49 @@ svg.lock{display:block;max-width:100%;height:auto}
       <div class="legend"><i></i>red = mu, the switch opioid drugs flip</div>
     </div>
     <div class="panel" style="padding:16px 22px 12px;display:flex;flex-direction:column;gap:6px">
-      <span class="fig"><b>Fig 7</b> · Breathing, measured at the nose (schematic)</span>
+      <span class="fig"><b>Fig 7</b>Breathing, measured at the nose (schematic)</span>
       <svg id="breath" viewBox="0 0 520 330" style="width:100%;height:auto" role="img" aria-label="Schematic airflow traces over 60 seconds, with the opioid dose rising from top to bottom: normal, about 14 breaths a minute; with an opioid on mu, about 6 shallow breaths; in overdose, one breath and then none."></svg>
       <p class="note">The brainstem cells that set this rhythm are <b class="r">covered in mu receptors.</b></p>
     </div>
   </div>
 </div></div></div></section>
 
-<!-- 06 · the key -->
+<!-- 06 the lock and its key -->
 <section><div class="box"><div class="stage"><div class="s">
-  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-hex"/></svg>The chemistry · the key</span></div>
-  <h2>Two contacts. <mark>Every opioid makes the first.</mark></h2>
-  <div class="panel" style="padding:18px 24px 16px;display:flex;flex-direction:column;gap:6px;flex-grow:1;min-height:0">
-    <span class="fig"><b>Fig 8</b> · Drawn to the same scale · yellow = the two contacts</span>
-    <div style="flex-grow:1;display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
-      <div class="molcard">{{mol:leuenk}}<span class="nm">Leu-enkephalin</span><span class="ds">made by your body · Tyr-Gly-Gly-Phe-Leu</span></div>
-      <div class="molcard">{{mol:morphine}}<span class="nm">Morphine</span><span class="ds">poppy · a rigid copy of the tyrosine end</span></div>
-      <div class="molcard">{{mol:fentanyl}}<span class="nm">Fentanyl</span><span class="ds">synthetic · ~50–100× morphine</span></div>
-    </div>
-  </div>
-  <div class="chips" style="grid-template-columns:1fr 1fr">
-    <div class="chip"><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#ffe36e" fill-opacity=".55"/><text x="22" y="27" font-size="14" text-anchor="middle" fill="#1a1517" font-weight="500">N⁺</text></svg><span><b>Charged nitrogen → Asp147</b>a plus-to-minus grip (salt bridge) on helix 3. Every opioid makes it.</span></div>
-    <div class="chip"><svg aria-hidden="true" width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#ffe36e" fill-opacity=".55"/><text x="22" y="27" font-size="14" text-anchor="middle" fill="#1a1517" font-weight="500">OH</text></svg><span><b>Phenol → His297</b>a water-bridged H-bond to helix 6. Fentanyl skips it and still fits.</span></div>
-  </div>
-</div></div></div></section>
-
-<!-- 07 · the lock -->
-<section><div class="box"><div class="stage"><div class="s">
-  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>The lock</span></div>
-  <h2>The key fits a pocket <mark>inside seven helices.</mark></h2>
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>The lock and key</span></div>
+  <h2>The key grips the lock <mark>at two points.</mark></h2>
   <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:22px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:14px 20px 8px;display:flex;flex-direction:column;gap:4px">
-      <span class="fig"><b>Fig 9</b> · The mu receptor from above, with morphine in its pocket</span>
+      <span class="fig"><b>Fig 8</b>The mu receptor from above, with morphine in its pocket</span>
       <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;min-height:0">{{mol:lock_mu_big}}</div>
     </div>
     <div class="chips" style="align-content:center">
-      <div class="chip"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#ffe36e" fill-opacity=".55"/><text x="20" y="25" font-size="13" text-anchor="middle" fill="#1a1517" font-weight="500">N⁺</text></svg><span><b>The key</b>N⁺ to Asp147 on helix 3, OH to His297 on helix 6: the two contacts from Fig 8.</span></div>
-      <div class="chip"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 40 40"><path d="M8 32 C14 16 24 12 32 10" stroke="#c8102e" stroke-width="3" fill="none" marker-end="url(#arR)"/></svg><span><b>The turn</b>the fit lets helix 6 swing outward. That flips the switch inside the cell.</span></div>
-      <div class="chip" style="gap:18px"><svg aria-hidden="true" width="40" height="20" viewBox="0 0 40 20"><path d="M2 6 H38" stroke="#c8102e" stroke-width="2.4" stroke-dasharray="5 4"/><path d="M2 15 H38" stroke="#9a7b00" stroke-width="2.2" stroke-dasharray="2 4" stroke-linecap="round"/></svg><span><b style="color:var(--red)">salt bridge</b>plus to minus charge <b style="color:#7a6200;margin-top:4px">hydrogen bond</b>shared hydrogen</span></div>
+      <div class="chip"><svg aria-hidden="true" width="74" height="40" viewBox="0 0 74 40"><circle cx="18" cy="20" r="17" fill="#ffe36e" fill-opacity=".55"/><text x="18" y="25" font-size="13" text-anchor="middle" fill="#1a1517" font-weight="500">N⁺</text><path d="M37 20H54" stroke="#c8102e" stroke-width="2.2" stroke-dasharray="5 4"/><circle cx="64" cy="20" r="8" fill="#c8102e"/><path d="M60 20H68" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span><b>N<sup>+</sup> = charged nitrogen</b>Its plus grips the minus of Asp147 on helix 3, a salt bridge.</span></div>
+      <div class="chip"><svg aria-hidden="true" width="74" height="40" viewBox="0 0 74 40"><circle cx="18" cy="20" r="17" fill="#ffe36e" fill-opacity=".55"/><text x="18" y="25" font-size="13" text-anchor="middle" fill="#1a1517" font-weight="500">OH</text><path d="M37 20H56" stroke="#9a7b00" stroke-width="2.2" stroke-dasharray="2 4" stroke-linecap="round"/><circle cx="64" cy="20" r="4.5" fill="#9a7b00"/></svg><span><b>OH grips His297</b>A hydrogen bond to helix 6, through a water.</span></div>
+      <div class="chip"><svg aria-hidden="true" width="74" height="40" viewBox="0 0 74 40"><path d="M24 34 C30 18 40 14 48 12" stroke="#c8102e" stroke-width="3" fill="none" marker-end="url(#arR)"/></svg><span><b>The turn</b>The fit lets helix 6 swing outward. That flips the switch inside the cell.</span></div>
     </div>
   </div>
   <div class="src">Receptor structures: Manglik et al. 2012 (inactive) and Huang et al. 2015 (active), Nature. Helix positions schematic.</div>
+</div></div></div></section>
+
+<!-- 07 the keys -->
+<section><div class="box"><div class="stage"><div class="s">
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-hex"/></svg>The keys</span></div>
+  <h2>Fentanyl has no OH. <mark>It gets in faster.</mark></h2>
+  <div class="panel" style="padding:18px 24px 16px;display:flex;flex-direction:column;gap:6px;flex-grow:1;min-height:0">
+    <span class="fig"><b>Fig 9</b>Three keys, drawn to the same scale; yellow marks the two contacts</span>
+    <div style="flex-grow:1;display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
+      <div class="molcard">{{mol:leuenk}}<span class="nm">Leu-enkephalin</span><span class="ds">made by your body, Tyr-Gly-Gly-Phe-Leu</span></div>
+      <div class="molcard">{{mol:morphine}}<span class="nm">Morphine</span><span class="ds">poppy, a rigid copy of the tyrosine end</span></div>
+      <div class="molcard">{{mol:fentanyl}}<span class="nm">Fentanyl</span><span class="ds">synthetic, 50–100× morphine</span></div>
+    </div>
+  </div>
+  <div class="chips" style="grid-template-columns:1fr 1fr 1.2fr">
+    <div class="chip"><svg aria-hidden="true" width="74" height="40" viewBox="0 0 74 40"><circle cx="18" cy="20" r="17" fill="#ffe36e" fill-opacity=".55"/><text x="18" y="25" font-size="13" text-anchor="middle" fill="#1a1517" font-weight="500">N⁺</text><path d="M37 20H54" stroke="#c8102e" stroke-width="2.2" stroke-dasharray="5 4"/><circle cx="64" cy="20" r="8" fill="#c8102e"/><path d="M60 20H68" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span><b>N<sup>+</sup> grips Asp147</b>Every opioid makes this contact.</span></div>
+    <div class="chip"><svg aria-hidden="true" width="74" height="40" viewBox="0 0 74 40"><circle cx="18" cy="20" r="17" fill="#ffe36e" fill-opacity=".55"/><text x="18" y="25" font-size="13" text-anchor="middle" fill="#1a1517" font-weight="500">OH</text><path d="M37 20H56" stroke="#9a7b00" stroke-width="2.2" stroke-dasharray="2 4" stroke-linecap="round"/><circle cx="64" cy="20" r="4.5" fill="#9a7b00"/></svg><span><b>OH grips His297</b>Fentanyl has none, and holds about as tight.</span></div>
+    <div class="chip hi"><svg aria-hidden="true" width="92" height="40" viewBox="0 0 92 40"><rect x="2" y="6" width="1" height="10" fill="#6b6466"/><text x="9" y="15" font-size="11" fill="#6b6466">1.4</text><rect x="2" y="23" width="56" height="10" rx="3" fill="#c8102e"/><text x="63" y="32" font-size="11" font-weight="600" fill="#c8102e">816</text></svg><span><b>580× more fat-soluble</b>than morphine. No OH, two extra rings: it slips into the brain in minutes.</span></div>
+  </div>
+  <div class="src">Ki at mu: morphine 1.17 nM, fentanyl 1.35 nM (Volpe 2011). Octanol/water, pH 7.4: 1.4 vs 816 (Peng 1999).</div>
 </div></div></div></section>
 
 <!-- 08 · turning the key -->
@@ -315,7 +320,7 @@ svg.lock{display:block;max-width:100%;height:auto}
   <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>Turning the key</span><b>The mu receptor, side view</b></div>
   <h2>Turn the key, and <span class="r">the neuron goes quiet.</span></h2>
   <div class="panel" style="padding:18px 24px 12px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:6px">
-    <span class="fig"><b>Fig 10</b> · The mu receptor in the membrane, two states</span>
+    <span class="fig"><b>Fig 10</b>The mu receptor in the membrane, two states</span>
     <div style="flex-grow:1;display:flex;align-items:center"><svg id="lock" viewBox="0 0 1150 452" style="width:100%;height:auto" role="img" aria-label="Two mu-opioid receptors in a cell membrane. Left, at rest: the pocket is empty, helix 6 stays put, no Gi docks, the GIRK potassium gate stays shut and the neuron keeps firing. Right, fentanyl bound: helix 6 swings about 10 angstroms outward, Gi docks, its beta-gamma arm opens GIRK, potassium leaves and the neuron goes quiet."></svg></div>
   </div>
   <div class="src">Manglik et al. 2012 (inactive) and Huang et al. 2015 (active), Nature: helix 6 moves ~10 Å. Schematic.</div>
@@ -327,14 +332,14 @@ svg.lock{display:block;max-width:100%;height:auto}
   <h2>Narcan fits the lock <span class="r">but won't turn it.</span></h2>
   <div style="display:grid;grid-template-columns:1.18fr 1fr;gap:22px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:14px 18px 8px;display:flex;flex-direction:column;gap:4px">
-      <span class="fig"><b>Fig 11</b> · The pocket from the side · red = the one group that differs</span>
+      <span class="fig"><b>Fig 11</b>The pocket from the side; red marks the difference</span>
       <div class="pockets" style="flex-grow:1;display:flex;justify-content:space-around;align-items:center;gap:8px;min-height:0">
         <div class="molcard">{{mol:pocket_oxymorphone}}<span class="nm">Oxymorphone</span><span class="ds">Narcan's parent opioid: turns the switch</span></div>
         <div class="molcard">{{mol:pocket_naloxone}}<span class="nm" style="color:var(--red)">Naloxone (Narcan)</span><span class="ds">same grip, no turn</span></div>
       </div>
     </div>
     <div class="panel" style="padding:14px 20px 8px;display:flex;flex-direction:column;gap:4px">
-      <span class="fig"><b>Fig 12</b> · Why strong opioids need more doses</span>
+      <span class="fig"><b>Fig 12</b>Why strong opioids need more doses</span>
       <svg id="comp" viewBox="0 0 520 330" style="width:100%;height:auto" role="img" aria-label="Illustrative competitive-binding model: share of mu receptors held by the opioid against number of Narcan doses. A heroin-level load falls into the breathing zone after one dose; a fentanyl or nitazene-level load needs two."></svg>
     </div>
   </div>
@@ -349,7 +354,7 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <!-- 10 · the pill -->
 <section><div class="box"><div class="stage"><div class="s dark">
-  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-hex"/></svg>The new supply · San Francisco, April 2026</span></div>
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-hex"/></svg>San Francisco, April 2026</span></div>
   <h2>Fake pills. <span class="r">Three drugs.</span> A 16-year-old.</h2>
   <div style="display:grid;grid-template-columns:280px 1fr 1fr 1fr;gap:16px;flex-grow:1;min-height:0">
     <div style="display:flex;flex-direction:column;gap:18px;justify-content:center;padding-right:8px">
@@ -357,14 +362,14 @@ svg.lock{display:block;max-width:100%;height:auto}
       <div style="display:flex;gap:14px;align-items:center"><svg aria-hidden="true" width="44" height="61" viewBox="0 0 80 110" style="flex-shrink:0"><use href="#narcan" width="80" height="110"/></svg><span class="note">He likely took counterfeit pills. His mother found him and gave Narcan <b style="color:var(--nink)">twice.</b> He died. Narcan reverses the opioids, not the benzo, and only in time.</span></div>
     </div>
     <div class="panel molcard" style="padding:16px 14px;justify-content:space-between;border-top:4px solid #ff5a6e">
-      <span class="fig" style="color:var(--nred)">opioid · orphine</span>
+      <span class="fig" style="color:var(--nred)">orphine opioid</span>
       <span class="nm">Cychlorphine</span>
       <div style="flex-grow:1;display:flex;align-items:center">{{mol:pill_cychlorphine}}</div>
-      <span class="ds">new · about 10× fentanyl</span>
+      <span class="ds">new, about 10× fentanyl</span>
       <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center"><span class="badge no">test strip ✕ misses</span><span class="badge ok">Narcan ✓</span></div>
     </div>
     <div class="panel molcard" style="padding:16px 14px;justify-content:space-between;border-top:4px solid #c8102e">
-      <span class="fig" style="color:var(--nred)">opioid · nitazene</span>
+      <span class="fig" style="color:var(--nred)">nitazene opioid</span>
       <span class="nm">N-desethyl isotonitazene</span>
       <div style="flex-grow:1;display:flex;align-items:center">{{mol:pill_nitazene}}</div>
       <span class="ds">not a fentanyl analog</span>
@@ -387,21 +392,21 @@ svg.lock{display:block;max-width:100%;height:auto}
   <h2>Narcan fits <span class="r">one lock.</span> The supply hits three.</h2>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:inset 0 0 0 2px var(--red)">
-      <span class="fig" style="color:var(--red)">mu-opioid receptor · 7 helices</span>
+      <span class="fig" style="color:var(--red)">mu-opioid receptor, 7 helices</span>
       <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;min-height:0">{{mol:lock_mu}}</div>
       <span style="font:700 17px var(--display);color:var(--ink)">Fentanyl, nitazenes, cychlorphine</span>
       <span class="note" style="font-size:14px">Stops the breathing rhythm.</span>
       <span class="verdict ok"><svg aria-hidden="true" width="18" height="25" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>right lock: Narcan reverses</span>
     </div>
     <div class="panel" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px">
-      <span class="fig">GABA-A receptor · 5 subunits, a Cl⁻ pore</span>
+      <span class="fig">GABA-A receptor, a 5-subunit Cl⁻ pore</span>
       <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;min-height:0">{{mol:lock_gaba}}</div>
       <span style="font:700 17px var(--display);color:var(--ink)">Xanax, bromazolam, ethylbromazolam</span>
       <span class="note" style="font-size:14px">A second brake: opens the chloride pore more often.</span>
       <span class="verdict no"><svg aria-hidden="true" width="18" height="25" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>wrong lock: Narcan does nothing</span>
     </div>
     <div class="panel" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px">
-      <span class="fig">α2-adrenergic receptor · 7 helices</span>
+      <span class="fig"><span style="text-transform:none">α</span>2-adrenergic receptor, 7 helices</span>
       <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;min-height:0">{{mol:lock_a2}}</div>
       <span style="font:700 17px var(--display);color:var(--ink)">Medetomidine, xylazine (tranq)</span>
       <span class="note" style="font-size:14px">A smaller pocket; same brake inside the cell as mu.</span>
@@ -416,7 +421,7 @@ svg.lock{display:block;max-width:100%;height:auto}
   <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-cell"/></svg>Where the three meet</span></div>
   <h2>After Narcan, <mark>the benzo brake remains.</mark></h2>
   <div class="panel" style="padding:18px 24px 12px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:6px">
-    <span class="fig"><b>Fig 13</b> · A breathing neuron's membrane, and its voltage (schematic)</span>
+    <span class="fig"><b>Fig 13</b>A breathing neuron's membrane, and its voltage (schematic)</span>
     <div style="flex-grow:1;display:flex;align-items:center"><svg id="neuron" viewBox="0 0 1150 440" style="width:100%;height:auto" role="img" aria-label="A neuron membrane. Mu and alpha-2 receptors both signal through Gi to open a GIRK potassium channel; a GABA-A receptor boosted by a benzo lets chloride in. Both make the inside more negative. Below, schematic voltage traces: normal bursting; silent with an opioid plus a benzo; after Narcan, slower weaker bursts because the benzo brake remains."></svg></div>
   </div>
 </div></div></div></section>
@@ -427,12 +432,12 @@ svg.lock{display:block;max-width:100%;height:auto}
   <h2>Test strips shrink the risk. <span class="r">Never to zero.</span></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:20px 24px;display:flex;flex-direction:column;gap:10px">
-      <span class="fig"><b>Fig 14</b> · Fentanyl found in powders, 2021–23 (wide ranges)</span>
+      <span class="fig"><b>Fig 14</b>Fentanyl found in powders, 2021–23 (wide ranges)</span>
       <svg id="powders" viewBox="0 0 520 262" style="width:100%;height:auto" role="img" aria-label="Share of samples containing fentanyl. Powder cocaine: under 4 percent in police seizures, 14.8 percent in community drug checking. Powder meth: about 1 percent in seizures, 12.5 percent in community checking."></svg>
       <p class="note">Seizures sample bulk before it's cut. Drug checking samples what people actually hold.</p>
     </div>
     <div class="panel" style="padding:20px 24px;display:flex;flex-direction:column;gap:10px">
-      <span class="fig"><b>Fig 15</b> · What a fentanyl strip can see</span>
+      <span class="fig"><b>Fig 15</b>What a fentanyl strip can see</span>
       <svg id="strips" viewBox="0 0 520 262" style="width:100%;height:auto" role="img" aria-label="A fentanyl test strip detects fentanyl and its close analogs. It misses cychlorphine, nitazenes, benzodiazepines, medetomidine and xylazine."></svg>
       <p class="note">Counterfeit pills carry the highest risk.</p>
     </div>
@@ -446,19 +451,20 @@ svg.lock{display:block;max-width:100%;height:auto}
   <div class="src">NFLIS 11.9M seized samples; Drug Alcohol Depend 2023 GC-MS study; SF DPH, Apr 2026; WHPM strip specs.</div>
 </div></div></div></section>
 
-<div class="divider">Case study · Black Rock City</div>
+<div class="divider">Case study: Black Rock City</div>
 
 <!-- 14 · BRC -->
 <section><div class="box"><div class="stage"><div class="s">
-  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>Case study · Burning Man</span></div>
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>Burning Man</span></div>
   <h2>A city of 71,500 people, <mark>three stations.</mark></h2>
   <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:24px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
-      <span class="fig"><b>Fig 16</b> · Black Rock City, schematic (not to scale)</span>
-      <div style="flex-grow:1;display:flex;align-items:center"><svg id="brc" viewBox="0 0 640 420" style="width:100%;height:auto" role="img" aria-label="Schematic of Black Rock City's arc of streets from 2:00 to 10:00 around the Man, with emergency services stations at 3:00, 9:00 and Center Camp, and Rampart, the field hospital, near Center Camp. Deep playa lies beyond the Man, far from any station."></svg></div>
+      <span class="fig"><b>Fig 16</b>Black Rock City, schematic (not to scale)</span>
+      <div style="flex-grow:1;display:flex;align-items:center"><svg id="brc" viewBox="0 0 640 420" style="width:100%;height:auto" role="img" aria-label="Schematic of Black Rock City's arc of streets from 2:00 to 10:00 around the Man. Three medical stations, drawn as red crosses, sit at 3:00, 9:00 and Center Camp; Rampart, the field hospital, drawn as an H, sits near Center Camp. Deep playa lies beyond the Man, far from any station."></svg></div>
+      <div class="mkey"><span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3" fill="#c8102e"/><path d="M10 5V15M5 10H15" stroke="#fff" stroke-width="2.4"/></svg>medical station (ESD)</span><span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3" fill="#1a1517"/><text x="10" y="14.5" font-size="12" text-anchor="middle" fill="#fff" font-weight="700">H</text></svg>Rampart, the field hospital</span></div>
     </div>
     <div class="chips" style="align-content:center">
-      <div class="chip"><span class="n" style="min-width:104px">3</span><span>medical stations (ESD at 3:00, 9:00 and Center Camp), plus Rampart, the field hospital, and roving QRVs</span></div>
+      <div class="chip"><span class="n" style="min-width:104px">3</span><span>medical stations, at 3:00, 9:00 and Center Camp. Rampart, the field hospital, and roving quick-response vehicles (QRVs) back them up.</span></div>
       <div class="chip"><span class="n" style="min-width:104px">0</span><span>stations on deep playa, where small groups wander at night</span></div>
     </div>
   </div>
@@ -470,7 +476,7 @@ svg.lock{display:block;max-width:100%;height:auto}
   <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>Time is distance</span><b>Who can reach them</b></div>
   <h2>The three-minute bubble is <mark>tiny.</mark></h2>
   <div class="panel" style="padding:18px 24px 10px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:6px">
-    <span class="fig"><b>Fig 17</b> · Drawn to scale · radius = minutes until Narcan is in their nose</span>
+    <span class="fig"><b>Fig 17</b>Drawn to scale; radius = minutes until Narcan is in their nose</span>
     <div style="flex-grow:1;display:flex;align-items:center"><svg id="reach" viewBox="0 0 1150 420" style="width:100%;height:auto" role="img" aria-label="A person down at the centre. Rings drawn to scale, radius equals minutes until Narcan arrives. The yellow three-minute bubble holds only a friend beside them and a kit in the same camp. ESD or a QRV by radio arrives in 5 to 10 minutes and Rampart transport takes 10 to 20 or more, far outside the bubble. On a long ride a strong opioid can outlast the first dose, so bring a second kit."></svg></div>
   </div>
 </div></div></div></section>
@@ -490,13 +496,13 @@ svg.lock{display:block;max-width:100%;height:auto}
         </div>
       </div>
       <div class="panel" style="padding:16px 22px;display:flex;flex-direction:column;gap:10px;flex-grow:1">
-        <span class="fig"><b>Fig 18</b> · 16 people, one in four carrying</span>
+        <span class="fig"><b>Fig 18</b>16 people, one in four carrying</span>
         <svg id="crowd16" viewBox="0 0 336 226" style="width:100%;height:auto" role="img" aria-label="Sixteen people, four of them carrying Narcan."></svg>
         <p class="note">At 71,500 Burners, one in four is <b class="r">17,900 pockets</b>.</p>
       </div>
     </div>
     <div class="panel" style="padding:18px 22px 8px;display:flex;flex-direction:column;gap:6px">
-      <span class="fig"><b>Fig 19</b> · Share who must carry for 99% coverage</span>
+      <span class="fig"><b>Fig 19</b>Share who must carry for 99% coverage</span>
       <svg id="curve" viewBox="0 0 700 420" style="display:block;width:100%;height:auto" role="img" aria-label="Carriage rate needed for 99 percent coverage, against group size on a log scale from 1 to 100. It falls from 90 percent at 2 people to 37 percent at 10 and 4.5 percent at 100. A dashed line at 25 percent crosses the curve at 16 people."></svg>
     </div>
   </div>
@@ -508,7 +514,7 @@ svg.lock{display:block;max-width:100%;height:auto}
   <h2>The danger is <mark>small groups, late at night.</mark></h2>
   <div style="display:grid;grid-template-columns:1fr 240px;gap:28px;flex-grow:1;min-height:0">
     <div style="display:flex;flex-direction:column;gap:4px">
-      <span class="fig"><b>Fig 20</b> · Chance nobody nearby has Narcan, <span style="text-transform:none;letter-spacing:0">(1 − p)<sup>N</sup></span></span>
+      <span class="fig"><b>Fig 20</b>Chance nobody nearby has Narcan, <span style="text-transform:none;letter-spacing:0">(1 − p)<sup>N</sup></span></span>
       <table class="heat" id="heat" aria-label="Chance that nobody nearby carries Narcan, by Black Rock City scene and share of people carrying."></table>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;justify-content:center">
@@ -524,10 +530,10 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <!-- 18 · spot it -->
 <section><div class="box"><div class="stage"><div class="s">
-  <div class="top"><span class="sec"><svg class="si" aria-hidden="true" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>The solution · spot an overdose</span><b>Learn it sober</b></div>
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>Spot an overdose</span><b>Learn it sober</b></div>
   <h2>Won't wake. <mark>Barely breathing.</mark> Act.</h2>
   <div class="panel" style="padding:16px 24px 8px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:4px">
-    <span class="fig"><b>Fig 21</b> · The four signs of an opioid overdose</span>
+    <span class="fig"><b>Fig 21</b>The four signs of an opioid overdose</span>
     <div style="flex-grow:1;display:flex;align-items:center"><svg id="spot" viewBox="0 0 1150 396" style="width:100%;height:auto" role="img" aria-label="The four signs of an opioid overdose, healthy versus overdose: sitting up versus lying unresponsive; normal versus pinpoint pupils; pink versus blue-gray lips; regular breaths versus one shallow breath then none."></svg></div>
   </div>
   <div class="chip hi"><svg aria-hidden="true" width="26" height="36" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg><span style="color:var(--ink);font-size:16px"><b style="display:inline">Not sure? Give it.</b> Narcan is harmless without opioids, and benzos can look the same.</span></div>
@@ -538,7 +544,7 @@ svg.lock{display:block;max-width:100%;height:auto}
   <div class="top"><span class="sec"><svg class="si" aria-hidden="true" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>Use Narcan</span><b>One kit, one dose</b></div>
   <h2>Narcan in <mark>three moves.</mark></h2>
   <div class="panel" style="padding:16px 24px 8px;flex-grow:1;min-height:0;display:flex;flex-direction:column;gap:4px">
-    <span class="fig"><b>Fig 22</b> · Using the nasal spray</span>
+    <span class="fig"><b>Fig 22</b>Using the nasal spray</span>
     <div style="flex-grow:1;display:flex;align-items:center"><svg id="use" viewBox="0 0 1150 312" style="width:100%;height:auto" role="img" aria-label="Three steps: hold the device with a thumb on the plunger and two fingers on the nozzle; with the person on their back and head tilted back, put the nozzle in one nostril until your fingers touch the nose; press the plunger firmly for one full dose."></svg></div>
   </div>
 </div></div></div></section>
@@ -548,12 +554,12 @@ svg.lock{display:block;max-width:100%;height:auto}
   <div class="top"><span class="sec"><svg class="si" aria-hidden="true" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>The whole sequence</span><b>Minute by minute</b></div>
   <h2>Shout. Breathe for them. <mark>Spray.</mark></h2>
   <div class="steps">
-    <div class="pict"><span class="when">1 · 0:00</span><svg class="ico" data-i="shout" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Shout, rub the breastbone</span></div>
-    <div class="pict"><span class="when">2 · 0:30</span><svg class="ico" data-i="call" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Call 911 or radio Rampart</span></div>
-    <div class="pict"><span class="when">3 · one every 5 s</span><svg class="ico" data-i="breathe" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Breathe for them</span></div>
-    <div class="pict"><span class="when hot">4 · by 3:00</span><svg class="ico" data-i="spray" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">One spray, one nostril</span></div>
-    <div class="pict"><span class="when">5 · at 5–6 min</span><svg class="ico" data-i="timer" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">No change? Second kit, other nostril</span></div>
-    <div class="pict"><span class="when">6 · until help</span><svg class="ico" data-i="recover" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Recovery position. Stay.</span></div>
+    <div class="pict"><span class="when"><b>1</b>0:00</span><svg class="ico" data-i="shout" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Shout, rub the breastbone</span></div>
+    <div class="pict"><span class="when"><b>2</b>0:30</span><svg class="ico" data-i="call" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Call 911 or radio Rampart</span></div>
+    <div class="pict"><span class="when"><b>3</b>one every 5 s</span><svg class="ico" data-i="breathe" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Breathe for them</span></div>
+    <div class="pict"><span class="when hot"><b>4</b>by 3:00</span><svg class="ico" data-i="spray" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">One spray, one nostril</span></div>
+    <div class="pict"><span class="when"><b>5</b>at 5–6 min</span><svg class="ico" data-i="timer" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">No change? Second kit, other nostril</span></div>
+    <div class="pict"><span class="when"><b>6</b>until help</span><svg class="ico" data-i="recover" viewBox="0 0 120 120" width="150" height="150" aria-hidden="true"></svg><span class="t">Recovery position. Stay.</span></div>
   </div>
   <div class="chip"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><path d="M17 3 L30 8 V17 C30 25 24 30 17 32 C10 30 4 25 4 17 V8 Z" fill="#c8102e"/><path d="M11 17 L15 21 L23 12" stroke="#fff" stroke-width="3" fill="none"/></svg><span>Good Samaritan laws in California (AB 472) and Nevada (SB 459) protect people who call for help with an overdose.</span></div>
 </div></div></div></section>
@@ -586,11 +592,11 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <!-- 22 · cost -->
 <section><div class="box"><div class="stage"><div class="s">
-  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>What it costs</span><b>20,000 twin packs · about $240,000</b></div>
+  <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>What it costs</span><b>20,000 twin packs, about $240,000</b></div>
   <h2>About <mark>$3.40 a Burner</mark> covers Black Rock City.</h2>
   <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:22px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
-      <span class="fig"><b>Fig 23</b> · Cost of 20,000 twin packs (40,000 kits), by source</span>
+      <span class="fig"><b>Fig 23</b>Cost of 20,000 twin packs (40,000 kits), by source</span>
       <svg id="cost" viewBox="0 0 640 352" style="width:100%;height:auto;margin:auto 0" role="img" aria-label="Cost of 20,000 twin packs by source: free through state programs, $480,000 through CalRx at $24, $720,000 for RiVive at $36, $820,000 at Narcan's public-interest price of $41, and $900,000 at Narcan's list price. The recommended mix, half free and half CalRx, costs $240,000, about $3.40 per Burner."></svg>
     </div>
     <div class="chips" style="align-content:center">
@@ -606,7 +612,7 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 </main>
 <div class="foot">
-  <div>Kat Titterton · San Francisco · from the field note <em>The Three-Minute Problem</em> (Sept 2026), updated Oct 17, 2026</div>
+  <div>Kat Titterton, San Francisco, from the field note <em>The Three-Minute Problem</em> (Sept 2026), updated Oct 17, 2026</div>
   <div>Live tracker of overdose deaths and new drugs in the Bay Area, California and Nevada, updated weekly: <a href="https://kat-titter.github.io/overdose-watch/">kat-titter.github.io/overdose-watch</a></div>
   <div>Sources: <a href="https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm">CDC NCHS overdose data</a>; <a href="https://www.statnews.com/2026/05/13/us-overdose-deaths-2025-fell-again/">STAT, May 2026</a>; <a href="https://www.brookings.edu/articles/exploring-the-sources-of-the-decline-in-us-drug-overdoses/">Brookings on the decline</a>; <a href="https://data.sf.gov/d/jxrr-bmra">SF Medical Examiner monthly counts (DataSF)</a>; <a href="https://www.sf.gov/health-alert-fatal-overdose-involving-novel-synthetic-opioids">SF DPH health alert, Apr 2026</a>; <a href="https://www.sanfranciscopolice.org/news/sfpd-arrests-4-dealers-seizes-over-20000-counterfeit-pills">SFPD, Sep 2026</a>; AP, May 2026; <a href="https://www.sfexaminer.com/news/public-health/new-synthetic-opioid-linked-to-first-overdose-death-in-sf/article_f66c5296-0e28-4cc0-aa35-b9210126f2ed.html">SF Examiner, Apr 2026</a>; <a href="https://abc7news.com/post/cychlorphine-new-opioid-stronger-fentanyl-linked-san-francisco-teens-overdose-death-mayor-daniel-lurie-says-4-arrested/19832337/">ABC7, Sep 2026</a>; <a href="https://www.dea.gov/press-releases/2026/03/18/dea-emergency-schedules-bromazolam">DEA, Mar 2026</a>; <a href="https://www.cdph.ca.gov/Programs/CCDPHP/sapb/CDPH%20Document%20Library/CDPHEmergingIssueBrief_Medetomidine.pdf">CDPH medetomidine brief</a>; <a href="https://volunteers.census.burningman.org/reports/2025/intro.html">Black Rock City Census 2025</a>; <a href="https://www.dhcs.ca.gov/individuals/Pages/Naloxone_Distribution_Project.aspx">California Naloxone Distribution Project</a>; <a href="https://www.npr.org/sections/health-shots/2022/08/03/1114925272/music-festival-overdoses">NPR on festival naloxone, 2022</a>; <a href="https://betheplace.org/">This Must Be The Place</a>; <a href="https://remedyallianceftp.org/">Remedy Alliance</a>; <a href="https://ag.nv.gov/News/PR/2026/Purdue/Sackler_$7_4_Billion_Opioid_Settlement_Goes_into_Effect/">Nevada Attorney General, May 2026</a>; CalRx naloxone price (Apr 2025); RiVive launch price; Emergent public-interest price (2023); WHPM fentanyl test strip specification; NFLIS; Drug Alcohol Depend 2023 (Wagner et al.); National Inpatient Sample (J Gen Intern Med 2025). Structures: PubChem 2D coordinates. Receptors: Manglik et al. 2012 and Huang et al. 2015 (mu-opioid, Nature); GABA-A α1 His101; α2A-adrenergic Asp113. Figs 3 and 12 are illustrative models, not patient data.</div>
   <div>This is harm-reduction education, not medical advice. If someone is unresponsive, call 911.</div>
@@ -759,7 +765,7 @@ svg.lock{display:block;max-width:100%;height:auto}
     E(g,'path',{d:'M575 0 L575 452',stroke:C.rule,'stroke-width':2});
     [[0,false],[590,true]].forEach(([ox,on])=>{
       const p=E(g,'g',{transform:`translate(${ox},0)`});
-      T(p,0,20,on?'FENTANYL BOUND · ON':'AT REST · OFF',{'font-size':13,fill:on?C.red:C.ink,'letter-spacing':1.4,'font-weight':500});
+      T(p,0,20,on?'FENTANYL BOUND: ON':'AT REST: OFF',{'font-size':13,fill:on?C.red:C.ink,'letter-spacing':1.4,'font-weight':500});
       T(p,0,40,on?'helix 6 swings out; Gi docks':'empty pocket; helix 6 stays put',{'font-size':13,fill:C.body});
       T(p,0,138,'OUTSIDE',{'font-size':11,'letter-spacing':1.4});T(p,0,284,'INSIDE',{'font-size':11,'letter-spacing':1.4});
       membrane(p,70,150,490,100);
@@ -895,9 +901,12 @@ svg.lock{display:block;max-width:100%;height:auto}
     for(let r=120;r<=200;r+=16){const [x1,y1]=pol(2,r),[x2,y2]=pol(10,r);BG(g,'path',{d:`M${x1.toFixed(1)} ${y1.toFixed(1)} A${r} ${r} 0 1 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`,fill:'none',stroke:r===120?C.gray2:C.gray,'stroke-width':r===120?4:2});}
     [2,3,4,5,6,7,8,9,10].forEach(h=>{const [x1,y1]=pol(h,120),[x2,y2]=pol(h,200);BG(g,'path',{d:`M${x1} ${y1} L${x2} ${y2}`,stroke:C.gray,'stroke-width':2});});
     E(g,'circle',{cx,cy,r:7,fill:C.ink});T(g,cx+12,cy+5,'the Man',{'font-size':12,fill:C.ink});
-    [[3,'ESD 3:00',22,-8,'start',160],[9,'ESD 9:00',-22,-8,'end',160],[6,'Center Camp',0,-26,'middle',132],[5.1,'Rampart',22,4,'start',150]].forEach(([h,n,dx,dy,an,r])=>{const [x,y]=pol(h,r);
+    // the three medical stations share one mark; Rampart, the field hospital, gets its own (an H), so the map shows three stations
+    [[3,'ESD 3:00',22,-8,'start',160],[9,'ESD 9:00',-22,-8,'end',160],[6,'Center Camp',0,-26,'middle',132]].forEach(([h,n,dx,dy,an,r])=>{const [x,y]=pol(h,r);
       BG(g,'circle',{cx:x,cy:y,r:16,fill:C.pale});BG(g,'rect',{x:x-8,y:y-8,width:16,height:16,rx:3,fill:C.red});BG(g,'path',{d:`M${x} ${y-5} V${y+5} M${x-5} ${y} H${x+5}`,stroke:'#fff','stroke-width':2.4});
       T(g,x+dx,y+dy+(an==='middle'?0:4),n,{'text-anchor':an,'font-size':12.5,fill:C.ink,'font-weight':500});});
+    {const [x,y]=pol(5.1,150);BG(g,'rect',{x:x-8,y:y-8,width:16,height:16,rx:3,fill:C.ink});T(g,x,y+4.5,'H',{'text-anchor':'middle','font-size':12,fill:'#fff','font-weight':700});
+      T(g,x+16,y+8,'Rampart',{'font-size':12.5,fill:C.ink,'font-weight':500});}
     const [dx,dy]=pol(0,140);E(g,'use',{href:'#figure',x:dx-18,y:dy-6,width:36,height:13.5,style:'color:#c8102e'});
     T(g,dx,dy-18,'deep playa: no station nearby',{'text-anchor':'middle','font-size':12.5,fill:C.red,'font-weight':500});
     T(g,pol(2,214)[0]+4,pol(2,214)[1],'2:00',{'font-size':11.5});T(g,pol(10,214)[0]-4,pol(10,214)[1],'10:00',{'font-size':11.5,'text-anchor':'end'});
@@ -906,8 +915,8 @@ svg.lock{display:block;max-width:100%;height:auto}
   (function(){const g=$('reach');const cx=520,cy=380,k=17;
     const arc=(r,fill,stroke)=>BG(g,'path',{d:`M${cx-r} ${cy} A${r} ${r} 0 0 1 ${cx+r} ${cy} Z`,fill,stroke:stroke||'none','stroke-width':1.5});
     arc(20*k,'#ece4e5');arc(10*k,'#e2d8da');arc(5*k,'#f6f3f3');arc(3*k,C.pale,'#e6cf5a');
-    T(g,cx,cy-15*k+5,'Rampart transport · 10–20+ min',{'text-anchor':'middle','font-size':14,fill:C.ink,'font-weight':500});
-    T(g,cx,cy-7.5*k+5,'ESD or QRV by radio · 5–10 min',{'text-anchor':'middle','font-size':14,fill:C.ink,'font-weight':500});
+    T(g,cx,cy-15*k+5,'Rampart transport, 10–20+ min',{'text-anchor':'middle','font-size':14,fill:C.ink,'font-weight':500});
+    T(g,cx,cy-7.5*k+5,'ESD or QRV by radio, 5–10 min',{'text-anchor':'middle','font-size':14,fill:C.ink,'font-weight':500});
     E(g,'path',{d:`M${cx-20*k-8} ${cy} L${cx+20*k+8} ${cy}`,stroke:C.ink,'stroke-width':2});
     [5,10,15,20].forEach(m=>{E(g,'path',{d:`M${cx+m*k} ${cy} L${cx+m*k} ${cy+7}`,stroke:C.ink,'stroke-width':1.5});T(g,cx+m*k,cy+24,m,{'text-anchor':'middle','font-size':12});});T(g,cx+20*k+30,cy+24,'minutes',{'font-size':12});
     E(g,'path',{d:`M${cx+3*k} ${cy} L${cx+3*k} ${cy+7}`,stroke:C.red,'stroke-width':2});T(g,cx+3*k,cy+24,'3',{'text-anchor':'middle','font-size':12,fill:C.red,'font-weight':600});
@@ -1051,7 +1060,7 @@ svg.lock{display:block;max-width:100%;height:auto}
 
   // ---------- 22 · cost by source ----------
   (function(){const g=$('cost');const L=232,W=330,X=v=>L+v/900000*W;
-    const rows=[['State programs (CA, NV)',0,'free'],['CalRx generic · $24',480000,'$480k'],['RiVive · $36',720000,'$720k'],['Narcan public-interest · $41',820000,'$820k'],['Narcan list price · $45',899800,'$900k']];
+    const rows=[['State programs (CA, NV)',0,'free'],['CalRx generic, $24',480000,'$480k'],['RiVive, $36',720000,'$720k'],['Narcan public-interest, $41',820000,'$820k'],['Narcan list price, $45',899800,'$900k']];
     rows.forEach(([lab,v,txt],i)=>{const y=24+i*46;
       T(g,L-12,y+17,lab,{'text-anchor':'end','font-size':13.5,fill:C.ink,style:'font-family:var(--text)','font-weight':600});
       if(v){E(g,'rect',{class:'grow',x:L,y,width:X(v)-L,height:26,rx:4,fill:i===1?C.red:C.gray,'data-bg':1});T(g,X(v)+8,y+18,txt,{'font-size':13.5,fill:i===1?C.red:C.body,'font-weight':500});}

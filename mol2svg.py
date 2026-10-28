@@ -140,7 +140,7 @@ def draw(mol, bond=22, hl_atoms=(), hl_bonds=(), hl_rings=(), red_atoms=(), call
             h = mol.hcount(i)
             chg = a.get("chg", 0)
             el = a["el"] + ("⁺" if chg == 1 else "⁻" if chg == -1 else "")
-            labels[i] = (el, "H" if h == 1 else "H₂" if h == 2 else "")
+            labels[i] = (el, "H" if h == 1 else "H₂" if h == 2 else "H₃" if h == 3 else "")
 
     # text boxes are taller below the atom centre than above it (descender space in the em box)
     up_h, down_h = fs * 0.64 + 1.0, fs * 0.86 + 1.0
