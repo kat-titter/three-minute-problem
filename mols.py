@@ -21,6 +21,12 @@ def key_parts(m):
     return o, n, rings, bonds, atoms
 
 
+def charged(m, n):
+    """the amine as it is at body pH: protonated, drawn N⁺H (the plus that grips Asp147)."""
+    m.atoms[n]["chg"] = 1
+    return m
+
+
 def n_substituent(m, n):
     """atoms of the N-substituent outside the ring system (methyl, allyl ...), nearest first."""
     for c, _ in m.nb[n]:
@@ -42,14 +48,17 @@ def build():
     # slide: the shared key (bond 21)
     m = load("leu-enkephalin").rotate(60)
     o, n, R, Bd, A = key_parts(m)
+    charged(m, n)
     F["leuenk"] = svg(m, 24, A, Bd, R, callouts=[(o, 0, 42, ["OH → His297"], "middle"), (n, 30, 40, ["N⁺ → Asp147"], "start")],
                       label="Leu-enkephalin; the tyrosine phenol and the N-terminal amine are highlighted")
     m = load("morphine")
     o, n, R, Bd, A = key_parts(m)
-    F["morphine"] = svg(m, 24, A, Bd, R, callouts=[(o, 0, -40, ["OH → His297"], "middle"), (n, 44, 10, ["N⁺ → Asp147"], "start")],
+    charged(m, n)
+    F["morphine"] = svg(m, 24, A, Bd, R, callouts=[(o, 0, -40, ["OH → His297"], "middle"), (n, 34, 34, ["N⁺ → Asp147"], "start")],
                         label="Morphine; phenol and amine highlighted")
     m = load("fentanyl")
     _, n, _, _, _ = key_parts(m)
+    charged(m, n)
     F["fentanyl"] = svg(m, 24, [n], [], callouts=[(n, 44, 0, ["N⁺ → Asp147"], "start")],
                         label="Fentanyl; the amine nitrogen highlighted, no phenol")
 
@@ -70,7 +79,7 @@ def build():
     F["pill_ethylbromazolam"] = svg(m, 22, [], [], [], label="Ethylbromazolam structure")
 
     # slide: three locks (bond 17)
-    m = load("cychlorphine"); n = m.basic_N()
+    m = load("cychlorphine"); n = m.basic_N(); charged(m, n)
     F["lock_cychlorphine"] = svg(m, 18, [n], [], callouts=[(n, -40, -6, ["N⁺ → Asp147"], "end")],
                                  label="Cychlorphine; amine nitrogen highlighted")
     m = load("ethylbromazolam"); seven = next(r for r in m.rings if len(r) == 7)
@@ -85,14 +94,14 @@ def build():
     m = load("morphine"); o, n = m.phenol_O(), m.basic_N()
     F["lock_mu_big"] = gpcr_lock("morphine", 27, n, w=600, h=460, pocket_r=126, rh=32, o_atom=o, num_size=15, lab_size=14,
                                  contacts=[(n, 3, "Asp147", "salt"), (o, 6, "His297", "hbond")],
-                                 extra=[(3, "Tyr148"), (6, "Trp293"), (7, "Tyr326")], hl=[n, o],
+                                 extra=[(3, "Tyr148"), (6, "Trp293"), (7, "Tyr326")], hl=[n, o], plus=[n],
                                  label="Morphine in the mu-opioid pocket: its nitrogen bonds Asp147 on helix 3, its OH reaches His297 on helix 6")
     for name in ("oxymorphone", "naloxone"):
         m = load(name); n, o = m.basic_N(), m.phenol_O(); sub = n_substituent(m, n); tip = sub[-1]
         F["pocket_" + name] = side_pocket(name, 21, n, o, tip, blocked=(name == "naloxone"), red_atoms=sub,
                                           label=f"{name} in the mu pocket, side view; the group on the nitrogen is drawn in red")
     m = load("cychlorphine"); n = m.basic_N()
-    F["lock_mu"] = gpcr_lock("cychlorphine", 12.5, n, w=360, h=330, pocket_r=92, rh=20, cx=168, contacts=[(n, 3, "Asp147", "salt")], hl=[n],
+    F["lock_mu"] = gpcr_lock("cychlorphine", 12.5, n, w=360, h=330, pocket_r=92, rh=20, cx=168, contacts=[(n, 3, "Asp147", "salt")], hl=[n], plus=[n],
                              label="Cychlorphine in the mu-opioid pocket, bonded to Asp147")
     F["lock_a2"] = gpcr_lock("medetomidine", 16, 0, w=360, h=330, pocket_r=56, rh=20, cx=168, tint="#dfe3ea", hot="#8a94a6",
                              contacts=[(0, 3, "Asp113", "salt")], hl=[0],
