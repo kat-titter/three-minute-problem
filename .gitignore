@@ -4,3 +4,4 @@ tracker.html
 .old_deck_check.html
 __pycache__/
 .DS_Store
+.claude/worktrees/
