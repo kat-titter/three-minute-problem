@@ -56,7 +56,7 @@ mark{color:inherit;background:linear-gradient(transparent 12%,var(--hi) 12%,var(
 .dark .fig{color:var(--nmute)} .dark .fig b{color:var(--nink)}
 .note{margin:0;font-size:15px;line-height:1.45;color:var(--body)}
 .dark .note{color:var(--nbody)}
-.src{position:absolute;right:64px;bottom:20px;font:11.5px var(--mono);color:var(--mute);max-width:880px;text-align:right}
+.src{position:absolute;right:64px;bottom:20px;font:12px var(--mono);color:var(--mute);max-width:880px;text-align:right}
 .dark .src{color:var(--nmute)}
 .dots{position:absolute;left:64px;bottom:25px;display:flex;gap:5px}
 .dots i{display:block;width:8px;height:4px;border-radius:2px;background:#ddd6d7}
@@ -71,7 +71,7 @@ svg.mol{display:block;max-width:100%;height:auto;color:var(--ink)}
 .dark svg.mol{color:var(--nink)}
 .molcard{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
 .nm{font:700 19px var(--display);color:var(--ink);letter-spacing:-.01em}
-.ds{font:12.5px var(--mono);color:var(--mute);text-align:center}
+.ds{font:12px var(--mono);color:var(--mute);text-align:center}
 .dark .nm{color:var(--nink)} .dark .ds{color:var(--nmute)}
 .chips{display:grid;gap:14px}
 .chip{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:var(--well);min-width:0}
@@ -82,7 +82,7 @@ svg.mol{display:block;max-width:100%;height:auto;color:var(--ink)}
 .chip.hi{background:var(--hi)}
 .chip sup{font-size:.68em;line-height:0;vertical-align:.5em}
 .heat{border-collapse:separate;border-spacing:5px;width:100%;font-variant-numeric:tabular-nums}
-.heat th{font:500 12.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:center;padding:4px 6px;font-weight:500}
+.heat th{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:center;padding:4px 6px;font-weight:500}
 .heat th.row{text-align:left;font:600 17px var(--text);letter-spacing:0;text-transform:none;color:var(--ink);padding-left:0}
 .heat th.nn{font:500 15px var(--mono);color:var(--ink);text-transform:none;letter-spacing:0}
 .heat td{height:64px;border-radius:10px;text-align:center;font:500 19px var(--mono)}
@@ -93,9 +93,8 @@ svg.mol{display:block;max-width:100%;height:auto;color:var(--ink)}
 .pict .when{font:500 13px var(--mono);letter-spacing:.06em;color:var(--mute)}
 .pict .when.hot{color:var(--red)}
 .pict .when b{font-weight:700;color:var(--ink);margin-right:.9em} .pict .when.hot b{color:var(--red)}
-.pict .t{font:700 21px/1.15 var(--display);color:var(--ink)}
-.pict .d{font-size:15.5px;line-height:1.42;color:var(--body)}
-.badge{display:inline-flex;align-items:center;gap:6px;font:500 12.5px var(--mono);padding:4px 9px;border-radius:999px}
+.pict .t{font:700 20px/1.15 var(--display);color:var(--ink)}
+.pict .badge{display:inline-flex;align-items:center;gap:6px;font:500 12px var(--mono);padding:4px 9px;border-radius:999px}
 .badge.no{background:#4a1820;color:#ffd2d8}
 .badge.ok{background:#3b3622;color:#fff2a8}
 @media (prefers-reduced-motion:no-preference){.grow{transform-origin:left center;transform-box:fill-box;animation:grow .8s cubic-bezier(.2,.8,.2,1) both}.growy{transform-origin:center bottom;transform-box:fill-box;animation:growy .8s cubic-bezier(.2,.8,.2,1) both}}
@@ -105,7 +104,7 @@ svg.mol{display:block;max-width:100%;height:auto;color:var(--ink)}
 .sec{display:inline-flex;align-items:center;gap:9px}
 .si{width:18px;height:18px;flex-shrink:0;overflow:visible}
 .defs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.defs div{background:#fff;border-radius:10px;padding:8px 12px;font-size:13.5px;line-height:1.35;color:var(--body)}
+.defs div{background:#fff;border-radius:10px;padding:8px 12px;font-size:14px;line-height:1.35;color:var(--body)}
 .defs b{display:flex;align-items:center;gap:7px;margin-bottom:2px;font:700 15px var(--display);color:var(--ink)}
 .defs b svg{flex:none;color:var(--ink)}
 svg.lock{display:block;max-width:100%;height:auto}
@@ -119,10 +118,11 @@ svg.lock{display:block;max-width:100%;height:auto}
 .plan{padding:20px 22px;display:flex;flex-direction:column;gap:10px;justify-content:flex-start}
 .plan .big{font-size:56px}
 .plan .cap{font:700 19px/1.22 var(--display);color:var(--ink)}
-.plan .why{font-size:14.5px;line-height:1.4;color:var(--body)}
+.plan .why{font-size:14px;line-height:1.4;color:var(--body)}
 .steps{margin:auto 0 !important}
 .livein{margin-top:auto;padding-bottom:4px;font:500 13px var(--mono);color:var(--mute)}
 .livein a{color:var(--red);text-underline-offset:3px}
+.src a{color:var(--red);text-underline-offset:3px} .dark .src a{color:var(--nred)}   /* a document link keeps the slide's own red, whatever the page theme */
 /* PDF: Chrome "Save as PDF" or --print-to-pdf gives one slide per page, then the sources */
 @page{size:1280px 720px;margin:0}
 @media print{
@@ -413,7 +413,7 @@ svg.lock{display:block;max-width:100%;height:auto}
       <span class="verdict no"><svg aria-hidden="true" width="18" height="25" viewBox="0 0 80 110"><use href="#narcan" width="80" height="110"/></svg>wrong lock: Narcan does nothing</span>
     </div>
   </div>
-  <div class="src">Top-down views, schematic. Contacts: mu Asp147; GABA-A α1 His101; α2A Asp113.</div>
+  <div class="src">Top-down views, schematic. Contacts: mu Asp147; GABA-A α1 His101; α2A Asp113. Deaths by drug, updated weekly: <a href="https://kat-titter.github.io/overdose-watch/#h-drugs">kat-titter.github.io/overdose-watch/#h-drugs</a></div>
 </div></div></div></section>
 
 <!-- 12 · one neuron, three brakes -->
