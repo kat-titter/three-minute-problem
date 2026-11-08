@@ -57,7 +57,7 @@ def _place(d, cx, cy):
     return f'<g transform="translate({tx:.1f} {ty:.1f})">{d["inner"]}</g>', P
 
 
-def _txt(x, y, s, size=12, fill=MUTE, weight=400, anchor="start"):
+def _txt(x, y, s, size=16, fill=MUTE, weight=400, anchor="start"):
     return f'<text x="{x:.1f}" y="{y:.1f}" font-size="{size}" font-weight="{weight}" fill="{fill}" text-anchor="{anchor}">{s}</text>'
 
 
@@ -86,7 +86,7 @@ def _end(q, kind, r=4.5, room=99):
 
 
 def gpcr_lock(name, bond, anchor_n, w=360, h=300, pocket_r=72, rh=19, tint=HELIX, hot=HELIX_D,
-              contacts=(), o_atom=None, hl=(), hl_rings=(), label="", extra=(), cx=None, cy=None, num_size=12.5, lab_size=12.5,
+              contacts=(), o_atom=None, hl=(), hl_rings=(), label="", extra=(), cx=None, cy=None, num_size=16, lab_size=16,
               plus=()):
     """Top-down seven-helix ring with the molecule in the pocket.
 
@@ -157,9 +157,9 @@ def gaba_lock(name, bond, br_atom, w=360, h=300, label=""):
     for i, (x, y) in enumerate(pos):
         fill = "#f3e3a0" if i in (0, 1) else HELIX
         out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="{fill}" stroke="#fff" stroke-width="2.5" data-bg="1"/>')
-        out.append(_txt(x, y + 5, names[i], 13, INK, 600, "middle"))
+        out.append(_txt(x, y + 5, names[i], 16, INK, 600, "middle"))
     out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="12" fill="{INK}" data-bg="1"/>')
-    out.append(_txt(cx, cy + 4, "Cl⁻", 10.5, "#fff", 500, "middle"))
+    out.append(_txt(cx, cy + 5, "Cl⁻", 13, "#fff", 500, "middle"))
     # GABA's own sites: the two beta/alpha seams
     for i, j in ((1, 2), (3, 4)):
         gx_, gy_ = (pos[i][0] + pos[j][0]) / 2, (pos[i][1] + pos[j][1]) / 2
@@ -179,10 +179,10 @@ def gaba_lock(name, bond, br_atom, w=360, h=300, label=""):
     out.append(f'<circle cx="{q[0]:.1f}" cy="{q[1]:.1f}" r="4.5" fill="{YELD}"/>')
     # labels: the contact residue, GABA sites, pore
     lx = pos[1][0] + r + 8
-    out.append(_txt(lx, pos[1][1] + 4, "α1 His101", 12.5, YELT, 600, "start"))
-    out.append(_txt(lx, pos[1][1] + 24, "benzo site", 12, MUTE, 400, "start"))
+    out.append(_txt(lx, pos[1][1] + 4, "α1 His101", 16, YELT, 600, "start"))
+    out.append(_txt(lx, pos[1][1] + 24, "benzo site", 16, MUTE, 400, "start"))
     out.append(f'<circle cx="{pos[2][0] + r + 12:.1f}" cy="{pos[2][1] + 14:.1f}" r="5" fill="#fff" stroke="{BODY}" stroke-width="1.8"/>')
-    out.append(_txt(pos[2][0] + r + 22, pos[2][1] + 18, "GABA sites", 12, MUTE, 400, "start"))
+    out.append(_txt(pos[2][0] + r + 22, pos[2][1] + 18, "GABA sites", 16, MUTE, 400, "start"))
     aria = f' role="img" aria-label="{label}"' if label else ' aria-hidden="true"'
     return f'<svg class="lock" viewBox="0 0 {w} {h}" width="{w}" height="{h}"{aria}>{"".join(out)}</svg>'
 
@@ -203,12 +203,12 @@ def side_pocket(name, bond, n_atom, o_atom, sub_tip, blocked, h=290, label="", r
     out = []
     out.append(f'<rect x="{left - wall:.1f}" y="30" width="{wall}" height="{floor - 18:.1f}" rx="12" fill="{HELIX_D}" data-bg="1"/>')
     out.append(f'<rect x="{right:.1f}" y="30" width="{wall}" height="{floor - 18:.1f}" rx="12" fill="{HELIX_D}" data-bg="1"/>')
-    out.append(_txt(left - wall / 2, 20, "helix 6", 11.5, MUTE, 500, "middle"))
-    out.append(_txt(right + wall / 2, 20, "helix 3", 11.5, MUTE, 500, "middle"))
+    out.append(_txt(left - wall / 2, 20, "helix 6", 16, MUTE, 500, "middle"))
+    out.append(_txt(right + wall / 2, 20, "helix 3", 16, MUTE, 500, "middle"))
     tip = P[sub_tip]
     fx = min(max(tip[0], left + 40), right - 40)
     out.append(f'<ellipse cx="{fx:.1f}" cy="{floor + 12:.1f}" rx="40" ry="13" fill="{RED if blocked else HELIX_D}" data-bg="1"/>')
-    out.append(_txt(fx, floor + 16.5, "Trp293", 11.5, "#fff" if blocked else INK, 600, "middle"))
+    out.append(_txt(fx, floor + 16.5, "Trp293", 16, "#fff" if blocked else INK, 600, "middle"))
     out.append(mol_svg)
     qn = (right, P[n_atom][1])
     qo = (left, P[o_atom][1])
@@ -216,15 +216,15 @@ def side_pocket(name, bond, n_atom, o_atom, sub_tip, blocked, h=290, label="", r
     out.append(_end(qn, "salt"))
     out.append(_contact(P[o_atom], qo, "hbond"))
     out.append(_end(qo, "hbond"))
-    out.append(_txt(right + wall + 6, qn[1] + 4, "Asp147", 12, RED, 600, "start"))
-    out.append(_txt(left - wall - 6, qo[1] + 4, "His297", 12, YELT, 600, "end"))
+    out.append(_txt(right + wall + 6, qn[1] + 4, "Asp147", 16, RED, 600, "start"))
+    out.append(_txt(left - wall - 6, qo[1] + 4, "His297", 16, YELT, 600, "end"))
     if blocked:
         mx, my = tip[0], (tip[1] + floor) / 2 + 2
         out.append(f'<path d="M{mx-6:.1f} {my-6:.1f}L{mx+6:.1f} {my+6:.1f}M{mx+6:.1f} {my-6:.1f}L{mx-6:.1f} {my+6:.1f}" stroke="{RED}" stroke-width="3" stroke-linecap="round"/>')
-        out.append(_txt(fx, floor + 46, "the red tail jams the toggle", 12.5, RED, 600, "middle"))
+        out.append(_txt(cx, floor + 46, "the red tail jams the toggle", 16, RED, 600, "middle"))
     else:
         out.append(f'<path d="M{left - wall - 4:.1f} {floor - 4:.1f}L{left - wall - 30:.1f} {floor + 10:.1f}" stroke="{INK}" stroke-width="2" marker-end="url(#arK)" fill="none"/>')
-        out.append(_txt(fx, floor + 46, "toggle free: helix 6 swings out", 12.5, INK, 600, "middle"))
+        out.append(_txt(cx, floor + 46, "toggle free: helix 6 swings out", 16, INK, 600, "middle"))
     hh = floor + 58
     aria = f' role="img" aria-label="{label}"' if label else ' aria-hidden="true"'
     return f'<svg class="lock" viewBox="0 0 {w:.0f} {hh:.0f}" width="{w:.0f}" height="{hh:.0f}"{aria}>{"".join(out)}</svg>'
