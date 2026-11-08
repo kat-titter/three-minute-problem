@@ -280,6 +280,7 @@ def draw(mol, bond=22, hl_atoms=(), hl_bonds=(), hl_rings=(), red_atoms=(), call
                 hy = base + (fs * 1.56 if best == "down" else -fs * 1.56)
                 text.append(f'<text x="{x:.1f}" y="{hy:.1f}" text-anchor="middle" font-size="{fs:.1f}" font-weight="500" fill="currentColor">{hs}</text>')
                 by += [hy - fs * 1.0, hy + fs * 0.5]
+                bx += [x - cw * len(hs) / 2, x + cw * len(hs) / 2]
 
     # --- callouts
     for atom, dx, dy, lines, anchor in callouts:
@@ -301,7 +302,7 @@ def draw(mol, bond=22, hl_atoms=(), hl_bonds=(), hl_rings=(), red_atoms=(), call
             col = "var(--callout)" if n == 0 else "var(--calloutmute)"
             fsz = 13 if n == 0 else 12
             call.append(f'<text x="{tx:.1f}" y="{ty0 + n*20:.1f}" text-anchor="{anchor}" font-size="{fsz}" font-weight="{w}" fill="{col}">{line}</text>')
-            width = len(line) * fsz * 0.62
+            width = sum(2 if ord(c) > 127 else 1 for c in line) * fsz * 0.66
             x0 = tx if anchor == "start" else tx - width if anchor == "end" else tx - width / 2
             bx += [x0, x0 + width]
             by += [ty0 + n * 20 - 13, ty0 + n * 20 + 7]
