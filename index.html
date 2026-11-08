@@ -457,16 +457,16 @@ svg.lock{display:block;max-width:100%;height:auto}
 <!-- 14 · BRC -->
 <section><div class="box"><div class="stage"><div class="s">
   <div class="top"><span class="sec"><svg class="si" aria-hidden="true"><use href="#i-man"/></svg>Burning Man</span></div>
-  <h2>A city of 71,500 people, <mark>four places with Narcan.</mark></h2>
+  <h2>71,500 people. <mark>Four places always have Narcan.</mark></h2>
   <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:24px;flex-grow:1;min-height:0">
     <div class="panel" style="padding:16px 22px 10px;display:flex;flex-direction:column;gap:6px">
       <span class="fig"><b>Fig 16</b>Black Rock City, schematic (not to scale)</span>
-      <div style="flex-grow:1;display:flex;align-items:center"><svg id="brc" viewBox="0 0 640 420" style="width:100%;height:auto" role="img" aria-label="Schematic of Black Rock City's arc of streets from 2:00 to 10:00 around the Man. Four Narcan locations, drawn as red crosses: medical stations at 3:00, 9:00 and Center Camp, and Rampart, the field hospital, inside the arc. Deep playa, north of the Man, has none."></svg></div>
-      <div class="mkey"><span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3" fill="#c8102e"/><path d="M10 5V15M5 10H15" stroke="#fff" stroke-width="2.4"/></svg>Narcan on site: ESD stations and Rampart</span></div>
+      <div style="flex-grow:1;display:flex;align-items:center"><svg id="brc" viewBox="0 0 640 420" style="width:100%;height:auto" role="img" aria-label="Schematic of Black Rock City's arc of streets from 2:00 to 10:00 around the Man. The four places known to always have Narcan, drawn as red crosses: medical stations at 3:00, 9:00 and Center Camp, and Rampart, the field hospital, inside the arc. Deep playa, north of the Man, has none."></svg></div>
+      <div class="mkey"><span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3" fill="#c8102e"/><path d="M10 5V15M5 10H15" stroke="#fff" stroke-width="2.4"/></svg>always has Narcan: medical stations and Rampart</span></div>
     </div>
     <div class="chips" style="align-content:center">
-      <div class="chip"><span class="n" style="min-width:104px">4</span><span>places with Narcan: medical stations at 3:00, 9:00 and Center Camp, and Rampart, the field hospital. Roving quick-response vehicles (QRVs) back them up.</span></div>
-      <div class="chip"><span class="n" style="min-width:104px">0</span><span>stations on deep playa, where small groups wander at night</span></div>
+      <div class="chip"><span class="n" style="min-width:104px">4</span><span>places known to always have Narcan: the medical stations at 3:00, 9:00 and Center Camp, and Rampart, the field hospital. Roving quick-response vehicles (QRVs) back them up.</span></div>
+      <div class="chip"><span class="n" style="min-width:104px">0</span><span>on deep playa, where small groups wander at night</span></div>
     </div>
   </div>
   <div class="src">Population: Black Rock City Census 2025. Narcan locations from the Sept 2026 field note.</div>
@@ -907,7 +907,7 @@ svg.lock{display:block;max-width:100%;height:auto}
       BG(g,'circle',{cx:x,cy:y,r:16,fill:C.pale});BG(g,'rect',{x:x-8,y:y-8,width:16,height:16,rx:3,fill:C.red});BG(g,'path',{d:`M${x} ${y-5} V${y+5} M${x-5} ${y} H${x+5}`,stroke:'#fff','stroke-width':2.4});
       T(g,x+dx,y+dy+(an==='middle'?0:4),n,{'text-anchor':an,'font-size':16,fill:C.ink,'font-weight':500});});
     const [dx,dy]=pol(0,140);E(g,'use',{href:'#figure',x:dx-18,y:dy-6,width:36,height:13.5,style:'color:#c8102e'});
-    T(g,dx,dy-18,'deep playa: no station nearby',{'text-anchor':'middle','font-size':16,fill:C.red,'font-weight':500});
+    T(g,dx,dy-18,'deep playa: no Narcan nearby',{'text-anchor':'middle','font-size':16,fill:C.red,'font-weight':500});
     T(g,pol(2,214)[0]+4,pol(2,214)[1],'2:00',{'font-size':16});T(g,pol(10,214)[0]-4,pol(10,214)[1],'10:00',{'font-size':16,'text-anchor':'end'});
   })();
   // ---------- 15 · reach: radius = minutes until Narcan arrives (to scale) ----------
