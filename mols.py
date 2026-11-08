@@ -92,7 +92,7 @@ def build():
                                  label="Medetomidine; the imidazole ring highlighted")
     # lock-and-key figures
     m = load("morphine"); o, n = m.phenol_O(), m.basic_N()
-    F["lock_mu_big"] = gpcr_lock("morphine", 27, n, w=600, h=460, pocket_r=126, rh=32, o_atom=o, num_size=15, lab_size=14,
+    F["lock_mu_big"] = gpcr_lock("morphine", 27, n, w=600, h=460, pocket_r=126, rh=32, o_atom=o, num_size=16, lab_size=16,
                                  contacts=[(n, 3, "Asp147", "salt"), (o, 6, "His297", "hbond")],
                                  extra=[(3, "Tyr148"), (6, "Trp293"), (7, "Tyr326")], hl=[n, o], plus=[n],
                                  label="Morphine in the mu-opioid pocket: its nitrogen bonds Asp147 on helix 3, its OH reaches His297 on helix 6")

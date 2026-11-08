@@ -131,7 +131,7 @@ def draw(mol, bond=22, hl_atoms=(), hl_bonds=(), hl_rings=(), red_atoms=(), call
     xs = [a["x"] for a in mol.atoms]
     ys = [a["y"] for a in mol.atoms]
     P = [((a["x"] - min(xs)) * k, (a["y"] - min(ys)) * k) for a in mol.atoms]
-    fs = max(10.0, min(13.0, bond * 0.56))
+    fs = max(10.0, min(16.0, bond * 0.72))   # 2026-11-08: figure labels meet the 12 px floor at the deck's 0.8 scale
     cw = fs * 0.62  # DM Mono advance width
 
     labels = {}
