@@ -268,6 +268,7 @@ svg.lock{display:block;max-width:100%;height:auto}
       </div>
       <svg id="peptides" viewBox="0 0 600 276" style="width:100%;height:auto" role="img" aria-label="Three peptide families and their receptors. Beta-endorphin and enkephalins act on mu, which relieves pain, rewards and slows breathing; opioid drugs such as fentanyl, heroin and oxycodone hit mu too. Enkephalins act on delta for pain gating and mood. Dynorphins act on kappa for stress and dysphoria."></svg>
       <div class="legend"><i></i>red = mu, the switch opioid drugs flip</div>
+      <p class="note">An opioid is any drug that fits mu: heroin, fentanyl and its analogues, oxycodone, methadone, nitazenes.</p>
     </div>
     <div class="panel" style="padding:16px 22px 12px;display:flex;flex-direction:column;gap:6px">
       <span class="fig"><b>Fig 7</b>Breathing, measured at the nose (schematic)</span>
@@ -739,8 +740,8 @@ svg.lock{display:block;max-width:100%;height:auto}
     const lg=E(E(g,'defs',{}),'linearGradient',{id:'dose',x1:0,y1:0,x2:0,y2:1});
     E(lg,'stop',{offset:0,'stop-color':'#f3c6cd'});E(lg,'stop',{offset:1,'stop-color':C.red});
     E(g,'path',{d:'M13 34 L24 256 L2 256 Z',fill:'url(#dose)'});
-    T(g,0,24,'low dose',{'font-size':16,fill:C.body});
-    T(g,0,276,'high dose',{'font-size':16,fill:C.red,'font-weight':500});
+    T(g,0,24,'low',{'font-size':16,fill:C.body});
+    T(g,0,276,'high',{'font-size':16,fill:C.red,'font-weight':500});
     const rows=[['normal','~14 breaths / min',14,1,C.ink],['opioid on mu','~6 breaths / min, shallow',6,.55,C.red],['overdose','1 breath, then none',1.2,.3,C.red]];
     rows.forEach(([lab,sub,rate,amp,col],r)=>{
       const y0=82+r*84;let d='';
