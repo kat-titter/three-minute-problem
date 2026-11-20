@@ -19,8 +19,9 @@ official overdose death counts and sourced reports for the Bay Area, California 
 python3 build.py
 ```
 
-`build.py` fills each `{{mol:name}}` placeholder with an SVG drawn by `mol2svg.py` (2D structures
-from the PubChem SDF files in `mol/sdf/`) and `locks.py` (receptor lock-and-key and pocket figures).
+`build.py` fills each `{{mol:name}}` placeholder with an SVG from `mols.py`, which lays out each slide's
+molecules at one bond length, drawn by `mol2svg.py` from the PubChem SDF files in `mol/sdf/`, and from
+`locks.py` (receptor lock-and-key and pocket figures).
 Standard library only; no packages to install.
 
 The web page has print styles: in Chrome, Print → Save as PDF gives one 1280×720 slide per page
