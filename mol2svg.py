@@ -115,10 +115,6 @@ class Mol:
         return best
 
 
-def ring_bonds(mol, ring):
-    return [(a, b) for a, b, _, _ in mol.bonds if a in ring and b in ring]
-
-
 def draw(mol, bond=22, hl_atoms=(), hl_bonds=(), hl_rings=(), red_atoms=(), callouts=(), pad=10):
     """Return an inline SVG string.
 
