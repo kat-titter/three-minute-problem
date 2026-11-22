@@ -13,7 +13,6 @@
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Breathing stops. You have three minutes. The Three-Minute Problem, a case for carrying Narcan.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://kat-titter.github.io/three-minute-problem/share/card.png">
 <meta name="description" content="A case for carrying Narcan at Black Rock City and on every dance floor: the problem, the biology of opioids and naloxone, the Black Rock City case study, and the plan.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700;800&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap">
 <style>
@@ -149,7 +148,6 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <!-- shared symbols: the Narcan device (80 x 110), a person lying down, section icons, arrowheads -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <!-- share/card.html copies this symbol, the dial and its ticks: update the card and run share.py after changing them -->
   <symbol id="narcan" viewBox="0 0 80 110">
     <rect x="28" y="3" width="24" height="52" rx="12" fill="#fff" stroke="#1a1517" stroke-width="3"/>
     <rect x="34.5" y="11" width="5" height="26" rx="2.5" fill="#ffe36e"/>
@@ -173,7 +171,7 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <main id="deck">
 
-<!-- 01 · title (share/card.html copies this dial and spray: after changing them, update the card and run share.py) -->
+<!-- 01 · title -->
 <section><div class="box"><div class="stage"><div class="s" style="padding:70px 80px 60px;justify-content:space-between">
   <div class="top"><span style="color:var(--ink)">Black Rock City, festivals, warehouses</span><b>Community harm reduction</b></div>
   <div style="display:flex;align-items:center;justify-content:space-between;gap:40px">
@@ -686,7 +684,6 @@ svg.lock{display:block;max-width:100%;height:auto}
   }
 
   // ---------- 01 · dial ticks, one per minute ----------
-  // share/card.html holds these ticks as fixed paths: update it if the rule changes
   (function(){const g=$('dialticks');for(let m=0;m<10;m++){const a=m/10*2*Math.PI;const s=Math.sin(a),c=-Math.cos(a);
     E(g,'path',{d:`M${170+s*156} ${170+c*156} L${170+s*(m%5===0||m===3?168:164)} ${170+c*(m%5===0||m===3?168:164)}`,stroke:m===3?C.red:C.ink,'stroke-width':m===3?3:2,'stroke-linecap':'round'});}})();
 
