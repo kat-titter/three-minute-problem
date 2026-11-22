@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- Share card: slide 01's words beside the tab mark (icon.svg). Laid out at 1200 x 630 (CARD_W, CARD_H in share.py match).
+     Redraw with `python3 share.py`. -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@800&family=Public+Sans:wght@400&family=DM+Mono:wght@500&display=swap">
+<style>
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#fff}
+.c{box-sizing:border-box;width:1200px;height:630px;padding:58px 72px 54px;display:flex;flex-direction:column;justify-content:space-between;color:#3d3739;font-family:'Public Sans','Helvetica Neue',Arial,sans-serif}
+.top{font:500 20px 'DM Mono',Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:#c8102e}
+.mid{display:flex;align-items:center;justify-content:space-between;gap:40px}
+h1{margin:0;font:800 84px/.95 'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;letter-spacing:-.045em;color:#1a1517}
+h1 span{color:#c8102e;white-space:nowrap}
+p{margin:24px 0 0;font-size:25px;line-height:1.35;color:#1a1517;max-width:640px}
+mark{color:inherit;background:linear-gradient(transparent 12%,#fff2a8 12%,#fff2a8 92%,transparent 92%);padding:0 .08em}
+.foot{display:flex;flex-direction:column;gap:12px;font:500 15px 'DM Mono',Menlo,monospace;color:#655e60}
+.bar{height:4px;width:96px;border-radius:2px;background:linear-gradient(90deg,#c8102e 0 60%,#ffe36e 60%)}
+</style>
+<div class="c">
+  <div class="top">The Three-Minute Problem</div>
+  <div class="mid">
+    <div><h1>Breathing stops.<br>You have <span>three minutes.</span></h1>
+      <p>A case for carrying <mark>Narcan</mark> at Black Rock City and on every dance floor.</p></div>
+    <img src="icon.svg" width="300" height="300" alt="">
+  </div>
+  <div class="foot"><div class="bar"></div>Kat Titterton · kat-titter.github.io/three-minute-problem</div>
+</div>
