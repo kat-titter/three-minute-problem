@@ -3,7 +3,7 @@
 Each slide uses one bond length for all its molecules. Yellow marks the opioid 'key'
 (phenol ring + charged nitrogen); red marks the group that changes the drug's action.
 """
-from mol2svg import load, svg, ring_bonds
+from mol2svg import load, svg
 from locks import gpcr_lock, gaba_lock, side_pocket
 
 
