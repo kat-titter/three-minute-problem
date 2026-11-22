@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Share card, 1200 x 630: the title slide (01) at card size. Redraw with `python3 share.py`. -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@800&family=Public+Sans:wght@400&family=DM+Mono:wght@500&display=swap">
+<style>
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#fff}
+.c{box-sizing:border-box;width:1200px;height:630px;padding:58px 72px 54px;display:flex;flex-direction:column;justify-content:space-between;color:#3d3739;font-family:'Public Sans','Helvetica Neue',Arial,sans-serif}
+.top{font:500 20px 'DM Mono',Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:#c8102e}
+.mid{display:flex;align-items:center;justify-content:space-between;gap:40px}
+h1{margin:0;font:800 84px/.95 'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;letter-spacing:-.045em;color:#1a1517}
+h1 span{color:#c8102e;white-space:nowrap}
+p{margin:24px 0 0;font-size:25px;line-height:1.35;color:#1a1517;max-width:640px}
+mark{color:inherit;background:linear-gradient(transparent 12%,#fff2a8 12%,#fff2a8 92%,transparent 92%);padding:0 .08em}
+.foot{display:flex;flex-direction:column;gap:12px;font:500 15px 'DM Mono',Menlo,monospace;color:#655e60}
+.bar{height:4px;width:96px;border-radius:2px;background:linear-gradient(90deg,#c8102e 0 60%,#ffe36e 60%)}
+</style>
+<div class="c">
+  <div class="top">The Three-Minute Problem</div>
+  <div class="mid">
+    <div><h1>Breathing stops.<br>You have <span>three minutes.</span></h1>
+      <p>A case for carrying <mark>Narcan</mark> at Black Rock City and on every dance floor.</p></div>
+    <svg width="330" height="330" viewBox="0 0 340 340" aria-hidden="true">
+      <defs><symbol id="narcan" viewBox="0 0 80 110">
+        <rect x="28" y="3" width="24" height="52" rx="12" fill="#fff" stroke="#1a1517" stroke-width="3"/>
+        <rect x="34.5" y="11" width="5" height="26" rx="2.5" fill="#ffe36e"/>
+        <rect x="3" y="45" width="74" height="17" rx="8.5" fill="#c8102e"/>
+        <rect x="16" y="57" width="48" height="50" rx="18" fill="#c8102e"/>
+        <rect x="24" y="66" width="8" height="27" rx="4" fill="#fff" fill-opacity=".5"/>
+        <circle cx="52" cy="96" r="4" fill="#fff" fill-opacity=".42"/></symbol></defs>
+      <circle cx="170" cy="170" r="138" fill="none" stroke="#f3eeef" stroke-width="24"/>
+      <circle cx="170" cy="170" r="138" fill="none" stroke="#c8102e" stroke-width="24" stroke-dasharray="260.1 867.1" transform="rotate(-90 170 170)"/>
+      <path d="M170.0 14.0L170.0 2.0" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/><path d="M261.7 43.8L266.4 37.3" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/><path d="M318.4 121.8L326.0 119.3" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/><path d="M318.4 218.2L329.8 221.9" stroke="#c8102e" stroke-width="3" stroke-linecap="round"/><path d="M261.7 296.2L266.4 302.7" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/><path d="M170.0 326.0L170.0 338.0" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/><path d="M78.3 296.2L73.6 302.7" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/><path d="M21.6 218.2L14.0 220.7" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/><path d="M21.6 121.8L14.0 119.3" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/><path d="M78.3 43.8L73.6 37.3" stroke="#1a1517" stroke-width="2" stroke-linecap="round"/>
+      <use href="#narcan" x="126" y="88" width="88" height="121"/>
+      <text x="170" y="251" text-anchor="middle" font-size="36" font-weight="500" fill="#1a1517" font-family="DM Mono,Menlo,monospace">3:00</text>
+    </svg>
+  </div>
+  <div class="foot"><div class="bar"></div>Kat Titterton · kat-titter.github.io/three-minute-problem</div>
+</div>

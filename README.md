@@ -24,6 +24,10 @@ molecules at one bond length, drawn by `mol2svg.py` from the PubChem SDF files i
 `locks.py` (receptor lock-and-key and pocket figures).
 Standard library only; no packages to install.
 
+The tab icon (`share/icon.svg`) and the 1200×630 share card (`share/card.html`) are stamped into the page head
+by `build.py`; after changing either, `python3 share.py` redraws `share/apple-touch-icon.png` and `share/card.png`
+(needs Google Chrome).
+
 The web page has print styles: in Chrome, Print → Save as PDF gives one 1280×720 slide per page
 plus a sources page.
 
