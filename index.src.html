@@ -149,6 +149,7 @@ svg.lock{display:block;max-width:100%;height:auto}
 
 <!-- shared symbols: the Narcan device (80 x 110), a person lying down, section icons, arrowheads -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <!-- share/card.html copies this symbol, the dial and its ticks: update the card and run share.py after changing them -->
   <symbol id="narcan" viewBox="0 0 80 110">
     <rect x="28" y="3" width="24" height="52" rx="12" fill="#fff" stroke="#1a1517" stroke-width="3"/>
     <rect x="34.5" y="11" width="5" height="26" rx="2.5" fill="#ffe36e"/>
@@ -685,6 +686,7 @@ svg.lock{display:block;max-width:100%;height:auto}
   }
 
   // ---------- 01 · dial ticks, one per minute ----------
+  // share/card.html holds these ticks as fixed paths: update it if the rule changes
   (function(){const g=$('dialticks');for(let m=0;m<10;m++){const a=m/10*2*Math.PI;const s=Math.sin(a),c=-Math.cos(a);
     E(g,'path',{d:`M${170+s*156} ${170+c*156} L${170+s*(m%5===0||m===3?168:164)} ${170+c*(m%5===0||m===3?168:164)}`,stroke:m===3?C.red:C.ink,'stroke-width':m===3?3:2,'stroke-linecap':'round'});}})();
 
